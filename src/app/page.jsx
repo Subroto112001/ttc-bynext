@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { IoMdNotifications } from "react-icons/io";
 import noticeimage from "../assets/bg_notice_board.png";
+import bangladesdirectory from "../assets/Bangladesh-Directory.jpg";
+import bkkb from "../assets/bkkb_button_bn.png";
 import Link from "next/link";
 export default function Home() {
   const noticeList = [
@@ -60,10 +62,14 @@ export default function Home() {
         </div>
       </section>
       {/* notice section */}
-      <section className=" md:mt-[30px] py-2 md:py-4">
-        <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] p-3 w-full md:max-w-2/3 bg-gray-200 border border-gray-400">
+      <section className=" md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
+        <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3 w-full md:max-w-3/4 bg-gray-200 border border-gray-400">
           <div className="left-0 top-0 absolute">
-            <Image src={noticeimage} alt="notice" className=" w-20 h-20 md:w-40 md:h-40" />
+            <Image
+              src={noticeimage}
+              alt="notice"
+              className=" w-20 h-20 md:w-40 md:h-40"
+            />
           </div>
           <div className="flex flex-col z-10 ml-[20px] mt-20 md:mt-0 md:ml-[80px] relative">
             <h3 className="text-4xl">নোটিশ বোর্ড</h3>
@@ -78,7 +84,47 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <span className="absolute right-2.5 bottom-2.5"><Link href="#">সকল নোটিশ দেখুন</Link></span>
+          <span className="absolute right-2.5 bottom-2.5">
+            <Link href="#">সকল নোটিশ দেখুন</Link>
+          </span>
+        </div>
+        <div className="w-full md:w-1/4 flex flex-col gap-10">
+          <div className=" flex flex-col gap-4 md:pr-0">
+            <Link href="#">
+              <Image src={bangladesdirectory} alt="bangladesdirectory" />
+            </Link>
+            <Link href="#">
+              <Image src={bkkb} alt="bkkb" />
+            </Link>
+          </div>
+          <div className="flex">
+            <Link
+              href={"/"}
+              className=" border-t border-b border-l w-30 py-2 flex justify-center items-center text-center"
+            >
+              চাকুরি কর্নার(0)
+            </Link>
+            <Link
+              href={"/"}
+              className=" border w-30 py-2 flex justify-center items-center"
+            >
+              দরপত্র(0)
+            </Link>
+            <Link
+              href={"/"}
+              className=" border-t border-b border-r w-30 py-2 flex justify-center items-center text-center"
+            >
+              বিজ্ঞাপণ(0)
+            </Link>
+          </div>
+          <div className=" flex flex-col gap-3 w-full">
+            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+              <span>কেন্দ্রীয় ই-সেবা</span>
+            </Link>
+            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+              <span> অভ্যন্তরীণ ই-সেবা</span>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
