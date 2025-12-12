@@ -279,7 +279,7 @@ export default function Home() {
               </ul>
             </div>
             <span className="absolute right-2.5 bottom-2.5">
-              <Link href="#">সকল নোটিশ দেখুন</Link>
+              <Link href="./notice">সকল নোটিশ দেখুন</Link>
             </span>
           </div>
           <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400">
