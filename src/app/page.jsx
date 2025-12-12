@@ -252,27 +252,7 @@ export default function Home() {
   return (
     <div className=" bg-white ">
       {/* banner section */}
-      <section className="relative">
-        <picture>
-          <img
-            src="https://ttcpirganj.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-02-at-22.31.43_498ace3a.jpg"
-            alt=""
-            className="w-full h-[200px] object-cover"
-          />
-        </picture>
-        <div className="absolute top-[20px] flex flex-row md:flex-col gap-4 left-3 ">
-          <picture>
-            <img
-              src="https://ttcpirganj.com/wp-content/uploads/2024/08/TTC-Pirganj-Logo-768x768.png"
-              alt="ttc-pirganj-logo"
-              className="w-20 h-20 object-contain"
-            />
-          </picture>
-          <h1 className="text-2xl md:text-4xl font-bold text-white simple-shadow">
-            কারিগরি প্রশিক্ষণ কেন্দ্র, পীরগঞ্জ
-          </h1>
-        </div>
-      </section>
+      
 
       <section className=" md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
         {/* ---------------- left side ---------------- */}
@@ -309,7 +289,7 @@ export default function Home() {
             {/* box1 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">আমাদের বিষয়</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div className="">
                   <Image src={HompageImage.ourtopic} alt="আমাদের_বিষয়" />
                 </div>
@@ -331,7 +311,7 @@ export default function Home() {
             {/* box2 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">সেবাসমূহ</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div className="">
                   <Image src={HompageImage.ourtopic} alt="আমাদের_বিষয়" />
                 </div>
@@ -353,7 +333,7 @@ export default function Home() {
             {/* box3 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">প্রজেক্ট সমুহ</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image src={HompageImage.project} alt="প্রজেক্ট সমুহ" />
                 </div>
@@ -375,7 +355,7 @@ export default function Home() {
             {/* box4 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">অভিযোগ প্রতিকার ব্যবস্থাপনা</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image
                     src={HompageImage.complain}
@@ -400,7 +380,7 @@ export default function Home() {
             {/* box5 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">তথ্য অধিকার</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image src={HompageImage.data} alt="তথ্য অধিকার" />
                 </div>
@@ -422,7 +402,7 @@ export default function Home() {
             {/* box6 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">আইন ও বিধি</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image src={HompageImage.rules} alt="আইন ও বিধি" />
                 </div>
@@ -444,7 +424,7 @@ export default function Home() {
             {/* box7 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">কর্মসম্পাদন ব্যবস্থাপনা</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image
                     src={HompageImage.kormo}
@@ -469,7 +449,7 @@ export default function Home() {
             {/* box8 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">বিভিন্ন বাতায়ন</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image src={HompageImage.batayon} alt="বিভিন্ন বাতায়ন" />
                 </div>
@@ -491,7 +471,7 @@ export default function Home() {
             {/* box9 */}
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">জরূরি কল</h3>
-              <div className="flex flex-row  gap-20 mt-5">
+              <div className="flex flex-row  gap-10 mt-5">
                 <div>
                   <Image src={HompageImage.helpline} alt="জরুরি হটলাইন" />
                 </div>

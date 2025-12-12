@@ -67,7 +67,27 @@ const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
       <div className="bg-white px-4 py-2 text-xs md:text-sm border-b border-gray-300">
         <span className="text-gray-600">সরকারি অন্যান্য পোর্টাল দেখুন</span>
       </div>
-
+      <section className="relative">
+        <picture>
+          <img
+            src="https://ttcpirganj.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-02-at-22.31.43_498ace3a.jpg"
+            alt=""
+            className="w-full h-[200px] object-cover"
+          />
+        </picture>
+        <div className="absolute top-[20px] flex flex-row md:flex-col gap-4 left-3 ">
+          <picture>
+            <img
+              src="https://ttcpirganj.com/wp-content/uploads/2024/08/TTC-Pirganj-Logo-768x768.png"
+              alt="ttc-pirganj-logo"
+              className="w-20 h-20 object-contain"
+            />
+          </picture>
+          <h1 className="text-2xl md:text-4xl font-bold text-white simple-shadow">
+            কারিগরি প্রশিক্ষণ কেন্দ্র, পীরগঞ্জ
+          </h1>
+        </div>
+      </section>
       {/* Navigation */}
       <div className="bg-white relative">
         <div className="flex items-center justify-between md:justify-start">
