@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { IoIosShareAlt, IoMdClose } from "react-icons/io";
 import { TiHome } from "react-icons/ti";
 import { HiMenuAlt3 } from "react-icons/hi";
+import Link from "next/link";
 
 const Header = () => {
   const navitem = [
@@ -16,10 +17,32 @@ const Header = () => {
     { name: "নোটিশ", link: "#", color: "#555555" },
   ];
 
+  const aboutus = [
+    {
+      id: 1,
+      title: "এক নজরে",
+      url: "#"
+    },
+    {
+      id: 2,
+      title: "মিশন ও ভিশন",
+      url: "#"
+    },
+    {
+      id: 3,
+      title: "কোর ভ্যালু ও উদ্দেশ্য",
+      url: "#"
+    },
+    {
+      id: 4,
+      title: "ভবিষ্যৎ পরিকল্পনা",
+      url: "#"
+    },
+  ]
   const [hoveredcolor, setHoveredcolor] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -57,9 +80,30 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex md:items-center">
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex md:items-center relative h-full">
             {navitem.map((item, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                // 1. Set 'relative' so the dropdown positions correctly against this item
+                // 2. Move mouse events to the 'li' (container) instead of the 'a' tag
+                className="relative h-full flex items-center"
+                onMouseEnter={() => {
+                  setHoveredcolor(item.color);
+                  setHoveredIndex(index);
+                  // 3. Only open the menu if the specific item is "আমাদের সম্পর্কে"
+                  if (item.name === "আমাদের সম্পর্কে") {
+                    setIsAboutUsOpen(true);
+                  } else {
+                    setIsAboutUsOpen(false);
+                  }
+                }}
+                onMouseLeave={() => {
+                  setHoveredcolor(null);
+                  setHoveredIndex(null);
+                  setIsAboutUsOpen(false);
+                }}
+              >
                 <a
                   href={item.link}
                   className="text-sm font-medium px-3 py-3 inline-block transition-colors duration-200"
@@ -68,17 +112,30 @@ const Header = () => {
                     backgroundColor:
                       hoveredIndex === index ? item.color : "transparent",
                   }}
-                  onMouseOver={() => {
-                    setHoveredcolor(item.color);
-                    setHoveredIndex(index);
-                  }}
-                  onMouseLeave={() => {
-                    setHoveredcolor(null);
-                    setHoveredIndex(null);
-                  }}
                 >
                   {item.name}
                 </a>
+
+                {/* 4. Nest the dropdown INSIDE the conditional 'li' check */}
+                {/* Check if this specific item is the About Us item AND the state is open */}
+                {item.name === "আমাদের সম্পর্কে" && isAboutUsOpen && (
+                  <div className="flex ">
+                    <div className="absolute top-full left-0 w-48 bg-white shadow-lg p-4 flex flex-col gap-2 border border-gray-200 z-50">
+                      <h3 className="text-[#ff6600] font-semibold">
+                        অফিস সম্পর্কিত
+                      </h3>
+                      {aboutus.map((subItem) => (
+                        <Link
+                          href={subItem.url}
+                          key={subItem.id}
+                          className="bg-white px-3 py-2 rounded text-sm text-gray-700 hover:bg-gray-100 transition-colors block"
+                        >
+                          {subItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
