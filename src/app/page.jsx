@@ -248,7 +248,7 @@ export default function Home() {
   ];
   
   return (
-    <div className="container bg-white">
+    <div className=" bg-white">
       {/* banner section */}
       <section className="relative">
         <picture>
