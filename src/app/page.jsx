@@ -248,7 +248,7 @@ export default function Home() {
   ];
   
   return (
-    <div className=" bg-white">
+    <div className=" bg-white ">
       {/* banner section */}
       <section className="relative">
         <picture>
@@ -505,7 +505,7 @@ export default function Home() {
           </div>
         </div>
         {/* ---------------- right side ---------------- */}
-        <div className="w-full md:w-1/4 flex flex-col gap-10 bg-white">
+        <div className="w-full md:w-1/4 flex flex-col gap-3 md:gap-10 bg-white">
           <div className=" flex flex-col gap-4 md:pr-0">
             <Link href="#">
               <Image src={bangladesdirectory} alt="bangladesdirectory" />
@@ -514,7 +514,7 @@ export default function Home() {
               <Image src={bkkb} alt="bkkb" />
             </Link>
           </div>
-          <div className="flex">
+          <div className="flex w-full justify-center md:justify-start items-center ">
             <Link
               href={"/"}
               className=" border-t border-b border-l w-30 py-2 flex justify-center items-center text-center"
@@ -542,7 +542,7 @@ export default function Home() {
               <span> অভ্যন্তরীণ ই-সেবা</span>
             </Link>
           </div>
-          <div className="flex flex-col gap-3 mt-[200px] w-full">
+          <div className="flex flex-col gap-3 mt-0 md:mt-[200px] w-full">
             <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
               <span>ইনোভেশন কর্নার</span>
             </Link>
@@ -560,7 +560,7 @@ export default function Home() {
                 <span>জরুরি হটলাইন</span>
               </div>
               <picture className="w-full">
-                <Image src={Hotline} alt="Hotline" className="mt-[20px]" />
+                <Image src={Hotline} alt="Hotline" className="mt-[20px] w-full" />
               </picture>
             </div>
           </div>
