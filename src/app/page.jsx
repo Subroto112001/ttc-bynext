@@ -7,6 +7,8 @@ import { IoJournalOutline } from "react-icons/io5";
 import { FaArrowCircleRight } from "react-icons/fa";
 import Link from "next/link";
 import Hotline from "../assets/hotline_v.2_bn.png"
+import { HompageImage } from "@/assets/ImgaeProvide";
+
 export default function Home() {
   const noticeList = [
     {
@@ -246,7 +248,7 @@ export default function Home() {
       url: "/",
     },
   ];
-  
+
   return (
     <div className=" bg-white ">
       {/* banner section */}
@@ -308,8 +310,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">আমাদের বিষয়</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div className="">
+                  <Image src={HompageImage.ourtopic} alt="আমাদের_বিষয়" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {Aboutus.map((about) => (
@@ -330,8 +332,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">সেবাসমূহ</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div className="">
+                  <Image src={HompageImage.ourtopic} alt="আমাদের_বিষয়" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {services.map((about) => (
@@ -352,8 +354,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">প্রজেক্ট সমুহ</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image src={HompageImage.project} alt="প্রজেক্ট সমুহ" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {projectList.map((about) => (
@@ -374,8 +376,11 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">অভিযোগ প্রতিকার ব্যবস্থাপনা</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image
+                    src={HompageImage.complain}
+                    alt="অভিযোগ প্রতিকার ব্যবস্থাপনা"
+                  />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {complainList.map((about) => (
@@ -396,8 +401,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">তথ্য অধিকার</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image src={HompageImage.data} alt="তথ্য অধিকার" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {informationRight.map((about) => (
@@ -418,8 +423,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">আইন ও বিধি</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image src={HompageImage.rules} alt="আইন ও বিধি" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {rightListing.map((about) => (
@@ -440,8 +445,11 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">কর্মসম্পাদন ব্যবস্থাপনা</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image
+                    src={HompageImage.kormo}
+                    alt="কর্মসম্পাদন ব্যবস্থাপনা"
+                  />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {workListing.map((about) => (
@@ -462,8 +470,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">বিভিন্ন বাতায়ন</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image src={HompageImage.batayon} alt="বিভিন্ন বাতায়ন" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {batayonlist.map((about) => (
@@ -484,8 +492,8 @@ export default function Home() {
             <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
               <h3 className="text-xl">জরূরি কল</h3>
               <div className="flex flex-row  gap-20 mt-5">
-                <div className="text-[100px] text-[#72AB20]">
-                  <IoJournalOutline />
+                <div>
+                  <Image src={HompageImage.helpline} alt="জরুরি হটলাইন" />
                 </div>
                 <ul className="flex flex-col gap-5">
                   {emergencylist.map((about) => (
@@ -560,7 +568,11 @@ export default function Home() {
                 <span>জরুরি হটলাইন</span>
               </div>
               <picture className="w-full">
-                <Image src={Hotline} alt="Hotline" className="mt-[20px] w-full" />
+                <Image
+                  src={Hotline}
+                  alt="Hotline"
+                  className="mt-[20px] w-full"
+                />
               </picture>
             </div>
           </div>
