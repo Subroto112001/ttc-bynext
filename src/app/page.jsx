@@ -522,22 +522,43 @@ export default function Home() {
               <Image src={bkkb} alt="bkkb" />
             </Link>
           </div>
+          {/* principal information */}
+
+          <div className="flex flex-col gap-3 w-full justify-center md:justify-start items-center ">
+            <span className="text-center w-full py-2 bg-[#72AB20]">
+              অধ্যক্ষের প্রোফাইল
+            </span>
+            <div className="flex flex-col gap-3 w-full justify-center items-center ">
+              <Image
+                src={HompageImage.Principal}
+                alt="অধ্যক্ষের প্রোফাইল"
+                className="w-[200px]"
+              />
+              <div className="flex gap-2 flex-col justify-center items-center">
+                <p className="text-md font-semibold">মো: জিয়া উদ্দিন</p>
+                <p className="text-md font-medium">অধ্যক্ষ</p>
+                <Link href={"#"} className="text-md font-medium hover:text-gray-600 duration-300 transition-all">বিস্তারিত জানুন</Link>
+              </div>
+            </div>
+          </div>
+          {/* principal information */}
+
           <div className="flex w-full justify-center md:justify-start items-center ">
             <Link
               href={"/"}
-              className=" border-t border-b border-l w-30 py-2 flex justify-center items-center text-center"
+              className=" border w-30 md:w-40 py-2 flex justify-center items-center text-center"
             >
               চাকুরি কর্নার(0)
             </Link>
             <Link
               href={"/"}
-              className=" border w-30 py-2 flex justify-center items-center"
+              className=" border-t border-b w-30 py-2 flex justify-center items-center"
             >
               দরপত্র(0)
             </Link>
             <Link
               href={"/"}
-              className=" border-t border-b border-r w-30 py-2 flex justify-center items-center text-center"
+              className=" border w-30 py-2 flex justify-center items-center text-center"
             >
               বিজ্ঞাপণ(0)
             </Link>
