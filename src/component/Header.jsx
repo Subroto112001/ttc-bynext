@@ -4,6 +4,7 @@ import { IoIosShareAlt, IoMdClose } from "react-icons/io";
 import { TiHome } from "react-icons/ti";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { iconprovider } from "@/helper/IconProvider";
+import Link from "next/link";
 
 const Header = () => {
   const navitem = [
@@ -95,9 +96,9 @@ const Header = () => {
 
       {/* Top Header */}
       <div className="bg-[#2c5f8d] p-3 md:p-4 w-full flex justify-between items-center">
-        <p className="text-white font-medium text-sm md:text-lg">
+        <Link href="/" className="text-white font-medium text-sm md:text-lg">
           কারিগরি প্রশিক্ষণ কেন্দ্র, পীরগঞ্জ
-        </p>
+        </Link>
 
         <div className="relative">
           <button
@@ -161,7 +162,7 @@ const Header = () => {
 
       {/* Portal Link Section */}
       <div className="bg-white px-4 py-2 text-xs md:text-sm border-b border-gray-300">
-        <span className="text-gray-600">সরকারি অন্যান্য পোর্টাল দেখুন</span>
+        <Link href="#" className="text-gray-600">সরকারি অন্যান্য পোর্টাল দেখুন</Link>
       </div>
 
       {/* Banner Section */}
