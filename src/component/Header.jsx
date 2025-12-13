@@ -91,7 +91,7 @@ const Header = () => {
       </section>
       {/* Navigation */}
       <div className="bg-white relative">
-        <div className="flex items-center justify-between md:justify-start">
+        <div className="flex items-center justify-between md:justify-start bg-gray-100">
           {/* Home Icon */}
           <Link
             href="/"
@@ -103,7 +103,7 @@ const Header = () => {
           </Link>
           {/* Desktop Navigation */}
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex md:items-center relative h-full">
+          <ul className="hidden md:flex md:items-center relative h-full ">
             {navitem.map((item, index) => (
               <li
                 key={index}
