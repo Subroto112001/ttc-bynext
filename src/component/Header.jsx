@@ -21,32 +21,33 @@ const Header = () => {
     {
       id: 1,
       title: "এক নজরে",
-      url: "#"
+      url: "#",
     },
     {
       id: 2,
       title: "মিশন ও ভিশন",
-      url: "#"
+      url: "#",
     },
     {
       id: 3,
       title: "কোর ভ্যালু ও উদ্দেশ্য",
-      url: "#"
+      url: "#",
     },
     {
       id: 4,
       title: "ভবিষ্যৎ পরিকল্পনা",
-      url: "#"
+      url: "#",
     },
-  ]
+  ];
   const [hoveredcolor, setHoveredcolor] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+  const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  console.log(navitem.length);
   return (
     <div className="flex flex-col w-full">
       {/* Top Header */}
@@ -94,7 +95,7 @@ const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
           {/* Home Icon */}
           <a
             href="/"
-            className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black px-3 md:px-4 py-2 transition-colors duration-200 flex items-center"
+            className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black px-3 md:px-4 pt-1 transition-colors duration-200 flex items-center py-2"
           >
             <TiHome />
           </a>
@@ -105,13 +106,16 @@ const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
             {navitem.map((item, index) => (
               <li
                 key={index}
-                // 1. Set 'relative' so the dropdown positions correctly against this item
-                // 2. Move mouse events to the 'li' (container) instead of the 'a' tag
-                className="relative h-full flex items-center"
+                className={`relative h-full flex items-center py-2 `}
+                style={{
+                  color: hoveredIndex === index ? "white" : item.color,
+                  backgroundColor:
+                    hoveredIndex === index ? item.color : "transparent",
+                }}
                 onMouseEnter={() => {
                   setHoveredcolor(item.color);
                   setHoveredIndex(index);
-                  // 3. Only open the menu if the specific item is "আমাদের সম্পর্কে"
+
                   if (item.name === "আমাদের সম্পর্কে") {
                     setIsAboutUsOpen(true);
                   } else {
@@ -126,12 +130,11 @@ const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
               >
                 <a
                   href={item.link}
-                  className="text-sm font-medium px-3 py-3 inline-block transition-colors duration-200"
-                  style={{
-                    color: hoveredIndex === index ? "white" : item.color,
-                    backgroundColor:
-                      hoveredIndex === index ? item.color : "transparent",
-                  }}
+                  className={`text-sm font-medium px-3  inline-block transition-colors duration-200 ${
+                    index < navitem.length - 1
+                      ? " border-r border-gray-400"
+                      : ""
+                  }`}
                 >
                   {item.name}
                 </a>

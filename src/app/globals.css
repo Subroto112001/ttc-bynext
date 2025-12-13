@@ -4,23 +4,30 @@
   --header-color: #683091;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
 .noto-serif-bengali {
   font-family: var(--font-noto-serif-bengali), serif;
 }
+.bg-wrapper {
+  min-height: 100vh;
+  background-image: url("https://file-dhaka.portal.gov.bd/media/central/themes/theme-default/img/bg_main.gif");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 1600px auto;
+}
+
 .container {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  
-}
-
-.bg-image{
-  width: 100%;
-  height: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("https://file-dhaka.portal.gov.bd/media/central/themes/theme-default/img/bg_main.gif");
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .simple-shadow {

@@ -17,13 +17,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${notoSerifBengali.variable} antialiased container bg-image px-2 md:px-0`}
-      >
-        <Header />
-        {children}
-        <Footer />
+    <html lang="bn">
+      <body className={`${notoSerifBengali.variable} antialiased`}>
+        <div className="bg-wrapper">
+          <div className="container px-2 md:px-0">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   );
