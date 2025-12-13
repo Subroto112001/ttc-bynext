@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="bn">
       <body className={`${notoSerifBengali.variable} antialiased`}>
-        <div className="bg-wrapper">
-          <div className="container px-2 md:px-0">
+        <div className="bg-wrapper ">
+          <div className="container boxshadow px-2 md:px-0">
             <Header />
             {children}
             <Footer />

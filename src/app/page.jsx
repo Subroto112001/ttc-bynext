@@ -192,10 +192,10 @@ export default function Home() {
             {allData.map((section, index) => (
               <div
                 key={index}
-                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3 shadow-lg"
+                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3 "
               >
                 <h3 className="text-lg">{section.title}</h3>
-                <div className="flex flex-row gap-10 items-center justify-center mt-5">
+                <div className="flex flex-row gap-6 items-center justify-start mt-5">
                   <div>
                     <Image src={HompageImage.ourtopic} alt={section.title} />
                   </div>

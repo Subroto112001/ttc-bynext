@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 const Footer = () => {
   return (
-    <div className="pt-10 container bg-white">
+    <div className="pt-10 container">
       <div>
         <picture>
           <Image src={footer} alt="footer" className="w-full" />
