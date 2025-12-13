@@ -247,7 +247,7 @@ export default function Home() {
                 <p className="text-md font-medium">অধ্যক্ষ</p>
                 <Link
                   href={"#"}
-                  className="text-md font-medium hover:text-gray-600 duration-300 transition-all"
+                  className="text-md font-medium hover:text-gray-900 duration-300 transition-all border mt-2 p-2 rounded hover:bg-gray-100 "
                 >
                   বিস্তারিত জানুন
                 </Link>
