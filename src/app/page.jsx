@@ -170,14 +170,21 @@ export default function Home() {
                   <li key={notice.id} className="flex items-center gap-2">
                     <Link href="#" className="flex items-center gap-2">
                       <IoMdNotifications className="text-xl text-[#72AB20]" />
-                      <span className="font-medium">{notice.title}</span>
+                      <span className="font-medium text-black hover:text-gray-600 duration-300 transition-all">
+                        {notice.title}
+                      </span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
             <span className="absolute right-2.5 bottom-2.5">
-              <Link href="./notice">সকল নোটিশ দেখুন</Link>
+              <Link
+                href="./notice"
+                className="text-black hover:text-gray-600 duration-300 transition-all"
+              >
+                সকল নোটিশ দেখুন
+              </Link>
             </span>
           </div>
           <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400">
@@ -189,7 +196,7 @@ export default function Home() {
                 key={index}
                 className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3"
               >
-                <h3 className="text-xl">{section.title}</h3>
+                <h3 className="text-lg">{section.title}</h3>
                 <div className="flex flex-row gap-10 mt-5">
                   <div>
                     <Image src={HompageImage.ourtopic} alt={section.title} />
@@ -198,10 +205,12 @@ export default function Home() {
                     {section.data.map((item) => (
                       <li key={item.id}>
                         <Link href={item.url || "#"} className="flex gap-2">
-                          <span className="text-2xl text-[#72AB20]">
+                          <span className="text-xl text-[#72AB20]">
                             <FaArrowCircleRight />
                           </span>
-                          <span>{item.title}</span>
+                          <span className="text-[14px]  text-black hover:text-gray-600 duration-300 transition-all">
+                            {item.title}
+                          </span>
                         </Link>
                       </li>
                     ))}
@@ -275,7 +284,18 @@ export default function Home() {
               <span> অভ্যন্তরীণ ই-সেবা</span>
             </Link>
           </div>
-          <div className="flex flex-col gap-3 mt-0 md:mt-[200px] w-full">
+          <div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4274.0629445469285!2d89.30276937538953!3d25.432855777560007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcdbeb0cb93f39%3A0x309d1aa90d28f57f!2sTechnical%20Training%20Centre%2C%20PIRGANJ!5e1!3m2!1sen!2sbd!4v1765613751222!5m2!1sen!2sbd"
+              height="450"
+width={"100%"}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div className="flex flex-col gap-3  w-full">
             <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
               <span>ইনোভেশন কর্নার</span>
             </Link>

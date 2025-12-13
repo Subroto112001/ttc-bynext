@@ -93,13 +93,14 @@ const Header = () => {
       <div className="bg-white relative">
         <div className="flex items-center justify-between md:justify-start">
           {/* Home Icon */}
-          <a
+          <Link
             href="/"
-            className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black px-3 md:px-4 pt-1 transition-colors duration-200 flex items-center py-2"
+            className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black transition-colors duration-200 flex items-center py-1 "
           >
-            <TiHome />
-          </a>
-
+            <span className="border-r border-gray-400  px-3 md:px-4 ">
+              <TiHome />
+            </span>
+          </Link>
           {/* Desktop Navigation */}
           {/* Desktop Navigation */}
           <ul className="hidden md:flex md:items-center relative h-full">
@@ -128,16 +129,16 @@ const Header = () => {
                   setIsAboutUsOpen(false);
                 }}
               >
-                <a
+                <Link
                   href={item.link}
-                  className={`text-sm font-medium px-3  inline-block transition-colors duration-200 ${
+                  className={`text-sm px-3 text-[16px] font-semibold inline-block transition-colors duration-200 ${
                     index < navitem.length - 1
                       ? " border-r border-gray-400"
                       : ""
                   }`}
                 >
                   {item.name}
-                </a>
+                </Link>
 
                 {/* 4. Nest the dropdown INSIDE the conditional 'li' check */}
                 {/* Check if this specific item is the About Us item AND the state is open */}
