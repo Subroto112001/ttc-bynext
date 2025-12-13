@@ -279,13 +279,13 @@ export default function Home() {
           <div className=" flex flex-col gap-3 w-full">
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
+              className="text-center text-white hover:text-gray-100 duration-300 transition-all font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>কেন্দ্রীয় ই-সেবা</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
+              className="text-center text-white hover:text-gray-100 duration-300 transition-all font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span> অভ্যন্তরীণ ই-সেবা</span>
             </Link>
@@ -304,30 +304,30 @@ export default function Home() {
           <div className="flex flex-col gap-3  w-full">
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
+              className="text-center text-white hover:text-gray-100 duration-300 transition-all font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>ইনোভেশন কর্নার</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
+              className="text-center text-white hover:text-gray-100 duration-300 transition-all font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>সামাজিক যোগাযোগ মাধ্যম</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2  bg-[#72AB20]"
+              className="text-center text-white hover:text-gray-100 duration-300 transition-all font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>সেবা সহজিকরণ</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2   bg-[#72AB20]"
+              className="text-center text-white hover:text-gray-100 duration-300 transition-all font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>সরকারি অফিস সংযুক্তির ফরম</span>
             </Link>
             <div className="w-full">
-              <div className="text-center text-white font-semibold w-full  py-2 bg-[#72AB20]">
+              <div className="text-center text-white  font-semibold w-full  py-2 bg-[#72AB20]">
                 <span>জরুরি হটলাইন</span>
               </div>
               <picture className="w-full">
