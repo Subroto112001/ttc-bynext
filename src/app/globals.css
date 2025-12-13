@@ -19,6 +19,7 @@ body {
   background-position: center top;
   background-repeat: repeat-y;
   background-size: 1600px auto;
+
 }
 
 .container {
@@ -28,6 +29,7 @@ body {
   background-color: white;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .simple-shadow {

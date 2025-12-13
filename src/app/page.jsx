@@ -195,7 +195,7 @@ export default function Home() {
                 className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3 shadow-lg"
               >
                 <h3 className="text-lg">{section.title}</h3>
-                <div className="flex flex-row gap-10 mt-5">
+                <div className="flex flex-row gap-10 items-center justify-center mt-5">
                   <div>
                     <Image src={HompageImage.ourtopic} alt={section.title} />
                   </div>
