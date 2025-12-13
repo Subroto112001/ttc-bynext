@@ -12,9 +12,11 @@ const Footer = () => {
         <div className="bg-[#EBEBEB] flex justify-between items-center py-2 px-2">
           <p className="text-[12px]">সাইটটি শেষ হাল-নাগাদ করা হয়েছে: ২০২৫</p>
           <p className="text-[12px] text-center">
-            পরিকল্পনা ও বাস্তবায়নে : <Link href="#">ranocoder Ltd.</Link> &nbsp;|&nbsp;
-            <Link href="#" className="hover:text-gray-700">
-              Subroto Kumar Bamrman
+            কারিগরি সহায়তায় :{" "}
+            <Link href="https://ranocoder.com/">ranocoder Ltd.</Link>{" "}
+            &nbsp;|&nbsp;
+            <Link href="skabrman.me" className="hover:text-gray-700">
+              Subroto
             </Link>
           </p>
         </div>
