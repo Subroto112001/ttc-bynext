@@ -97,7 +97,7 @@ const Header = () => {
             href="/"
             className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black transition-colors duration-200 flex items-center py-1 "
           >
-            <span className="border-r border-gray-400  px-3 md:px-4 ">
+            <span className=" md:border-r border-gray-400  px-3 md:px-4 ">
               <TiHome />
             </span>
           </Link>

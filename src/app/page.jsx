@@ -153,16 +153,18 @@ export default function Home() {
       <section className=" md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
         {/* ---------------- left side ---------------- */}
         <div className="w-full md:max-w-3/4 flex flex-col gap-10">
-          <div className="relative flex items-center shadow-lg gap-4 pl-[20px] md:pl-[100px] pb-10 p-3  bg-gray-200 border border-gray-400">
+          <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3  bg-gray-200 border border-gray-400">
             <div className="left-0 top-0 absolute">
               <Image
                 src={noticeimage}
                 alt="notice"
-                className=" w-20 h-20 md:w-40 md:h-40"
+                className=" w-20 h-20 md:w-35 md:h-35"
               />
             </div>
-            <div className="flex flex-col z-10 ml-[20px] mt-20 md:mt-0 md:ml-[80px] relative">
-              <h3 className="text-4xl">নোটিশ বোর্ড</h3>
+            <div className="flex flex-col w-full z-10 ml-[20px] mt-20 md:mt-0  md:ml-[80px] relative">
+              <h3 className="text-4xl border-b border-gray-300 pb-2 ">
+                নোটিশ বোর্ড
+              </h3>
               <ul className="flex flex-col gap-2 py-[20px] pb-10 md:pb-0">
                 {noticeList.map((notice) => (
                   <li key={notice.id} className="flex items-center gap-2">
@@ -185,7 +187,7 @@ export default function Home() {
               </Link>
             </span>
           </div>
-          <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400 shadow-lg">
+          <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400 ">
             <p className="text-xl font-medium">সকল খবর</p>
           </div>
           <div className="flex flex-wrap gap-5 justify-between">
@@ -231,7 +233,7 @@ export default function Home() {
           {/* principal information */}
 
           <div className="flex flex-col gap-3 w-full justify-center md:justify-start items-center ">
-            <span className="text-center w-full py-2 text-white bg-[#72AB20]">
+            <span className="text-center font-semibold w-full py-2 text-white bg-[#72AB20]">
               অধ্যক্ষের প্রোফাইল
             </span>
             <div className="flex flex-col gap-3 w-full justify-center items-center ">
@@ -277,13 +279,13 @@ export default function Home() {
           <div className=" flex flex-col gap-3 w-full">
             <Link
               href={"/"}
-              className="text-center text-white w-full py-2 bg-[#72AB20]"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>কেন্দ্রীয় ই-সেবা</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white w-full py-2 bg-[#72AB20]"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span> অভ্যন্তরীণ ই-সেবা</span>
             </Link>
@@ -302,30 +304,30 @@ export default function Home() {
           <div className="flex flex-col gap-3  w-full">
             <Link
               href={"/"}
-              className="text-center text-white w-full py-2 bg-[#72AB20]"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>ইনোভেশন কর্নার</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white w-full py-2 bg-[#72AB20]"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]"
             >
               <span>সামাজিক যোগাযোগ মাধ্যম</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white w-full py-2  bg-[#72AB20]"
+              className="text-center text-white font-semibold w-full py-2  bg-[#72AB20]"
             >
               <span>সেবা সহজিকরণ</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white w-full py-2   bg-[#72AB20]"
+              className="text-center text-white font-semibold w-full py-2   bg-[#72AB20]"
             >
               <span>সরকারি অফিস সংযুক্তির ফরম</span>
             </Link>
             <div className="w-full">
-              <div className="text-center text-white w-full  py-2 bg-[#72AB20]">
+              <div className="text-center text-white font-semibold w-full  py-2 bg-[#72AB20]">
                 <span>জরুরি হটলাইন</span>
               </div>
               <picture className="w-full">
