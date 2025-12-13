@@ -47,7 +47,7 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  console.log(navitem.length);
+
   return (
     <div className="flex flex-col w-full">
       {/* Top Header */}

@@ -10,6 +10,101 @@ import Hotline from "../assets/hotline_v.2_bn.png"
 import { HompageImage } from "@/assets/ImgaeProvide";
 
 export default function Home() {
+  const allData = [
+  
+    {
+      title: "আমাদের বিষয়",
+      type: "Aboutus",
+      data: [
+        { id: 1, title: "কর্মকর্তাবৃন্দ", url: "/" },
+        { id: 2, title: "কর্মচারীবৃন্দ", url: "/" },
+        { id: 3, title: "যোগাযোগ", url: "/" },
+        { id: 4, title: "সাংগঠনিক কাঠামো", url: "/" },
+      ],
+    },
+    {
+      title: "সেবাসমূহ",
+      type: "services",
+      data: [
+        { id: 1, title: "সেবার তালিকা", url: "/" },
+        { id: 2, title: "কি সেবা কিভাবে পাবেন", url: "/" },
+        { id: 3, title: "টিজেন চার্টার", url: "/" },
+        { id: 4, title: "সেবা কুঞ্জ", url: "/" },
+      ],
+    },
+    {
+      title: "প্রজেক্ট সমুহ",
+      type: "projectList",
+      data: [
+        { id: 1, title: "এসেট (Asset)", url: "/" },
+        { id: 2, title: "সিসিপ (SICIP)", url: "/" },
+        { id: 3, title: "এনএইচআরডিএফ (NHRDF)", url: "/" },
+        { id: 4, title: "নিয়ম (Regular)", url: "/" },
+      ],
+    },
+    {
+      title: "অভিযোগ প্রতিকার ব্যবস্থাপনা",
+      type: "complainList",
+      data: [
+        { id: 1, title: "নির্দেশিকা সমূহ", url: "/" },
+        { id: 2, title: "অনলাইন অভিযোগ দাখিল", url: "/" },
+        { id: 3, title: "অনিক ও আপিল কর্মকর্তা", url: "/" },
+        { id: 4, title: "অভিযোগ প্রতিকার সিস্টেম", url: "/" },
+      ],
+    },
+    {
+      title: "তথ্য অধিকার",
+      type: "informationRight",
+      data: [
+        { id: 1, title: "তথ্য প্রদানকারী কর্মকর্তা", url: "/" },
+        { id: 2, title: "আবেদন ফর্ম", url: "/" },
+        { id: 3, title: "তথ্য আইন ও বিধিমালা", url: "/" },
+        { id: 4, title: "নির্দেশিকা সমূহ", url: "/" },
+      ],
+    },
+    {
+      title: "আইন ও বিধি",
+      type: "rightListing",
+      data: [
+        { id: 1, title: "বিভাগীয় আইন", url: "/" },
+        { id: 2, title: "বিধিমালা", url: "/" },
+        { id: 3, title: "নীতিমালা", url: "/" },
+        { id: 4, title: "প্রজ্ঞাপণ ও পরিপত্র", url: "/" },
+      ],
+    },
+    {
+      title: "কর্মসম্পাদন ব্যবস্থাপনা",
+      type: "workListing",
+      data: [
+        { id: 1, title: "প্রজ্ঞাপন/পরিপত্র/নীতিমালা", url: "/" },
+        { id: 2, title: "চুক্তিসমূহ", url: "/" },
+        { id: 3, title: "চুক্তির কাঠামো", url: "/" },
+        { id: 4, title: "এপিএমএস", url: "/" },
+      ],
+    },
+    {
+      title: "বিভিন্ন বাতায়ন",
+      type: "batayonlist",
+      data: [
+        { id: 1, title: "মন্ত্রণালয়ের বাতায়ন", url: "/" },
+        { id: 2, title: "অধিদপ্তরের বাতায়ন", url: "/" },
+        { id: 3, title: "বিভাগীয় বাতায়ন", url: "/" },
+        { id: 4, title: "উপজেলা বাতায়ন", url: "/" },
+      ],
+    },
+    {
+      title: "জরূরি কল",
+      type: "emergencylist",
+      data: [
+        { id: 1, title: "৩৩৩ থেকে তথ্য-সেবা", url: "/" },
+        { id: 2, title: "কল সেন্টারসমূহ", url: "/" },
+        { id: 3, title: "হেল্পডেস্ক", url: "/" },
+        { id: 4, title: "ডাক্তারের সাথে যোগাযোগ", url: "/" },
+      ],
+    },
+  ];
+  
+  
   const noticeList = [
     {
       id: 1,
@@ -53,206 +148,9 @@ export default function Home() {
     },
   ];
 
-  const Aboutus = [
-    { id: 1, title: "কর্মকর্তাবৃন্দ", url: "/" },
-    {
-      id: 2,
-      title: "কর্মচারীবৃন্দ",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "যোগাযোগ",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "সাংগঠনিক কাঠামো",
-      url: "/",
-    },
-  ];
-  const services = [
-    {
-      id: 1,
-      title: "সেবার তালিকা",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "কি সেবা কিভাবে পাবেন",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "টিজেন চার্টার",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "সেবা কুঞ্জ",
-      url: "/",
-    },
-  ];
-  const projectList = [
-    {
-      id: 1,
-      title: "এসেট (Asset)",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "সিসিপ (SICIP)",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "এনএইচআরডিএফ (NHRDF)",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "নিয়ম (Regular)",
-      url: "/",
-    },
-  ];
-  const complainList = [
-    {
-      id: 1,
-      title: "নির্দেশিকা সমূহ",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "অনলাইন অভিযোগ দাখিল",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "অনিক ও আপিল কর্মকর্তা",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "অভিযোগ প্রতিকার সিস্টেম",
-      url: "/",
-    },
-  ];
-  const informationRight = [
-    {
-      id: 1,
-      title : "তথ্য প্রদানকারী কর্মকর্তা",
-      url : "/"
-    },
-    {
-      id: 2,
-      title : "আবেদন ফর্ম",
-      url : "/"
-    },
-    {
-      id: 3,
-      title : "তথ্য আইন ও বিধিমালা",
-      url : "/"
-    },
-    {
-      id: 4,
-      title : "নির্দেশিকা সমূহ",
-      url : "/"
-    },
-  ]
-  const rightListing = [
-    {
-      id: 1,
-      title : "বিভাগীয় আইন",
-      url : "/"
-    },
-    {
-      id: 2,
-      title : "বিধিমালা",
-      url : "/"
-    },
-    {
-      id: 3,
-      title : "নীতিমালা",
-      url : "/"
-    },
-    {
-      id: 4,
-      title : "প্রজ্ঞাপণ ও পরিপত্র",
-      url : "/"
-    },
-  ]
-  
-  const workListing = [
-    {
-      id: 1,
-      title: "প্রজ্ঞাপন/পরিপত্র/নীতিমালা",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "চুক্তিসমূহ",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "চুক্তির কাঠামো",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "এপিএমএস",
-      url: "/",
-    },
-  ];
-  const batayonlist = [
-    {
-      id: 1,
-      title: "মন্ত্রণালয়ের বাতায়ন ",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "অধিদপ্তরের বাতায়ন",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "বিভাগীয় বাতায়ন",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "উপজেলা বাতায়ন",
-      url: "/",
-    },
-  ];
-  const emergencylist = [
-    {
-      id: 1,
-      title: "৩৩৩ থেকে তথ্য-সেবা",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "কল সেন্টারসমূহ",
-      url: "/",
-    },
-    {
-      id: 3,
-      title: "হেল্পডেস্ক",
-      url: "/",
-    },
-    {
-      id: 4,
-      title: "ডাক্তারের সাথে যোগাযোগ",
-      url: "/",
-    },
-  ];
-
   return (
     <div className=" bg-white ">
       {/* banner section */}
-      
 
       <section className=" md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
         {/* ---------------- left side ---------------- */}
@@ -285,211 +183,32 @@ export default function Home() {
           <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400">
             <p className="text-xl font-medium">সকল খবর</p>
           </div>
-          <div className="flex flex-wrap gap-y-5 justify-between">
-            {/* box1 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">আমাদের বিষয়</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div className="">
-                  <Image src={HompageImage.ourtopic} alt="আমাদের_বিষয়" />
+          <div className="flex flex-wrap gap-5 justify-between">
+            {allData.map((section, index) => (
+              <div
+                key={index}
+                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3"
+              >
+                <h3 className="text-xl">{section.title}</h3>
+                <div className="flex flex-row gap-10 mt-5">
+                  <div>
+                    <Image src={HompageImage.ourtopic} alt={section.title} />
+                  </div>
+                  <ul className="flex flex-col gap-5">
+                    {section.data.map((item) => (
+                      <li key={item.id}>
+                        <Link href={item.url || "#"} className="flex gap-2">
+                          <span className="text-2xl text-[#72AB20]">
+                            <FaArrowCircleRight />
+                          </span>
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="flex flex-col gap-5">
-                  {Aboutus.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </div>
-            {/* box1 */}
-            {/* box2 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">সেবাসমূহ</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div className="">
-                  <Image src={HompageImage.ourtopic} alt="আমাদের_বিষয়" />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {services.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box2 */}
-            {/* box3 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">প্রজেক্ট সমুহ</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image src={HompageImage.project} alt="প্রজেক্ট সমুহ" />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {projectList.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box3 */}
-            {/* box4 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">অভিযোগ প্রতিকার ব্যবস্থাপনা</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image
-                    src={HompageImage.complain}
-                    alt="অভিযোগ প্রতিকার ব্যবস্থাপনা"
-                  />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {complainList.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box4 */}
-            {/* box5 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">তথ্য অধিকার</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image src={HompageImage.data} alt="তথ্য অধিকার" />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {informationRight.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box5 */}
-            {/* box6 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">আইন ও বিধি</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image src={HompageImage.rules} alt="আইন ও বিধি" />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {rightListing.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box6 */}
-            {/* box7 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">কর্মসম্পাদন ব্যবস্থাপনা</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image
-                    src={HompageImage.kormo}
-                    alt="কর্মসম্পাদন ব্যবস্থাপনা"
-                  />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {workListing.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span>{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box7 */}
-            {/* box8 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">বিভিন্ন বাতায়ন</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image src={HompageImage.batayon} alt="বিভিন্ন বাতায়ন" />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {batayonlist.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span className="text-[16px]">{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box8 */}
-            {/* box9 */}
-            <div className="w-[420px] bg-gray-200 border border-gray-400 px-2 py-3 ">
-              <h3 className="text-xl">জরূরি কল</h3>
-              <div className="flex flex-row  gap-10 mt-5">
-                <div>
-                  <Image src={HompageImage.helpline} alt="জরুরি হটলাইন" />
-                </div>
-                <ul className="flex flex-col gap-5">
-                  {emergencylist.map((about) => (
-                    <li key={about.id}>
-                      <Link href={about.url} className="flex gap-2">
-                        <span className="text-2xl text-[#72AB20]">
-                          <FaArrowCircleRight />
-                        </span>
-                        <span className="text-[16px]">{about.title}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* box9 */}
+            ))}
           </div>
         </div>
         {/* ---------------- right side ---------------- */}
@@ -517,7 +236,12 @@ export default function Home() {
               <div className="flex gap-2 flex-col justify-center items-center">
                 <p className="text-md font-semibold">মো: জিয়া উদ্দিন</p>
                 <p className="text-md font-medium">অধ্যক্ষ</p>
-                <Link href={"#"} className="text-md font-medium hover:text-gray-600 duration-300 transition-all">বিস্তারিত জানুন</Link>
+                <Link
+                  href={"#"}
+                  className="text-md font-medium hover:text-gray-600 duration-300 transition-all"
+                >
+                  বিস্তারিত জানুন
+                </Link>
               </div>
             </div>
           </div>
