@@ -6,12 +6,11 @@ import bkkb from "../assets/bkkb_button_bn.png";
 import { IoJournalOutline } from "react-icons/io5";
 import { FaArrowCircleRight } from "react-icons/fa";
 import Link from "next/link";
-import Hotline from "../assets/hotline_v.2_bn.png"
+import Hotline from "../assets/hotline_v.2_bn.png";
 import { HompageImage } from "@/assets/ImgaeProvide";
 
 export default function Home() {
   const allData = [
-  
     {
       title: "আমাদের বিষয়",
       type: "Aboutus",
@@ -103,8 +102,7 @@ export default function Home() {
       ],
     },
   ];
-  
-  
+
   const noticeList = [
     {
       id: 1,
@@ -155,7 +153,7 @@ export default function Home() {
       <section className=" md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
         {/* ---------------- left side ---------------- */}
         <div className="w-full md:max-w-3/4 flex flex-col gap-10">
-          <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3  bg-gray-200 border border-gray-400">
+          <div className="relative flex items-center shadow-lg gap-4 pl-[20px] md:pl-[100px] pb-10 p-3  bg-gray-200 border border-gray-400">
             <div className="left-0 top-0 absolute">
               <Image
                 src={noticeimage}
@@ -187,14 +185,14 @@ export default function Home() {
               </Link>
             </span>
           </div>
-          <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400">
+          <div className="px-2 py-3 w-full  bg-gray-200 border border-gray-400 shadow-lg">
             <p className="text-xl font-medium">সকল খবর</p>
           </div>
           <div className="flex flex-wrap gap-5 justify-between">
             {allData.map((section, index) => (
               <div
                 key={index}
-                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3"
+                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3 shadow-lg"
               >
                 <h3 className="text-lg">{section.title}</h3>
                 <div className="flex flex-row gap-10 mt-5">
@@ -233,7 +231,7 @@ export default function Home() {
           {/* principal information */}
 
           <div className="flex flex-col gap-3 w-full justify-center md:justify-start items-center ">
-            <span className="text-center w-full py-2 bg-[#72AB20]">
+            <span className="text-center w-full py-2 text-white bg-[#72AB20]">
               অধ্যক্ষের প্রোফাইল
             </span>
             <div className="flex flex-col gap-3 w-full justify-center items-center ">
@@ -259,7 +257,7 @@ export default function Home() {
           <div className="flex w-full justify-center md:justify-start items-center ">
             <Link
               href={"/"}
-              className=" border w-30 md:w-40 py-2 flex justify-center items-center text-center"
+              className=" border w-30 md:w-40 py-2 flex justify-center items-center text-center "
             >
               চাকুরি কর্নার(0)
             </Link>
@@ -277,10 +275,16 @@ export default function Home() {
             </Link>
           </div>
           <div className=" flex flex-col gap-3 w-full">
-            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+            <Link
+              href={"/"}
+              className="text-center text-white w-full py-2 bg-[#72AB20]"
+            >
               <span>কেন্দ্রীয় ই-সেবা</span>
             </Link>
-            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+            <Link
+              href={"/"}
+              className="text-center text-white w-full py-2 bg-[#72AB20]"
+            >
               <span> অভ্যন্তরীণ ই-সেবা</span>
             </Link>
           </div>
@@ -288,7 +292,7 @@ export default function Home() {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4274.0629445469285!2d89.30276937538953!3d25.432855777560007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcdbeb0cb93f39%3A0x309d1aa90d28f57f!2sTechnical%20Training%20Centre%2C%20PIRGANJ!5e1!3m2!1sen!2sbd!4v1765613751222!5m2!1sen!2sbd"
               height="450"
-width={"100%"}
+              width={"100%"}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -296,20 +300,32 @@ width={"100%"}
           </div>
 
           <div className="flex flex-col gap-3  w-full">
-            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+            <Link
+              href={"/"}
+              className="text-center text-white w-full py-2 bg-[#72AB20]"
+            >
               <span>ইনোভেশন কর্নার</span>
             </Link>
-            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+            <Link
+              href={"/"}
+              className="text-center text-white w-full py-2 bg-[#72AB20]"
+            >
               <span>সামাজিক যোগাযোগ মাধ্যম</span>
             </Link>
-            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+            <Link
+              href={"/"}
+              className="text-center text-white w-full py-2  bg-[#72AB20]"
+            >
               <span>সেবা সহজিকরণ</span>
             </Link>
-            <Link href={"/"} className="text-center w-full py-2 bg-[#72AB20]">
+            <Link
+              href={"/"}
+              className="text-center text-white w-full py-2   bg-[#72AB20]"
+            >
               <span>সরকারি অফিস সংযুক্তির ফরম</span>
             </Link>
             <div className="w-full">
-              <div className="text-center w-full py-2 bg-[#72AB20]">
+              <div className="text-center text-white w-full  py-2 bg-[#72AB20]">
                 <span>জরুরি হটলাইন</span>
               </div>
               <picture className="w-full">
