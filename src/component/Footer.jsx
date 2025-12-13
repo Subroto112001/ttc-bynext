@@ -13,11 +13,11 @@ const Footer = () => {
           <p className="text-[12px]">সাইটটি শেষ হাল-নাগাদ করা হয়েছে: ২০২৫</p>
           <p className="text-[12px] text-center">
             কারিগরি সহায়তায় :{" "}
-            <Link href="https://ranocoder.com/">ranocoder Ltd.</Link>{" "}
+            <a href="https://ranocoder.com/">ranocoder Ltd.</a>{" "}
             &nbsp;|&nbsp;
-            <Link href="skabrman.me" className="hover:text-gray-700">
+            <a href="skabrman.me" className="hover:text-gray-700">
               Subroto
-            </Link>
+            </a>
           </p>
         </div>
       </div>
