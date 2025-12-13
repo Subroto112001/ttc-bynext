@@ -14,7 +14,7 @@ const Header = () => {
     { name: "ব্যবস্থাপনা", link: "#", color: "#098346" },
     { name: "গ্যালারি", link: "#", color: "#1399be" },
     { name: "যোগাযোগ", link: "#", color: "#8768de" },
-    { name: "নোটিশ", link: "#", color: "#555555" },
+    { name: "নোটিশ", link: "/notice", color: "#555555" },
   ];
 
   const aboutus = [

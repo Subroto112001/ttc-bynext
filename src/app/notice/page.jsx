@@ -12,7 +12,7 @@ const page = () => {
   ];
   return (
     <div className=" bg-white ">
-      <section className=" md:mt-[30px] py-2 md:py-4 ">
+      <section className=" md:mt-[30px] py-2 md:py-4 px-2">
         <div className="flex justify-between ">
           <div className="flex flex-col gap-2 items-center">
             <p className="text-[#2C5F8D] text-[18px] font-medium">
