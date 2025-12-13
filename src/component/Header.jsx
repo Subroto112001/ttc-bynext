@@ -93,7 +93,7 @@ const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
         <div className="flex items-center justify-between md:justify-start">
           {/* Home Icon */}
           <a
-            href="#"
+            href="/"
             className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black px-3 md:px-4 py-2 transition-colors duration-200 flex items-center"
           >
             <TiHome />
