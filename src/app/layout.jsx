@@ -1,7 +1,9 @@
 import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
-import Header from "@/component/Header";
+
 import Footer from "@/component/Footer";
+import Header from "@/component/Header";
+
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["bengali"],
@@ -21,7 +23,7 @@ export default function RootLayout({ children }) {
       <body className={`${notoSerifBengali.variable} antialiased`} cz-shortcut-listen="true">
         <div className="bg-wrapper ">
           <div className="container boxshadow px-2 md:px-0">
-            <Header />
+        <Header/>
             {children}
             <Footer />
           </div>

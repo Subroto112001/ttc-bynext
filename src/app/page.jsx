@@ -164,8 +164,8 @@ export default function Home() {
       <section className="md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
         {/* ---------------- left side ---------------- */}
         <div className="w-full md:max-w-3/4 flex flex-col gap-10">
-          <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3 bg-gray-200 border border-gray-400 hover-lift overflow-hidden">
-            <div className="left-0 top-0 absolute notice-image-wrapper">
+          <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3 bg-gray-200 border border-gray-400">
+            <div className="left-0 top-0 absolute ">
               <Image
                 src={noticeimage}
                 alt="notice"
@@ -203,8 +203,8 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="px-2 py-3 w-full bg-gray-200 border border-gray-400 hover-lift">
-            <p className="text-xl font-medium transition-colors duration-300">
+          <div className="px-2 py-3 w-full bg-gray-200 border border-gray-400">
+            <p className="text-xl font-medium ">
               সকল খবর
             </p>
           </div>
@@ -213,7 +213,7 @@ export default function Home() {
             {allData.map((section, index) => (
               <div
                 key={index}
-                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3 hover-lift animate-fade-in-up"
+                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <h3 className="text-lg font-medium transition-colors duration-300">
