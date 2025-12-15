@@ -13,7 +13,6 @@ import { HompageImage } from "@/assets/ImgaeProvide";
 import "../Style/Home.css";
 import Gallery from "@/component/HomepageComponent/Gallery";
 
-
 export default function Home() {
   const allData = [
     {
@@ -174,9 +173,9 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* banner section */}
-      <section className="md:mt-[30px] py-2 md:py-4 flex gap-10 flex-col md:flex-row">
+      <section className="md:mt-[30px] py-2 md:py-4 flex justify-between flex-col md:flex-row">
         {/* ---------------- left side ---------------- */}
-        <div className="w-full md:max-w-3/4 flex flex-col gap-10">
+        <div className="w-full md:max-w-[70%] flex flex-col gap-10">
           <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3 bg-gray-200 border border-gray-400">
             <div className="left-0 top-0 absolute ">
               <Image
@@ -217,12 +216,10 @@ export default function Home() {
           </div>
 
           <div className="px-2 py-3 w-full bg-gray-200 border border-gray-400">
-            <p className="text-xl font-medium ">
-              সকল খবর
-            </p>
+            <p className="text-xl font-medium ">সকল খবর</p>
           </div>
-<Gallery/>
-          <div className="flex flex-wrap gap-10">
+          <Gallery />
+          <div className="flex flex-wrap justify-between gap-y-10">
             {allData.map((section, index) => (
               <div
                 key={index}
@@ -260,7 +257,7 @@ export default function Home() {
         </div>
 
         {/* ---------------- right side ---------------- */}
-        <div className="w-full md:w-1/4 flex flex-col gap-3 md:gap-10 bg-white">
+        <div className="w-full md:max-w-[25%] flex flex-col gap-3 md:gap-10 bg-white">
           <div className="flex flex-col gap-4 md:pr-0">
             <Link href="#" className="image-link-wrapper">
               <Image
