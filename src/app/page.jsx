@@ -14,6 +14,7 @@ export default function Home() {
     {
       title: "আমাদের বিষয়",
       type: "Aboutus",
+      icon: HompageImage.ourtopic,
       data: [
         { id: 1, title: "কর্মকর্তাবৃন্দ", url: "/" },
         { id: 2, title: "কর্মচারীবৃন্দ", url: "/" },
@@ -24,6 +25,7 @@ export default function Home() {
     {
       title: "সেবাসমূহ",
       type: "services",
+      icon: HompageImage.service,
       data: [
         { id: 1, title: "সেবার তালিকা", url: "/" },
         { id: 2, title: "কি সেবা কিভাবে পাবেন", url: "/" },
@@ -34,6 +36,7 @@ export default function Home() {
     {
       title: "প্রজেক্ট সমুহ",
       type: "projectList",
+      icon: HompageImage.project,
       data: [
         { id: 1, title: "এসেট (Asset)", url: "/" },
         { id: 2, title: "সিসিপ (SICIP)", url: "/" },
@@ -44,6 +47,7 @@ export default function Home() {
     {
       title: "অভিযোগ প্রতিকার ব্যবস্থাপনা",
       type: "complainList",
+      icon: HompageImage.complain,
       data: [
         { id: 1, title: "নির্দেশিকা সমূহ", url: "/" },
         { id: 2, title: "অনলাইন অভিযোগ দাখিল", url: "/" },
@@ -54,6 +58,7 @@ export default function Home() {
     {
       title: "তথ্য অধিকার",
       type: "informationRight",
+      icon: HompageImage.data,
       data: [
         { id: 1, title: "তথ্য প্রদানকারী কর্মকর্তা", url: "/" },
         { id: 2, title: "আবেদন ফর্ম", url: "/" },
@@ -64,6 +69,7 @@ export default function Home() {
     {
       title: "আইন ও বিধি",
       type: "rightListing",
+      icon: HompageImage.rules,
       data: [
         { id: 1, title: "বিভাগীয় আইন", url: "/" },
         { id: 2, title: "বিধিমালা", url: "/" },
@@ -74,6 +80,7 @@ export default function Home() {
     {
       title: "কর্মসম্পাদন ব্যবস্থাপনা",
       type: "workListing",
+      icon: HompageImage.kormo,
       data: [
         { id: 1, title: "প্রজ্ঞাপন/পরিপত্র/নীতিমালা", url: "/" },
         { id: 2, title: "চুক্তিসমূহ", url: "/" },
@@ -84,6 +91,7 @@ export default function Home() {
     {
       title: "বিভিন্ন বাতায়ন",
       type: "batayonlist",
+      icon: HompageImage.batayon,
       data: [
         { id: 1, title: "মন্ত্রণালয়ের বাতায়ন", url: "/" },
         { id: 2, title: "অধিদপ্তরের বাতায়ন", url: "/" },
@@ -94,6 +102,7 @@ export default function Home() {
     {
       title: "জরূরি কল",
       type: "emergencylist",
+      icon: HompageImage.helpline,
       data: [
         { id: 1, title: "৩৩৩ থেকে তথ্য-সেবা", url: "/" },
         { id: 2, title: "কল সেন্টারসমূহ", url: "/" },
@@ -108,31 +117,37 @@ export default function Home() {
       id: 1,
       title: "নতুন কোর্স শুরু সম্পর্কে বিজ্ঞপ্তি",
       date: "2024-09-01",
+     
     },
     {
       id: 2,
       title: "ছুটির দিন ঘোষণা",
       date: "2024-08-25",
+     
     },
     {
       id: 3,
       title: "নিবন্ধনের শেষ তারিখ প্রসারিত",
       date: "2024-08-20",
+   
     },
     {
       id: 4,
       title: "কারিগরি প্রশিক্ষণ কেন্দ্রের কার্যক্রম শুরু",
       date: "2024-08-15",
+    
     },
     {
       id: 5,
       title: "নতুন প্রশিক্ষক নিয়োগ বিজ্ঞপ্তি",
       date: "2024-08-10",
+   
     },
     {
       id: 6,
       title: "প্রশিক্ষণার্থীদের জন্য নির্দেশিকা প্রকাশ",
       date: "2024-08-05",
+     
     },
     {
       id: 7,
@@ -199,7 +214,7 @@ export default function Home() {
                 <h3 className="text-lg">{section.title}</h3>
                 <div className="flex flex-row gap-6 items-center justify-start mt-5">
                   <div>
-                    <Image src={HompageImage.ourtopic} alt={section.title} />
+                    <Image src={section.icon} alt={section.title} />
                   </div>
                   <ul className="flex flex-col gap-5">
                     {section.data.map((item) => (
