@@ -110,7 +110,7 @@ const PhotoGalleryContent = () => {
 
       <Link
         href="#"
-        className="text-sm font-medium bg-[#72AB20] text-white px-6 py-2 rounded-full shadow hover:bg-green-700 transition"
+        className="text-md font-medium bg-[#72AB20] text-white details-button"
       >
         আরও ছবি দেখুন
       </Link>
@@ -212,7 +212,7 @@ const VideoGalleryContent = () => {
 
       <Link
         href="#"
-        className="text-sm font-medium bg-[#72AB20] text-white px-6 py-2 rounded-full shadow hover:bg-green-700 transition"
+        className="text-md font-medium bg-[#72AB20] text-white details-button"
       >
         আরও ভিডিও দেখুন
       </Link>
