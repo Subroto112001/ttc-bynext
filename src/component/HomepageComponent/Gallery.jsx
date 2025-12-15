@@ -4,8 +4,6 @@ import { galleryimages } from "@/helper/GallerImageProvider";
 import Link from "next/link";
 import React, { useState, useEffect, useCallback } from "react";
 
-// --- ১. ভিডিও ডেটা (আপনি এটি আপনার helper ফাইলে নিয়ে যেতে পারেন) ---
-// ইউটিউব ভিডিওর শুধু ID টি ব্যবহার করবেন (যেমন: https://www.youtube.com/watch?v=VIDEO_ID)
 const galleryVideos = [
   { id: "yNyrfoqcfZI", title: "Sample Video 1" }, // Example ID: Replace with yours
   { id: "HTnl9c7zwbM", title: "Sample Video 2" },
@@ -13,7 +11,7 @@ const galleryVideos = [
   { id: "fYlXXXxohTA", title: "Sample Video 4" },
 ];
 
-// --- ২. আপডেটেড মডাল (ছবি এবং ভিডিও দুইটাই সাপোর্ট করবে) ---
+// modal for video and image display
 const MediaModal = ({ src, type, onClose }) => {
   return (
     <div
@@ -64,11 +62,11 @@ const Gallery = () => {
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMediaSrc, setSelectedMediaSrc] = useState("");
-  const [selectedMediaType, setSelectedMediaType] = useState("image"); // 'image' or 'video'
+  const [selectedMediaType, setSelectedMediaType] = useState("image"); // 'image'  or 'video'
 
   const imagesPerView = 3;
 
-  // বর্তমান ট্যাবে কোন ডেটা দেখাবো তা নির্ধারণ করা
+  // photo or video selection
   const currentItems = activeTab === "photo" ? galleryimages : galleryVideos;
 
   // --- Logic ---
@@ -86,22 +84,22 @@ const Gallery = () => {
     );
   };
 
-  // ট্যাব পরিবর্তন হলে স্লাইডার রিসেট হবে
+  // slider reset after tab change
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     setCurrentIndex(0);
   };
 
-  // অটো-প্লে ইফেক্ট
+  // auto slide effect
   useEffect(() => {
     if (totalSlides <= 0) return;
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000); // ভিডিওর ক্ষেত্রে একটু সময় বাড়ালাম (4s)
+    }, 4000); // 4s for video
     return () => clearInterval(interval);
-  }, [totalSlides, nextSlide, activeTab]); // activeTab বদলালে টাইমার রিসেট হবে
+  }, [totalSlides, nextSlide, activeTab]); // activeTab changes will reset the timer
 
-  // মডাল ওপেন ফাংশন
+  // modal open function
   const openModal = (src, type) => {
     setSelectedMediaSrc(src);
     setSelectedMediaType(type);
@@ -177,7 +175,6 @@ const Gallery = () => {
 
             {/* Slider Window */}
             <div className="overflow-hidden w-full py-4">
-              {" "}
               {/* Added py-4 for shadow clipping */}
               <div
                 className="flex transition-transform duration-700 ease-in-out gap-4"
