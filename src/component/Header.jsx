@@ -206,7 +206,7 @@ const Header = () => {
             {navitem.map((item, index) => (
               <li
                 key={index}
-                className="relative h-full flex items-center py-2"
+                className="relative h-full flex items-center py-2 transition-all duration-200"
                 style={{
                   color: hoveredIndex === index ? "white" : item.color,
                   backgroundColor:
@@ -239,7 +239,7 @@ const Header = () => {
 
                 {/* Dropdown for About Us */}
                 {item.name === "আমাদের সম্পর্কে" && isAboutUsOpen && (
-                  <div className="flex">
+                  <div className="flex ">
                     <div className="absolute top-full left-0 w-48 bg-white shadow-lg p-4 flex flex-col gap-2 border border-gray-200 z-50">
                       <h3 className="text-[#ff6600] font-semibold">
                         অফিস সম্পর্কিত
