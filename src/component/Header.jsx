@@ -103,7 +103,7 @@ const Header = () => {
         <div className="relative">
           <button
             onClick={() => setShowShareMenu(!showShareMenu)}
-            className="flex justify-center items-center px-3 py-1.5 bg-white rounded gap-2 text-sm hover:bg-gray-100 transition-colors"
+            className="flex justify-center items-center px-3 py-1.5 bg-white rounded gap-2 text-sm hover:bg-gray-100 duration-200 transition-colors cursor-pointer"
           >
             শেয়ার{" "}
             <span>

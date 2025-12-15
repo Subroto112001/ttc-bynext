@@ -11,6 +11,8 @@ import Link from "next/link";
 import Hotline from "../assets/hotline_v.2_bn.png";
 import { HompageImage } from "@/assets/ImgaeProvide";
 import "../Style/Home.css";
+import Gallery from "@/component/HomepageComponent/Gallery";
+
 
 export default function Home() {
   const allData = [
@@ -208,7 +210,7 @@ export default function Home() {
               সকল খবর
             </p>
           </div>
-
+<Gallery/>
           <div className="flex flex-wrap gap-5 justify-between">
             {allData.map((section, index) => (
               <div
