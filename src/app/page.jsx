@@ -262,7 +262,7 @@ export default function Home() {
           </div>
 
           {/* principal information */}
-          <div className="flex flex-col gap-3 w-full justify-center md:justify-start items-center hover-lift">
+          <div className="flex flex-col gap-3 w-full justify-center md:justify-start items-center ">
             <span className="text-center font-semibold w-full py-2 text-white bg-[#72AB20] green-button">
               অধ্যক্ষের প্রোফাইল
             </span>
@@ -281,7 +281,10 @@ export default function Home() {
                 <p className="text-md font-medium transition-colors duration-300">
                   অধ্যক্ষ
                 </p>
-                <Link href={"#"} className="text-md font-medium details-button">
+                <Link
+                  href={"#"}
+                  className="text-md font-medium bg-[#72AB20] text-white details-button"
+                >
                   বিস্তারিত জানুন
                 </Link>
               </div>
@@ -360,15 +363,15 @@ export default function Home() {
             >
               <span>সরকারি অফিস সংযুক্তির ফরম</span>
             </Link>
-            <div className="w-full hover-lift">
-              <div className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button">
+            <div className="w-full ">
+              <div className="text-center text-white font-semibold w-full py-2 bg-[#72AB20]">
                 <span>জরুরি হটলাইন</span>
               </div>
               <picture className="w-full overflow-hidden">
                 <Image
                   src={Hotline}
                   alt="Hotline"
-                  className="mt-[20px] w-full hover-image"
+                  className="mt-[20px] w-full"
                 />
               </picture>
             </div>
