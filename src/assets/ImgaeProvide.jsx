@@ -8,6 +8,7 @@ import rules from "../assets/rules.png"
 import kormo from "../assets/kormo.png"
 import batayon from "../assets/batayon.png"
 import Principal from "../assets/Principal.jpg"
+import training from "../assets/trainging.png"
 export const HompageImage = {
   ourtopic,
   service,
@@ -19,4 +20,5 @@ export const HompageImage = {
   kormo,
   batayon,
   Principal,
+  training,
 };

@@ -105,7 +105,18 @@ export default function Home() {
       ],
     },
     {
-      title: "জরূরি কল",
+      title: "প্রশিক্ষণ ও পরামর্শ",
+      type: "traininglist",
+      icon: HompageImage.training,
+      data: [
+        { id: 1, title: "চলমান প্রশিক্ষণ", url: "/" },
+        { id: 2, title: "সমাপ্ত প্রশিক্ষণ", url: "/" },
+        { id: 3, title: "প্রশিক্ষণ সংক্রান্ত পরামর্শ ", url: "/" },
+        { id: 4, title: "অংশীজন", url: "/" },
+      ],
+    },
+    {
+      title: "জরুরি কল",
       type: "emergencylist",
       icon: HompageImage.helpline,
       data: [
@@ -211,7 +222,7 @@ export default function Home() {
             </p>
           </div>
 <Gallery/>
-          <div className="flex flex-wrap gap-5 justify-between">
+          <div className="flex flex-wrap gap-10">
             {allData.map((section, index) => (
               <div
                 key={index}
