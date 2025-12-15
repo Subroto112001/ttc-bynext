@@ -1,24 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { IoMdNotifications } from "react-icons/io";
-import noticeimage from "../assets/bg_notice_board.png";
-import bangladesdirectory from "../assets/Bangladesh-Directory.jpg";
-import bkkb from "../assets/bkkb_button_bn.png";
-import { IoJournalOutline } from "react-icons/io5";
-import { FaArrowCircleRight } from "react-icons/fa";
 import Link from "next/link";
-import Hotline from "../assets/hotline_v.2_bn.png";
-import { HompageImage } from "@/assets/ImgaeProvide";
-import "../Style/Home.css";
+import { HomepageOtherImage, HompageBoxImage } from "@/helper/ImgaeProvide";
+import "../Style/Pages/Home.css";
 import Gallery from "@/component/HomepageComponent/Gallery";
+import { iconprovider } from "@/helper/IconProvider";
 
 export default function Home() {
   const allData = [
     {
       title: "আমাদের বিষয়",
       type: "Aboutus",
-      icon: HompageImage.ourtopic,
+      icon: HompageBoxImage.ourtopic,
       data: [
         { id: 1, title: "কর্মকর্তাবৃন্দ", url: "/" },
         { id: 2, title: "কর্মচারীবৃন্দ", url: "/" },
@@ -29,7 +23,7 @@ export default function Home() {
     {
       title: "সেবাসমূহ",
       type: "services",
-      icon: HompageImage.service,
+      icon: HompageBoxImage.service,
       data: [
         { id: 1, title: "সেবার তালিকা", url: "/" },
         { id: 2, title: "কি সেবা কিভাবে পাবেন", url: "/" },
@@ -40,7 +34,7 @@ export default function Home() {
     {
       title: "প্রজেক্ট সমুহ",
       type: "projectList",
-      icon: HompageImage.project,
+      icon: HompageBoxImage.project,
       data: [
         { id: 1, title: "এসেট (Asset)", url: "/" },
         { id: 2, title: "সিসিপ (SICIP)", url: "/" },
@@ -51,7 +45,7 @@ export default function Home() {
     {
       title: "অভিযোগ প্রতিকার ব্যবস্থাপনা",
       type: "complainList",
-      icon: HompageImage.complain,
+      icon: HompageBoxImage.complain,
       data: [
         { id: 1, title: "নির্দেশিকা সমূহ", url: "/" },
         { id: 2, title: "অনলাইন অভিযোগ দাখিল", url: "/" },
@@ -62,7 +56,7 @@ export default function Home() {
     {
       title: "তথ্য অধিকার",
       type: "informationRight",
-      icon: HompageImage.data,
+      icon: HompageBoxImage.data,
       data: [
         { id: 1, title: "তথ্য প্রদানকারী কর্মকর্তা", url: "/" },
         { id: 2, title: "আবেদন ফর্ম", url: "/" },
@@ -73,7 +67,7 @@ export default function Home() {
     {
       title: "আইন ও বিধি",
       type: "rightListing",
-      icon: HompageImage.rules,
+      icon: HompageBoxImage.rules,
       data: [
         { id: 1, title: "বিভাগীয় আইন", url: "/" },
         { id: 2, title: "বিধিমালা", url: "/" },
@@ -84,7 +78,7 @@ export default function Home() {
     {
       title: "কর্মসম্পাদন ব্যবস্থাপনা",
       type: "workListing",
-      icon: HompageImage.kormo,
+      icon: HompageBoxImage.kormo,
       data: [
         { id: 1, title: "প্রজ্ঞাপন/পরিপত্র/নীতিমালা", url: "/" },
         { id: 2, title: "চুক্তিসমূহ", url: "/" },
@@ -95,7 +89,7 @@ export default function Home() {
     {
       title: "বিভিন্ন বাতায়ন",
       type: "batayonlist",
-      icon: HompageImage.batayon,
+      icon: HompageBoxImage.batayon,
       data: [
         { id: 1, title: "মন্ত্রণালয়ের বাতায়ন", url: "/" },
         { id: 2, title: "অধিদপ্তরের বাতায়ন", url: "/" },
@@ -106,7 +100,7 @@ export default function Home() {
     {
       title: "প্রশিক্ষণ ও পরামর্শ",
       type: "traininglist",
-      icon: HompageImage.training,
+      icon: HompageBoxImage.training,
       data: [
         { id: 1, title: "চলমান প্রশিক্ষণ", url: "/" },
         { id: 2, title: "সমাপ্ত প্রশিক্ষণ", url: "/" },
@@ -117,7 +111,7 @@ export default function Home() {
     {
       title: "জরুরি কল",
       type: "emergencylist",
-      icon: HompageImage.helpline,
+      icon: HompageBoxImage.helpline,
       data: [
         { id: 1, title: "৩৩৩ থেকে তথ্য-সেবা", url: "/" },
         { id: 2, title: "কল সেন্টারসমূহ", url: "/" },
@@ -179,7 +173,7 @@ export default function Home() {
           <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3 bg-gray-200 border border-gray-400">
             <div className="left-0 top-0 absolute ">
               <Image
-                src={noticeimage}
+                src={HomepageOtherImage.noticeimage}
                 alt="notice"
                 className="w-20 h-20 md:w-35 md:h-35"
               />
@@ -199,7 +193,9 @@ export default function Home() {
                       href="#"
                       className="flex items-center gap-2 group transition-all duration-300"
                     >
-                      <IoMdNotifications className="text-xl text-[#72AB20] notice-icon" />
+                      <span className="text-xl text-[#72AB20] notice-icon">
+                        {iconprovider.notification}
+                      </span>
                       <span className="font-medium text-black notice-text">
                         {notice.title}
                       </span>
@@ -241,7 +237,7 @@ export default function Home() {
                           className="flex gap-2 group"
                         >
                           <span className="text-xl text-[#72AB20] arrow-icon">
-                            <FaArrowCircleRight />
+                            {iconprovider.arrowright}
                           </span>
                           <span className="text-[14px] text-black link-text">
                             {item.title}
@@ -261,13 +257,17 @@ export default function Home() {
           <div className="flex flex-col gap-4 md:pr-0">
             <Link href="#" className="image-link-wrapper">
               <Image
-                src={bangladesdirectory}
+                src={HomepageOtherImage.bangladesdirectory}
                 alt="bangladesdirectory"
                 className="hover-image"
               />
             </Link>
             <Link href="#" className="image-link-wrapper">
-              <Image src={bkkb} alt="bkkb" className="hover-image" />
+              <Image
+                src={HomepageOtherImage.bkkb}
+                alt="bkkb"
+                className="hover-image"
+              />
             </Link>
           </div>
 
@@ -279,7 +279,7 @@ export default function Home() {
             <div className="flex flex-col gap-3 w-full justify-center items-center">
               <div className="principal-image-wrapper">
                 <Image
-                  src={HompageImage.Principal}
+                  src={HompageBoxImage.Principal}
                   alt="অধ্যক্ষের প্রোফাইল"
                   className="w-[200px] hover-image"
                 />
@@ -379,7 +379,7 @@ export default function Home() {
               </div>
               <picture className="w-full overflow-hidden">
                 <Image
-                  src={Hotline}
+                  src={HomepageOtherImage.Hotline}
                   alt="Hotline"
                   className="mt-[20px] w-full"
                 />
