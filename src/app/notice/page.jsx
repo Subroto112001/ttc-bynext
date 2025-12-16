@@ -7,8 +7,6 @@ import {
   FaTwitter,
   FaLinkedin,
   FaViber,
-  FaChevronLeft,
-  FaChevronRight,
   FaFilePdf,
 } from "react-icons/fa";
 import { FaFacebookMessenger } from "react-icons/fa6";
@@ -66,7 +64,7 @@ const Page = () => {
     },
   ]);
 
-  // --- সংখ্যা বাংলায় রূপান্তরের ফাংশন ---
+  // সংখ্যা বাংলায় রূপান্তরের ফাংশন
   const toBn = (num) => {
     const symbols = {
       0: "০",
@@ -99,7 +97,7 @@ const Page = () => {
   const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem);
 
   const handleDownload = (fileName) => {
-    alert(`Downloading: ${fileName}`);
+    alert(`ডাউনলোড হচ্ছে: ${fileName}`);
   };
 
   const socialIcons = [
@@ -129,6 +127,7 @@ const Page = () => {
   return (
     <div className="bg-white min-h-screen">
       <section className="md:mt-[30px] py-2 md:py-4 px-2 max-w-7xl mx-auto">
+        {/* শেয়ার সেকশন */}
         <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0 mb-10">
           <div className="flex flex-col gap-2 items-center md:items-start">
             <p className="text-[#2C5F8D] text-[16px] md:text-[18px] font-medium text-center md:text-left">
@@ -151,10 +150,11 @@ const Page = () => {
           </button>
         </div>
 
+        {/* ফিল্টার এবং সার্চ */}
         <div className="mt-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
             <div className="flex items-center gap-2 text-sm font-bold text-gray-700">
-              <span>Show</span>
+              <span>প্রদর্শন</span>
               <select
                 value={entriesPerPage}
                 onChange={(e) => {
@@ -167,11 +167,11 @@ const Page = () => {
                 <option value={20}>২০</option>
                 <option value={50}>৫০</option>
               </select>
-              <span>entries</span>
+              <span>টি নোটিশ</span>
             </div>
 
             <div className="flex items-center gap-2 text-sm font-bold text-gray-700">
-              <label>Search:</label>
+              <label>খুঁজুন:</label>
               <input
                 type="text"
                 className="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-500"
@@ -184,6 +184,7 @@ const Page = () => {
             </div>
           </div>
 
+          {/* টেবিল */}
           <div className="overflow-x-auto border border-gray-400">
             <table className="w-full border-collapse">
               <thead>
@@ -209,7 +210,6 @@ const Page = () => {
                     className="hover:bg-gray-50 transition-colors"
                   >
                     <td className="border-r border-gray-300 px-4 py-3 text-center text-[15px]">
-                      {/* ডায়নামিক ক্রমিক নং বাংলায় */}
                       {toBn(indexOfFirstItem + index + 1)}
                     </td>
                     <td className="border-r border-gray-300 px-4 py-3 text-left text-[15px] leading-relaxed">
@@ -235,13 +235,13 @@ const Page = () => {
             </table>
           </div>
 
-          {/* --- PAGINATION FOOTER --- */}
+          {/* প্যাগিনেশন ফুটার */}
           <div className="mt-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
             <p className="text-sm text-gray-600">
-              Showing{" "}
-              {toBn(filteredNotices.length > 0 ? indexOfFirstItem + 1 : 0)} to{" "}
-              {toBn(Math.min(indexOfLastItem, filteredNotices.length))} of{" "}
-              {toBn(filteredNotices.length)} entries
+              {toBn(filteredNotices.length)} টি নোটিশের মধ্যে{" "}
+              {toBn(filteredNotices.length > 0 ? indexOfFirstItem + 1 : 0)} থেকে{" "}
+              {toBn(Math.min(indexOfLastItem, filteredNotices.length))} পর্যন্ত
+              দেখানো হচ্ছে
             </p>
 
             <div className="flex items-center gap-1">
@@ -254,7 +254,7 @@ const Page = () => {
                     : "hover:bg-gray-100"
                 }`}
               >
-                Previous
+                আগেরটি
               </button>
 
               {[...Array(totalPages)].map((_, i) => (
@@ -282,7 +282,7 @@ const Page = () => {
                     : "hover:bg-gray-100"
                 }`}
               >
-                Next
+                পরবর্তী
               </button>
             </div>
           </div>
