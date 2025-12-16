@@ -254,7 +254,7 @@ export default function Home() {
         </div>
 
         {/* ---------------- right side ---------------- */}
-        <div className="w-full md:max-w-[25%] flex flex-col gap-3 md:gap-10 bg-white">
+        <div className="w-full md:max-w-[29%] flex flex-col gap-3 md:gap-10 bg-white">
           <div className="flex flex-col gap-4 md:pr-0">
             <Link href="#" className="image-link-wrapper">
               <Image
