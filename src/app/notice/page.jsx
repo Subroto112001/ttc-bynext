@@ -103,7 +103,7 @@ const Page = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       <section className="md:mt-[30px] py-2 md:py-4 px-2 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
           <div className="flex flex-col gap-2 items-center md:items-start">
