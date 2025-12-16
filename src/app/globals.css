@@ -8,7 +8,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: white;
-  font-family: var(--font-noto-serif-bengali), serif;
 }
 
 .bg-wrapper {

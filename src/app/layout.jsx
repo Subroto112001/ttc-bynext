@@ -16,20 +16,19 @@ export const metadata = {
   description:
     "কারিগরি প্রশিক্ষণ কেন্দ্র, পীরগঞ্জ - বৈদেশিক কর্মসংস্থানের জন্য প্রশিক্ষণ কেন্দ্র",
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="bn">
       <body
-        className={`${notoSerifBengali.variable} antialiased`}
+        className={`${notoSerifBengali.className} antialiased`}
         cz-shortcut-listen="true"
       >
-        <div className="bg-wrapper ">
-          <div className=" boxshadow container ">
-            <div className="px-2  md:px-2.5">
+        <div className="bg-wrapper">
+          <div className="boxshadow container">
+            <div className="px-2 md:px-2.5">
               <Header />
             </div>
-            <div className="px-2  md:px-2.5 ">{children}</div>
+            <div className="px-2 md:px-2.5">{children}</div>
             <Footer />
           </div>
         </div>
