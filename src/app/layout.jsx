@@ -26,8 +26,10 @@ export default function RootLayout({ children }) {
       >
         <div className="bg-wrapper ">
           <div className=" boxshadow container ">
-            <Header />
-            <div className="px-2 md:px-0 ">{children}</div>
+            <div className="px-2  md:px-2.5">
+              <Header />
+            </div>
+            <div className="px-2  md:px-2.5 ">{children}</div>
             <Footer />
           </div>
         </div>
