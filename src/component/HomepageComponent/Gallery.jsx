@@ -3,7 +3,9 @@
 import { galleryimages, galleryVideos } from "@/helper/GallerDataProvider";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
+ 
 
+ 
 
 // --- Modal for Image Preview ---
 const ImageModal = ({ src, onClose }) => {
@@ -84,7 +86,7 @@ const PhotoGalleryContent = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const imagesPerView = isMobile ? 1 : 3;
+  const imagesPerView = 1;
   const totalSlides = Math.max(0, galleryimages.length - imagesPerView);
 
   // Calculate translation
@@ -118,7 +120,7 @@ const PhotoGalleryContent = () => {
       </h3>
 
       {/* Slider Container */}
-      <div className="relative w-full md:max-w-[948px] group">
+      <div className="relative w-full max-w-4xl group">
         {/* Prev Button */}
         <button
           onClick={prevSlide}
@@ -142,7 +144,7 @@ const PhotoGalleryContent = () => {
                 style={{ width: `${100 / imagesPerView}%` }}
               >
                 <div
-                  className="w-full h-[220px] cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
+                  className="w-full h-[280px] md:h-[400px] cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
                   onClick={() => openModal(item.src)}
                 >
                   <img
@@ -285,9 +287,9 @@ const VideoGalleryContent = () => {
   );
 };
 
-// ==========================================
+
 // Main Export Layout
-// ==========================================
+
 const Gallery = () => {
   return (
     <section className="w-full py-15 bg-gray-200 border border-gray-400">
