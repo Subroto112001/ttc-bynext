@@ -28,9 +28,46 @@ const ImageModal = ({ src, onClose }) => {
   );
 };
 
-// ==========================================
+// video modal
+const VideoModal = ({ videoId, onClose }) => {
+  if (!videoId) return null;
+
+  // YouTube embed URL with autoplay, muted (optional but good practice), and no related videos
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md transition-all"
+      onClick={onClose}
+    >
+      <div
+        className="relative p-4 w-full max-w-4xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 text-white hover:text-red-500 transition-colors text-4xl leading-none z-50"
+        >
+          &times;
+        </button>
+        <div className="relative aspect-video rounded-lg shadow-2xl border-4 border-white/10 overflow-hidden">
+          <iframe
+            className="w-full h-full"
+            src={embedUrl}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 // 1. Photo Gallery Content
-// ==========================================
+
 const PhotoGalleryContent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,7 +101,7 @@ const PhotoGalleryContent = () => {
     <div className="w-full  flex flex-col items-center gap-6">
       {/* Header */}
       <h3 className="text-2xl font-bold text-gray-800 border-b-4 border-[#72AB20] pb-1">
-        ছবি
+        গ্যালারি
       </h3>
 
       {/* Slider Container */}
@@ -122,15 +159,25 @@ const PhotoGalleryContent = () => {
   );
 };
 
-// ==========================================
+
 // 2. Video Gallery Content
-// ==========================================
+
 const VideoGalleryContent = () => {
-  // Default to the first video
+  // Default to the first video (for highlighting the thumbnail)
   const [mainVideo, setMainVideo] = useState(galleryVideos[0]);
+  // State for the video modal
+  const [modalVideoId, setModalVideoId] = useState(null);
+
+  const openVideoModal = (id) => {
+    setModalVideoId(id);
+  };
+
+  const closeVideoModal = () => {
+    setModalVideoId(null);
+  };
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center gap-8 mt-10 pt-10  border-t border-gray-300/50">
+    <div className="w-full max-w-5xl flex flex-col items-center gap-8 mt-10 pt-10  border-t border-gray-300/50">
       {/* Header */}
       <h3 className="text-2xl font-bold text-gray-800 border-b-4 border-[#72AB20] pb-1">
         ভিডিও
@@ -138,30 +185,14 @@ const VideoGalleryContent = () => {
 
       {/* Layout: Main Video Top, List Bottom */}
       <div className="w-full flex flex-col gap-6">
-        {/* 1. Main Featured Video (Big) */}
-        <div className="w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-gray-300 bg-black">
-          <iframe
-            width="100%"
-            height="100%"
-            // autoplay=1 enables autoplay. mute=1 is often required for browsers to allow autoplay.
-            src={`https://www.youtube.com/embed/${mainVideo.id}?autoplay=1&mute=1&rel=0`}
-            title={mainVideo.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-          ></iframe>
-        </div>
-        <div className="text-xl font-semibold text-gray-800">
-          এখন চলছে: <span className="text-[#72AB20]">{mainVideo.title}</span>
-        </div>
-
-        {/* 2. Small Videos List (Bottom) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {galleryVideos.map((video) => (
             <div
               key={video.id}
-              onClick={() => setMainVideo(video)}
+              onClick={() => {
+                setMainVideo(video); // Highlighting the selected thumbnail
+                openVideoModal(video.id); // Opening the video in a modal
+              }}
               className={`cursor-pointer group relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all border-2 bg-white ${
                 mainVideo.id === video.id
                   ? "border-[#72AB20]"
@@ -216,6 +247,11 @@ const VideoGalleryContent = () => {
       >
         আরও ভিডিও দেখুন
       </Link>
+
+      {/* Video Modal Render */}
+      {modalVideoId && (
+        <VideoModal videoId={modalVideoId} onClose={closeVideoModal} />
+      )}
     </div>
   );
 };
@@ -227,9 +263,7 @@ const Gallery = () => {
   return (
     // Single Section wrapper with the requested background and border
     <section className="w-full py-15 bg-gray-200 border border-gray-400">
-      <h3 className="text-3xl font-bold text-gray-800  text-center pb-10">
-        - গ্যালারি - 
-      </h3>
+     
       <div className="mx-auto px-4 flex flex-col items-center">
         <PhotoGalleryContent />
         <VideoGalleryContent />

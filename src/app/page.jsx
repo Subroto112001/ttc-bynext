@@ -214,7 +214,7 @@ export default function Home() {
           <div className="px-2 py-3 w-full bg-gray-200 border border-gray-400">
             <p className="text-xl font-medium ">সকল খবর</p>
           </div>
-          <Gallery />
+
           <div className="flex flex-wrap justify-between gap-y-10">
             {allData.map((section, index) => (
               <div
@@ -250,6 +250,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <Gallery />
         </div>
 
         {/* ---------------- right side ---------------- */}
