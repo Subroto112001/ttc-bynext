@@ -8,11 +8,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: white;
-}
-
-.noto-serif-bengali {
   font-family: var(--font-noto-serif-bengali), serif;
 }
+
 .bg-wrapper {
   min-height: 100vh;
   background-image: url("https://file-dhaka.portal.gov.bd/media/central/themes/theme-default/img/bg_main.gif");
