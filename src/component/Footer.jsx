@@ -59,11 +59,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src={ranocoder.src}
-                  alt="ranocoder"
-                  className="w-20 md:w-24 h-auto"
-                />
+                <span className="font-semibold">র‌্যানোকোডার লি.</span>
               </a>
             </div>
 
@@ -78,7 +74,7 @@ const Footer = () => {
                 <img
                   src={ranocoder.src}
                   alt="ranocoder"
-                  className="w-16 md:w-20 h-auto"
+                  className="w-6 h-auto"
                 />
               </a>
             </div>
