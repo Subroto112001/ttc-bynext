@@ -1,27 +1,92 @@
-import React from 'react'
-import footer from "../assets/footer_image.png"
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import footer from "../assets/footer_image.png";
+import Image from "next/image";
+import Link from "next/link";
+import ranocoder from "../assets/creadi-logo/ranocoder-logo.png";
+
 const Footer = () => {
+  const footeritem = [
+    { name: "গোপনীয়তার নীতিমালা", link: "#" },
+    { name: "ব্যবহারের শর্তাবলী", link: "#" },
+    { name: "সাইট ম্যাপ", link: "#" },
+    { name: "সচরাচর জিজ্ঞাসা", link: "#" },
+  ];
+
   return (
-    <div className="pt-10 container">
-      <div>
-        <picture>
-          <Image src={footer} alt="footer" className="w-full" />
-        </picture>
-        <div className="bg-[#EBEBEB] flex justify-between items-center py-2 px-2">
-          <p className="text-[12px]">সাইটটি শেষ হাল-নাগাদ করা হয়েছে: ২০২৫</p>
-          <p className="text-[12px] text-center">
-            কারিগরি সহায়তায় :{" "}
-            <a href="https://ranocoder.com/">ranocoder Ltd.</a> &nbsp;|&nbsp;
-            <a href="https://skbarman.me" className="hover:text-gray-700">
-              Subroto
-            </a>
-          </p>
+    <footer className="w-full pt-10">
+      <div className="relative w-full">
+        {/* Footer Top Banner Image */}
+        <Image
+          src={footer}
+          alt="footer banner"
+          loading="lazy"
+          className="w-full h-auto block"
+        />
+
+        {/* Main Container */}
+        <div className="bg-[#EBEBEB] flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-6">
+          {/* Left Side: Links and Update Info */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3 w-full md:w-auto">
+            <ul className="flex flex-wrap justify-center md:justify-start gap-y-2 gap-x-3 md:gap-x-5 items-center text-[12px] md:text-[14px]">
+              {footeritem.map((item, index) => (
+                <li
+                  key={index}
+                  className="border-r border-gray-400 pr-3 last:border-0 last:pr-0"
+                >
+                  <Link
+                    href={item.link}
+                    className="hover:underline text-gray-800 transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="text-[11px] md:text-[12px] text-gray-600">
+              সাইটটি শেষ হাল-নাগাদ করা হয়েছে: ২০২৫
+            </p>
+          </div>
+
+          {/* Right Side: Technical Support Section */}
+          <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto border-t md:border-t-0 border-gray-300 pt-4 md:pt-0">
+            {/* Planning Section */}
+            <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-[13px] md:text-[14px]">
+              <span>পরিকল্পনা ও বাস্তবায়নে:</span>
+              <span className="font-semibold">টিটিসি পীরগঞ্জ</span>
+              <span className="hidden md:inline">|</span>
+              <a
+                href="https://ranocoder.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={ranocoder.src}
+                  alt="ranocoder"
+                  className="w-20 md:w-24 h-auto"
+                />
+              </a>
+            </div>
+
+            {/* Support Section */}
+            <div className="flex items-center justify-center md:justify-end gap-2 text-[11px] md:text-[12px]">
+              <span>কারিগরি সহায়তায়:</span>
+              <a
+                href="https://ranocoder.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={ranocoder.src}
+                  alt="ranocoder"
+                  className="w-16 md:w-20 h-auto grayscale hover:grayscale-0 transition-all"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;

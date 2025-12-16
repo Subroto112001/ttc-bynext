@@ -87,7 +87,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full ">
       <style>{`
         .simple-shadow {
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
