@@ -1,8 +1,9 @@
 "use client";
 
 import { galleryimages, galleryVideos } from "@/helper/GallerDataProvider";
-import Link from "next/link";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+
+
 
 // --- Modal for Image Preview ---
 const ImageModal = ({ src, onClose }) => {
@@ -32,7 +33,6 @@ const ImageModal = ({ src, onClose }) => {
 const VideoModal = ({ videoId, onClose }) => {
   if (!videoId) return null;
 
-  // YouTube embed URL with autoplay, muted (optional but good practice), and no related videos
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
 
   return (
@@ -65,17 +65,30 @@ const VideoModal = ({ videoId, onClose }) => {
   );
 };
 
-
 // 1. Photo Gallery Content
-
 const PhotoGalleryContent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef(null);
 
-  const imagesPerView = 3;
+  // Detect screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const imagesPerView = isMobile ? 1 : 3;
   const totalSlides = Math.max(0, galleryimages.length - imagesPerView);
-  const translateValue = currentIndex * (300 + 16); // 300px width + 16px gap
+
+  // Calculate translation
+  const translateValue = `${currentIndex * (-100 / imagesPerView)}%`;
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev >= totalSlides ? 0 : prev + 1));
@@ -98,39 +111,46 @@ const PhotoGalleryContent = () => {
   };
 
   return (
-    <div className="w-full  flex flex-col items-center gap-6">
+    <div className="w-full flex flex-col items-center gap-6">
       {/* Header */}
       <h3 className="text-2xl font-bold text-gray-800 border-b-4 border-[#72AB20] pb-1">
         গ্যালারি
       </h3>
 
       {/* Slider Container */}
-      <div className="relative w-full max-w-[948px] group">
+      <div className="relative w-full md:max-w-[948px] group">
         {/* Prev Button */}
         <button
           onClick={prevSlide}
-          className="absolute -left-4 md:-left-2 top-1/2 -translate-y-1/2 z-10 shadow-md bg-white hover:bg-[#72AB20] hover:text-white text-gray-700 p-3 rounded-full transition-all opacity-0 group-hover:opacity-100"
+          className="absolute left-2 md:-left-2 top-1/2 -translate-y-1/2 z-10 shadow-md bg-white hover:bg-[#72AB20] hover:text-white text-gray-700 p-2 md:p-3 rounded-full transition-all md:opacity-0 md:group-hover:opacity-100"
         >
           &#10094;
         </button>
 
         {/* Slides */}
-        <div className="overflow-hidden py-4">
+        <div className="overflow-hidden py-4 px-4 md:px-0" ref={containerRef}>
           <div
-            className="flex transition-transform duration-700 ease-in-out gap-4"
-            style={{ transform: `translateX(-${translateValue}px)` }}
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{
+              transform: `translateX(${translateValue})`,
+            }}
           >
             {galleryimages.map((item, index) => (
               <div
                 key={index}
-                className="shrink-0 w-[300px] h-[220px] cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
-                onClick={() => openModal(item.src)}
+                className="flex-shrink-0 px-2"
+                style={{ width: `${100 / imagesPerView}%` }}
               >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                />
+                <div
+                  className="w-full h-[220px] cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all bg-white"
+                  onClick={() => openModal(item.src)}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -139,18 +159,31 @@ const PhotoGalleryContent = () => {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute -right-4 md:-right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-[#72AB20] hover:text-white text-gray-700 p-3 rounded-full transition-all opacity-0 group-hover:opacity-100"
+          className="absolute right-2 md:-right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-[#72AB20] hover:text-white text-gray-700 p-2 md:p-3 rounded-full transition-all md:opacity-0 md:group-hover:opacity-100"
         >
           &#10095;
         </button>
       </div>
 
-      <Link
+      {/* Dots Indicator */}
+      <div className="flex gap-2">
+        {Array.from({ length: totalSlides + 1 }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentIndex ? "bg-[#72AB20] w-6" : "bg-gray-400"
+            }`}
+          />
+        ))}
+      </div>
+
+      <a
         href="#"
-        className="text-md font-medium bg-[#72AB20] text-white details-button"
+        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 rounded hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ছবি দেখুন
-      </Link>
+      </a>
 
       {isModalOpen && (
         <ImageModal src={selectedImage} onClose={() => setIsModalOpen(false)} />
@@ -159,13 +192,9 @@ const PhotoGalleryContent = () => {
   );
 };
 
-
 // 2. Video Gallery Content
-
 const VideoGalleryContent = () => {
-  // Default to the first video (for highlighting the thumbnail)
   const [mainVideo, setMainVideo] = useState(galleryVideos[0]);
-  // State for the video modal
   const [modalVideoId, setModalVideoId] = useState(null);
 
   const openVideoModal = (id) => {
@@ -177,21 +206,21 @@ const VideoGalleryContent = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center gap-8 mt-10 pt-10  border-t border-gray-300/50">
+    <div className="w-full max-w-5xl flex flex-col items-center gap-8 mt-10 pt-10 border-t border-gray-300/50">
       {/* Header */}
       <h3 className="text-2xl font-bold text-gray-800 border-b-4 border-[#72AB20] pb-1">
         ভিডিও
       </h3>
 
       {/* Layout: Main Video Top, List Bottom */}
-      <div className="w-full flex flex-col gap-6">
+      <div className="w-full flex flex-col gap-6 px-4 md:px-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {galleryVideos.map((video) => (
             <div
               key={video.id}
               onClick={() => {
-                setMainVideo(video); // Highlighting the selected thumbnail
-                openVideoModal(video.id); // Opening the video in a modal
+                setMainVideo(video);
+                openVideoModal(video.id);
               }}
               className={`cursor-pointer group relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all border-2 bg-white ${
                 mainVideo.id === video.id
@@ -241,12 +270,12 @@ const VideoGalleryContent = () => {
         </div>
       </div>
 
-      <Link
+      <a
         href="#"
-        className="text-md font-medium bg-[#72AB20] text-white details-button"
+        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 rounded hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ভিডিও দেখুন
-      </Link>
+      </a>
 
       {/* Video Modal Render */}
       {modalVideoId && (
@@ -261,9 +290,7 @@ const VideoGalleryContent = () => {
 // ==========================================
 const Gallery = () => {
   return (
-    // Single Section wrapper with the requested background and border
     <section className="w-full py-15 bg-gray-200 border border-gray-400">
-     
       <div className="mx-auto px-4 flex flex-col items-center">
         <PhotoGalleryContent />
         <VideoGalleryContent />

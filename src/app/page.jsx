@@ -167,7 +167,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* banner section */}
-      <section className="md:mt-[30px] py-2 md:py-4 flex justify-between flex-col md:flex-row">
+      <section className="md:mt-[30px] py-2 md:py-4 flex justify-between flex-col gap-3 md:gap-0 md:flex-row">
         {/* ---------------- left side ---------------- */}
         <div className="w-full md:max-w-[70%] flex flex-col gap-10">
           <div className="relative flex items-center gap-4 pl-[20px] md:pl-[100px] pb-10 p-3 bg-gray-200 border border-gray-400">
@@ -254,16 +254,22 @@ export default function Home() {
         </div>
 
         {/* ---------------- right side ---------------- */}
-        <div className="w-full md:max-w-[29%] flex flex-col gap-3 md:gap-10 bg-white">
+        <div className="w-full md:max-w-[29%] flex flex-col gap-3 md:gap-3 bg-white">
           <div className="flex flex-col gap-4 md:pr-0">
-            <Link href="#" className="image-link-wrapper">
+            <Link
+              href="#"
+              className="hover:scale-101 transition-transform duration-300"
+            >
               <Image
                 src={HomepageOtherImage.bangladesdirectory}
                 alt="bangladesdirectory"
-                className="hover-image"
+                className=""
               />
             </Link>
-            <Link href="#" className="image-link-wrapper">
+            <Link
+              href="#"
+              className="hover:scale-101 transition-transform duration-300"
+            >
               <Image
                 src={HomepageOtherImage.bkkb}
                 alt="bkkb"
@@ -278,7 +284,7 @@ export default function Home() {
               অধ্যক্ষের প্রোফাইল
             </span>
             <div className="flex flex-col gap-3 w-full justify-center items-center">
-              <div >
+              <div>
                 <Image
                   src={HompageBoxImage.Principal}
                   alt="অধ্যক্ষের প্রোফাইল"
@@ -305,19 +311,19 @@ export default function Home() {
           <div className="flex w-full justify-center md:justify-start items-center">
             <Link
               href={"/"}
-              className="border w-30 md:w-40 py-2 flex justify-center items-center text-center tab-button"
+              className="border w-30 md:w-40 py-2 flex justify-center items-center text-center "
             >
               চাকুরি কর্নার(0)
             </Link>
             <Link
               href={"/"}
-              className="border-t border-b w-30 py-2 flex justify-center items-center tab-button"
+              className="border-t border-b w-30 py-2 flex justify-center items-center"
             >
               দরপত্র(0)
             </Link>
             <Link
               href={"/"}
-              className="border w-30 py-2 flex justify-center items-center text-center tab-button"
+              className="border w-30 py-2 flex justify-center items-center text-center "
             >
               বিজ্ঞাপণ(0)
             </Link>
@@ -326,18 +332,18 @@ export default function Home() {
           <div className="flex flex-col gap-3 w-full">
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300"
             >
               <span>কেন্দ্রীয় ই-সেবা</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300"
             >
               <span>অভ্যন্তরীণ ই-সেবা</span>
             </Link>
           </div>
-
+          {/* map */}
           <div className="map-wrapper hover-lift">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4274.0629445469285!2d89.30276937538953!3d25.432855777560007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcdbeb0cb93f39%3A0x309d1aa90d28f57f!2sTechnical%20Training%20Centre%2C%20PIRGANJ!5e1!3m2!1sen!2sbd!4v1765613751222!5m2!1sen!2sbd"
@@ -352,25 +358,25 @@ export default function Home() {
           <div className="flex flex-col gap-3 w-full">
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300"
             >
               <span>ইনোভেশন কর্নার</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300"
             >
               <span>সামাজিক যোগাযোগ মাধ্যম</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300"
             >
               <span>সেবা সহজিকরণ</span>
             </Link>
             <Link
               href={"/"}
-              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] green-button"
+              className="text-center text-white font-semibold w-full py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300"
             >
               <span>সরকারি অফিস সংযুক্তির ফরম</span>
             </Link>

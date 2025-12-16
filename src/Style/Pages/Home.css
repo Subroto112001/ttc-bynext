@@ -94,39 +94,16 @@
   transform: translateX(4px);
 }
 
-/* Image Link Wrapper */
-.image-link-wrapper {
-  overflow: hidden;
-  border-radius: 0.25rem;
-  transition: transform 0.3s ease;
-  display: block;
-}
 
-.image-link-wrapper:hover {
-  transform: scale(1.05);
-}
+
 
 /* Hover Image Effect */
 .hover-image {
   transition: transform 0.5s ease;
 }
 
-.image-link-wrapper:hover .hover-image,
-.principal-image-wrapper:hover .hover-image,
-.hover-image:hover {
-  transform: scale(1.1);
-}
 
-/* Principal Image Wrapper */
-.principal-image-wrapper {
-  overflow: hidden;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease;
-}
 
-.principal-image-wrapper:hover {
-  transform: scale(1.05);
-}
 
 /* Details Button */
 .details-button {
