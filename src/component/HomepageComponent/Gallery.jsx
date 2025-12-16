@@ -5,9 +5,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 
  
 
- 
-
-// --- Modal for Image Preview ---
+ // Modal for Image Preview
 const ImageModal = ({ src, onClose }) => {
   return (
     <div
@@ -31,7 +29,7 @@ const ImageModal = ({ src, onClose }) => {
   );
 };
 
-// video modal
+// Video Modal
 const VideoModal = ({ videoId, onClose }) => {
   if (!videoId) return null;
 
@@ -67,7 +65,7 @@ const VideoModal = ({ videoId, onClose }) => {
   );
 };
 
-//  Photo Gallery Content
+// Photo Gallery Content
 const PhotoGalleryContent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,7 +73,6 @@ const PhotoGalleryContent = () => {
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
 
-  
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -86,12 +83,9 @@ const PhotoGalleryContent = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
- const displayImages = galleryimages.slice(-3);
+  const imagesPerView = 1;
+  const totalSlides = Math.max(0, galleryimages.length - imagesPerView);
 
- const imagesPerView = 1;
- const totalSlides = Math.max(0, displayImages.length - imagesPerView);
-
-  // Calculate translation
   const translateValue = `${currentIndex * (-100 / imagesPerView)}%`;
 
   const nextSlide = useCallback(() => {
@@ -102,7 +96,6 @@ const PhotoGalleryContent = () => {
     setCurrentIndex((prev) => (prev === 0 ? totalSlides : prev - 1));
   };
 
-  
   useEffect(() => {
     if (totalSlides <= 0) return;
     const interval = setInterval(nextSlide, 4000);
@@ -116,14 +109,11 @@ const PhotoGalleryContent = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-6">
-      {/* Header */}
       <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
         গ্যালারি
       </h3>
 
-      {/* Slider Container */}
       <div className="relative w-full max-w-4xl group">
-        {/* Prev Button */}
         <button
           onClick={prevSlide}
           className="absolute left-2 md:-left-2 top-1/2 -translate-y-1/2 z-10 shadow-md bg-white hover:bg-[#72AB20] hover:text-white text-gray-700 p-2 md:p-3 rounded-full transition-all md:opacity-0 md:group-hover:opacity-100"
@@ -131,7 +121,6 @@ const PhotoGalleryContent = () => {
           &#10094;
         </button>
 
-        {/* Slides */}
         <div className="overflow-hidden py-4 px-4 md:px-0" ref={containerRef}>
           <div
             className="flex transition-transform duration-700 ease-in-out"
@@ -160,7 +149,6 @@ const PhotoGalleryContent = () => {
           </div>
         </div>
 
-        {/* Next Button */}
         <button
           onClick={nextSlide}
           className="absolute right-2 md:-right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-[#72AB20] hover:text-white text-gray-700 p-2 md:p-3 rounded-full transition-all md:opacity-0 md:group-hover:opacity-100"
@@ -169,7 +157,6 @@ const PhotoGalleryContent = () => {
         </button>
       </div>
 
-      {/* Dots Indicator */}
       <div className="flex gap-2">
         {Array.from({ length: totalSlides + 1 }).map((_, index) => (
           <button
@@ -184,7 +171,7 @@ const PhotoGalleryContent = () => {
 
       <a
         href="#"
-        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2  hover:bg-[#5d8c1a] transition-colors"
+        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ছবি দেখুন
       </a>
@@ -196,10 +183,48 @@ const PhotoGalleryContent = () => {
   );
 };
 
-//  Video Gallery Content
+// Video Gallery Content with YouTube API
 const VideoGalleryContent = () => {
+  const [videos, setVideos] = useState(galleryVideos);
   const [mainVideo, setMainVideo] = useState(galleryVideos[0]);
   const [modalVideoId, setModalVideoId] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchYouTubeTitles = async () => {
+      try {
+        const videoIds = galleryVideos.map(v => v.id).join(',');
+        const response = await fetch(
+          `https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${galleryVideos[0].id}&format=json`
+        );
+        
+        // Fallback: fetch each video individually using oEmbed
+        const updatedVideos = await Promise.all(
+          galleryVideos.map(async (video) => {
+            try {
+              const res = await fetch(
+                `https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${video.id}&format=json`
+              );
+              const data = await res.json();
+              return { ...video, title: data.title || video.title };
+            } catch (err) {
+              console.error(`Failed to fetch title for ${video.id}:`, err);
+              return video;
+            }
+          })
+        );
+        
+        setVideos(updatedVideos);
+        setMainVideo(updatedVideos[0]);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching YouTube titles:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchYouTubeTitles();
+  }, []);
 
   const openVideoModal = (id) => {
     setModalVideoId(id);
@@ -210,16 +235,14 @@ const VideoGalleryContent = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center gap-8 ">
-      
+    <div className="w-full max-w-5xl flex flex-col items-center gap-8">
       <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
         ভিডিও
       </h3>
 
-     
       <div className="w-full flex flex-col gap-6 px-4 md:px-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {galleryVideos.map((video) => (
+          {videos.map((video) => (
             <div
               key={video.id}
               onClick={() => {
@@ -232,14 +255,13 @@ const VideoGalleryContent = () => {
                   : "border-transparent"
               }`}
             >
-              {/* Thumbnail */}
               <div className="aspect-video w-full relative">
                 <img
                   src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                   alt={video.title}
                   className="w-full h-full object-cover"
                 />
-               
+
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
                   <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center shadow-md">
                     <svg
@@ -257,7 +279,7 @@ const VideoGalleryContent = () => {
                   </div>
                 </div>
               </div>
-         
+
               <div className="p-2 bg-gray-50">
                 <p
                   className={`text-sm font-medium truncate ${
@@ -266,7 +288,7 @@ const VideoGalleryContent = () => {
                       : "text-gray-700"
                   }`}
                 >
-                  {video.title}
+                  {loading ? "Loading..." : video.title}
                 </p>
               </div>
             </div>
@@ -281,7 +303,6 @@ const VideoGalleryContent = () => {
         আরও ভিডিও দেখুন
       </a>
 
-      {/* Video Modal Render */}
       {modalVideoId && (
         <VideoModal videoId={modalVideoId} onClose={closeVideoModal} />
       )}
@@ -289,12 +310,10 @@ const VideoGalleryContent = () => {
   );
 };
 
-
-// Main Export Layout
-
+// Main Gallery Component
 const Gallery = () => {
   return (
-    <section className="mx-auto  flex gap-10 flex-col items-center">
+    <section className="mx-auto flex gap-10 flex-col items-center">
       <div className="w-full py-10 md:py-15 px-4 bg-gray-200 border border-gray-400">
         <PhotoGalleryContent />
       </div>

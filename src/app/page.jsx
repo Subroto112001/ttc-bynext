@@ -27,7 +27,7 @@ export default function Home() {
       data: [
         { id: 1, title: "সেবার তালিকা", url: "/" },
         { id: 2, title: "কি সেবা কিভাবে পাবেন", url: "/" },
-        { id: 3, title: "টিজেন চার্টার", url: "/" },
+        { id: 3, title: "সিটিজেন চার্টার", url: "/" },
         { id: 4, title: "সেবা কুঞ্জ", url: "/" },
       ],
     },
