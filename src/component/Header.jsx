@@ -188,10 +188,10 @@ const Header = () => {
         </div>
       </section>
 
-      {/* Navigation */}
+      {/* navigation */}
       <div className="bg-white relative">
         <div className="flex items-center justify-between md:justify-start bg-gray-100">
-          {/* Home Icon */}
+          {/* home Icon */}
           <a
             href="/"
             className="text-2xl md:text-2xl font-medium hover:text-white hover:bg-black transition-colors duration-200 flex items-center py-1"
@@ -201,7 +201,7 @@ const Header = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* desktop navigation */}
           <ul className="hidden md:flex md:items-center relative h-full">
             {navitem.map((item, index) => (
               <li
@@ -237,7 +237,7 @@ const Header = () => {
                   {item.name}
                 </a>
 
-                {/* Dropdown for About Us */}
+                {/* dropdown for about us */}
                 {item.name === "আমাদের সম্পর্কে" && isAboutUsOpen && (
                   <div className="flex ">
                     <div className="absolute top-full left-0 w-48 bg-white shadow-lg p-4 flex flex-col gap-2 border border-gray-200 z-50">
@@ -260,7 +260,7 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Mobile Hamburger Button */}
+          {/* mobile  button */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-3xl p-3 hover:bg-gray-100 transition-colors"
@@ -270,7 +270,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
+        {/* mobile menu  */}
         {isMenuOpen && (
           <div
             className="fixed inset-0 bg-transparent backdrop-blur-sm z-40 md:hidden"
@@ -278,7 +278,7 @@ const Header = () => {
           ></div>
         )}
 
-        {/* Mobile Menu Sidebar */}
+        {/* mobile  sidebar */}
         <div
           className={`fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -323,7 +323,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Hover Color Bar (Desktop Only) */}
+      {/* hover color for navitem*/}
       <div
         className="h-3 w-full hidden md:block transition-colors duration-200"
         style={{ backgroundColor: hoveredcolor || "white" }}

@@ -67,7 +67,7 @@ const VideoModal = ({ videoId, onClose }) => {
   );
 };
 
-// 1. Photo Gallery Content
+//  Photo Gallery Content
 const PhotoGalleryContent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,7 +75,7 @@ const PhotoGalleryContent = () => {
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
 
-  // Detect screen size
+  
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -102,7 +102,7 @@ const PhotoGalleryContent = () => {
     setCurrentIndex((prev) => (prev === 0 ? totalSlides : prev - 1));
   };
 
-  // Auto slide
+  
   useEffect(() => {
     if (totalSlides <= 0) return;
     const interval = setInterval(nextSlide, 4000);
@@ -196,7 +196,7 @@ const PhotoGalleryContent = () => {
   );
 };
 
-// 2. Video Gallery Content
+//  Video Gallery Content
 const VideoGalleryContent = () => {
   const [mainVideo, setMainVideo] = useState(galleryVideos[0]);
   const [modalVideoId, setModalVideoId] = useState(null);
@@ -211,12 +211,12 @@ const VideoGalleryContent = () => {
 
   return (
     <div className="w-full max-w-5xl flex flex-col items-center gap-8 ">
-      {/* Header */}
+      
       <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
         ভিডিও
       </h3>
 
-      {/* Layout: Main Video Top, List Bottom */}
+     
       <div className="w-full flex flex-col gap-6 px-4 md:px-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {galleryVideos.map((video) => (
@@ -239,7 +239,7 @@ const VideoGalleryContent = () => {
                   alt={video.title}
                   className="w-full h-full object-cover"
                 />
-                {/* Play Icon Overlay */}
+               
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
                   <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center shadow-md">
                     <svg
@@ -257,7 +257,7 @@ const VideoGalleryContent = () => {
                   </div>
                 </div>
               </div>
-              {/* Title */}
+         
               <div className="p-2 bg-gray-50">
                 <p
                   className={`text-sm font-medium truncate ${

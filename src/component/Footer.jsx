@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="w-full pt-10">
       <div className="relative w-full">
-        {/* Footer Top Banner Image */}
+        
         <Image
           src={footer}
           alt="footer banner"
@@ -23,9 +23,9 @@ const Footer = () => {
           className="w-full h-auto block"
         />
 
-        {/* Main Container */}
+     
         <div className="bg-[#EBEBEB] flex flex-col md:flex-row justify-between items-center py-6 px-4 md:px-10 gap-6">
-          {/* Left Side: Links and Update Info */}
+         
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3 w-full md:w-auto">
             <ul className="flex flex-wrap justify-center md:justify-start gap-y-2 gap-x-3 md:gap-x-5 items-center text-[12px] md:text-[14px]">
               {footeritem.map((item, index) => (
@@ -47,9 +47,9 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Right Side: Technical Support Section */}
+        
           <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto border-t md:border-t-0 border-gray-300 pt-4 md:pt-0">
-            {/* Planning Section */}
+      
             <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-[13px] md:text-[14px]">
               <span>পরিকল্পনা ও বাস্তবায়নে:</span>
               <span className="font-semibold">টিটিসি পীরগঞ্জ</span>
@@ -63,7 +63,7 @@ const Footer = () => {
               </a>
             </div>
 
-            {/* Support Section */}
+           
             <div className="flex items-center justify-center md:justify-end gap-2 text-[11px] md:text-[12px]">
               <span>কারিগরি সহায়তায়:</span>
               <a
