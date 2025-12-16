@@ -78,7 +78,7 @@ const Footer = () => {
                 <img
                   src={ranocoder.src}
                   alt="ranocoder"
-                  className="w-16 md:w-20 h-auto grayscale hover:grayscale-0 transition-all"
+                  className="w-16 md:w-20 h-auto"
                 />
               </a>
             </div>
