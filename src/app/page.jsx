@@ -39,7 +39,7 @@ export default function Home() {
         { id: 1, title: "এসেট (Asset)", url: "/" },
         { id: 2, title: "সিসিপ (SICIP)", url: "/" },
         { id: 3, title: "এনএইচআরডিএফ (NHRDF)", url: "/" },
-        { id: 4, title: "নিয়ম (Regular)", url: "/" },
+        { id: 4, title: "নিয়মিত (Regular)", url: "/" },
       ],
     },
     {
@@ -72,7 +72,7 @@ export default function Home() {
         { id: 1, title: "বিভাগীয় আইন", url: "/" },
         { id: 2, title: "বিধিমালা", url: "/" },
         { id: 3, title: "নীতিমালা", url: "/" },
-        { id: 4, title: "প্রজ্ঞাপণ ও পরিপত্র", url: "/" },
+        { id: 4, title: "প্রজ্ঞাপন ও পরিপত্র", url: "/" },
       ],
     },
     {
