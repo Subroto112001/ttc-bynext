@@ -64,7 +64,6 @@ const Page = () => {
     },
   ]);
 
-  // সংখ্যা বাংলায় রূপান্তরের ফাংশন
   const toBn = (num) => {
     const symbols = {
       0: "০",
@@ -78,7 +77,7 @@ const Page = () => {
       8: "৮",
       9: "৯",
     };
-    return num.toString().replace(/\d/g, (match) => symbols[match]);
+    return num?.toString().replace(/\d/g, (match) => symbols[match]);
   };
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -126,14 +125,14 @@ const Page = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <section className="md:mt-[30px] py-2 md:py-4 px-2 max-w-7xl mx-auto">
+      <section className="md:mt-[30px] py-4 px-4 max-w-7xl mx-auto">
         {/* শেয়ার সেকশন */}
-        <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0 mb-10">
-          <div className="flex flex-col gap-2 items-center md:items-start">
-            <p className="text-[#2C5F8D] text-[16px] md:text-[18px] font-medium text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
+          <div className="flex flex-col gap-3 items-center md:items-start w-full md:w-auto">
+            <p className="text-[#2C5F8D] text-[16px] md:text-[18px] font-medium">
               কনটেন্টটি শেয়ার করতে ক্লিক করুন
             </p>
-            <div className="flex gap-3 md:gap-5 items-center flex-wrap justify-center">
+            <div className="flex gap-4 md:gap-5 items-center flex-wrap justify-center">
               {socialIcons.map((socialIcon, index) => (
                 <button
                   className="hover:scale-110 transition-transform cursor-pointer"
@@ -145,15 +144,15 @@ const Page = () => {
               ))}
             </div>
           </div>
-          <button className="p-4 border rounded max-w-full md:max-w-[220px] text-[15px] md:text-[17px] font-medium text-center mx-auto md:mx-0">
+          <button className="w-full md:w-auto p-4 border rounded text-[15px] md:text-[17px] font-medium text-center hover:bg-gray-50 transition-colors">
             ফেইসবুক পেইজ ভিজিট ও লাইক দিন
           </button>
         </div>
 
-        {/* ফিল্টার এবং সার্চ */}
         <div className="mt-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
-            <div className="flex items-center gap-2 text-sm font-bold text-gray-700">
+        
+          <div className="grid grid-cols-1 md:flex md:flex-row md:items-center justify-between mb-6 gap-4">
+            <div className="flex items-center gap-2 text-sm font-bold text-gray-700 order-2 md:order-1">
               <span>প্রদর্শন</span>
               <select
                 value={entriesPerPage}
@@ -161,7 +160,7 @@ const Page = () => {
                   setEntriesPerPage(Number(e.target.value));
                   setCurrentPage(1);
                 }}
-                className="border border-gray-300 rounded px-2 py-1 focus:outline-none bg-white"
+                className="border border-gray-300 rounded px-2 py-1 focus:outline-none bg-white cursor-pointer"
               >
                 <option value={10}>১০</option>
                 <option value={20}>২০</option>
@@ -170,11 +169,12 @@ const Page = () => {
               <span>টি নোটিশ</span>
             </div>
 
-            <div className="flex items-center gap-2 text-sm font-bold text-gray-700">
-              <label>খুঁজুন:</label>
+            <div className="flex items-center gap-2 text-sm font-bold text-gray-700 order-1 md:order-2">
+              <label className="shrink-0">খুঁজুন:</label>
               <input
                 type="text"
-                className="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:border-blue-500"
+                className="w-full md:w-64 border border-gray-300 rounded px-3 py-1.5 focus:outline-none focus:border-blue-500 shadow-sm"
+                placeholder="শিরোনাম দিয়ে সার্চ করুন..."
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -184,15 +184,14 @@ const Page = () => {
             </div>
           </div>
 
-          {/* টেবিল */}
-          <div className="overflow-x-auto border border-gray-400">
-            <table className="w-full border-collapse">
+          <div className="overflow-x-auto border border-gray-400 ">
+            <table className="w-full border-collapse min-w-[700px]">
               <thead>
-                <tr className="border-b border-gray-400 bg-white">
+                <tr className="border-b border-gray-400 bg-gray-50">
                   <th className="border-r border-gray-400 px-4 py-3 text-center text-sm font-bold w-16">
                     ক্রমিক
                   </th>
-                  <th className="border-r border-gray-400 px-4 py-3 text-center text-sm font-bold">
+                  <th className="border-r border-gray-400 px-4 py-3 text-left text-sm font-bold">
                     শিরোনাম
                   </th>
                   <th className="border-r border-gray-400 px-4 py-3 text-center text-sm font-bold w-40">
@@ -207,24 +206,30 @@ const Page = () => {
                 {currentItems.map((notice, index) => (
                   <tr
                     key={notice.id}
-                    className="hover:bg-gray-50 transition-colors"
+                    className="hover:bg-blue-50/30 transition-colors"
                   >
-                    <td className="border-r border-gray-300 px-4 py-3 text-center text-[15px]">
+                    <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px]">
                       {toBn(indexOfFirstItem + index + 1)}
                     </td>
-                    <td className="border-r border-gray-300 px-4 py-3 text-left text-[15px] leading-relaxed">
-                      {notice.title}
+                    <td className="border-r border-gray-300 px-4 py-4 text-[15px] max-w-[300px] md:max-w-[500px]">
+                  
+                      <div
+                        className="truncate font-medium text-gray-800"
+                        title={notice.title}
+                      >
+                        {notice.title}
+                      </div>
                     </td>
-                    <td className="border-r border-gray-300 px-4 py-3 text-center text-[15px]">
+                    <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px] text-gray-600">
                       {notice.date}
                     </td>
-                    <td className="px-4 py-3 text-center">
+                    <td className="px-4 py-4 text-center">
                       <button
                         onClick={() => handleDownload(notice.file)}
-                        className="flex justify-center w-full"
+                        className="inline-flex items-center justify-center p-2 rounded-full hover:bg-red-50 transition-colors group"
                       >
                         <FaFilePdf
-                          className="text-[#D32F2F] hover:scale-110 transition-transform"
+                          className="text-[#D32F2F] group-hover:scale-110 transition-transform"
                           size={24}
                         />
                       </button>
@@ -235,51 +240,58 @@ const Page = () => {
             </table>
           </div>
 
-          {/* প্যাগিনেশন ফুটার */}
-          <div className="mt-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
-            <p className="text-sm text-gray-600">
+         
+          <div className="mt-6 flex flex-col lg:flex-row items-center justify-between gap-6 mb-10">
+            <p className="text-[15px] text-gray-600 font-medium text-center md:text-left">
               {toBn(filteredNotices.length)} টি নোটিশের মধ্যে{" "}
-              {toBn(filteredNotices.length > 0 ? indexOfFirstItem + 1 : 0)} থেকে{" "}
-              {toBn(Math.min(indexOfLastItem, filteredNotices.length))} পর্যন্ত
-              দেখানো হচ্ছে
+              <span className="text-gray-900">
+                {toBn(filteredNotices.length > 0 ? indexOfFirstItem + 1 : 0)}
+              </span>{" "}
+              থেকে{" "}
+              <span className="text-gray-900">
+                {toBn(Math.min(indexOfLastItem, filteredNotices.length))}
+              </span>{" "}
+              পর্যন্ত দেখানো হচ্ছে
             </p>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 flex-wrap justify-center">
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className={`px-4 py-2 border rounded text-sm ${
+                className={`px-3 py-2 border rounded text-sm transition-all ${
                   currentPage === 1
-                    ? "text-gray-300 cursor-not-allowed"
-                    : "hover:bg-gray-100"
+                    ? "text-gray-300 bg-gray-50 cursor-not-allowed"
+                    : "hover:bg-gray-100 text-[#2C5F8D] border-[#2C5F8D]"
                 }`}
               >
                 আগেরটি
               </button>
 
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`px-4 py-2 border rounded text-sm ${
-                    currentPage === i + 1
-                      ? "bg-[#2C5F8D] text-white font-bold"
-                      : "hover:bg-gray-100 text-gray-700"
-                  }`}
-                >
-                  {toBn(i + 1)}
-                </button>
-              ))}
+              <div className="flex gap-1 overflow-x-auto max-w-[200px] sm:max-w-none no-scrollbar">
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentPage(i + 1)}
+                    className={`min-w-[40px] px-3 py-2 border rounded text-sm transition-all font-bold ${
+                      currentPage === i + 1
+                        ? "bg-[#2C5F8D] text-white border-[#2C5F8D]"
+                        : "hover:bg-gray-100 text-gray-700"
+                    }`}
+                  >
+                    {toBn(i + 1)}
+                  </button>
+                ))}
+              </div>
 
               <button
                 onClick={() =>
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
                 disabled={currentPage === totalPages || totalPages === 0}
-                className={`px-4 py-2 border rounded text-sm ${
+                className={`px-3 py-2 border rounded text-sm transition-all ${
                   currentPage === totalPages || totalPages === 0
-                    ? "text-gray-300 cursor-not-allowed"
-                    : "hover:bg-gray-100"
+                    ? "text-gray-300 bg-gray-50 cursor-not-allowed"
+                    : "hover:bg-gray-100 text-[#2C5F8D] border-[#2C5F8D]"
                 }`}
               >
                 পরবর্তী
