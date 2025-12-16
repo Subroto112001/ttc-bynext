@@ -117,7 +117,7 @@ const PhotoGalleryContent = () => {
   return (
     <div className="w-full flex flex-col items-center gap-6">
       {/* Header */}
-      <h3 className="text-2xl font-bold text-gray-800 border-b-4 border-[#72AB20] pb-1">
+      <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
         গ্যালারি
       </h3>
 
@@ -184,7 +184,7 @@ const PhotoGalleryContent = () => {
 
       <a
         href="#"
-        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 rounded hover:bg-[#5d8c1a] transition-colors"
+        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2  hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ছবি দেখুন
       </a>
@@ -210,9 +210,9 @@ const VideoGalleryContent = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl flex flex-col items-center gap-8 mt-10 pt-10 border-t border-gray-300/50">
+    <div className="w-full max-w-5xl flex flex-col items-center gap-8 ">
       {/* Header */}
-      <h3 className="text-2xl font-bold text-gray-800 border-b-4 border-[#72AB20] pb-1">
+      <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
         ভিডিও
       </h3>
 
@@ -276,7 +276,7 @@ const VideoGalleryContent = () => {
 
       <a
         href="#"
-        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 rounded hover:bg-[#5d8c1a] transition-colors"
+        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ভিডিও দেখুন
       </a>
@@ -294,9 +294,11 @@ const VideoGalleryContent = () => {
 
 const Gallery = () => {
   return (
-    <section className="w-full py-15 bg-gray-200 border border-gray-400">
-      <div className="mx-auto px-4 flex flex-col items-center">
+    <section className="mx-auto  flex gap-10 flex-col items-center">
+      <div className="w-full py-10 md:py-15 px-4 bg-gray-200 border border-gray-400">
         <PhotoGalleryContent />
+      </div>
+      <div className="w-full py-10 md:py-15 px-4 bg-gray-200 border border-gray-400">
         <VideoGalleryContent />
       </div>
     </section>
