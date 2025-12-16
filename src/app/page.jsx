@@ -219,7 +219,7 @@ export default function Home() {
             {allData.map((section, index) => (
               <div
                 key={index}
-                className="w-[410px] bg-gray-200 border border-gray-400 px-2 py-3"
+                className="w-full md:w-[410px] bg-gray-200 border border-gray-400 px-2 py-3"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <h3 className="text-lg font-medium transition-colors duration-300">
