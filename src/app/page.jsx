@@ -274,15 +274,15 @@ export default function Home() {
 
           {/* principal information */}
           <div className="flex flex-col gap-3 w-full justify-center md:justify-start items-center ">
-            <span className="text-center font-semibold w-full py-2 text-white bg-[#72AB20] green-button">
+            <span className="text-center font-semibold w-full py-2 text-white bg-[#72AB20] ">
               অধ্যক্ষের প্রোফাইল
             </span>
             <div className="flex flex-col gap-3 w-full justify-center items-center">
-              <div className="principal-image-wrapper">
+              <div >
                 <Image
                   src={HompageBoxImage.Principal}
                   alt="অধ্যক্ষের প্রোফাইল"
-                  className="w-[200px] hover-image"
+                  className="w-[200px] h-[250px] object-cover rounded-md"
                 />
               </div>
               <div className="flex gap-2 flex-col justify-center items-center">
