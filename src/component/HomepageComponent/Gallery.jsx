@@ -86,8 +86,10 @@ const PhotoGalleryContent = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const imagesPerView = 1;
-  const totalSlides = Math.max(0, galleryimages.length - imagesPerView);
+ const displayImages = galleryimages.slice(-3);
+
+ const imagesPerView = 1;
+ const totalSlides = Math.max(0, displayImages.length - imagesPerView);
 
   // Calculate translation
   const translateValue = `${currentIndex * (-100 / imagesPerView)}%`;
