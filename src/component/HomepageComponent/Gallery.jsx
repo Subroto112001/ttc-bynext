@@ -1,11 +1,10 @@
 "use client";
 
 import { galleryimages, galleryVideos } from "@/helper/GallerDataProvider";
+import Link from "next/link";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
- 
-
- // Modal for Image Preview
+// Modal for Image Preview
 const ImageModal = ({ src, onClose }) => {
   return (
     <div
@@ -169,12 +168,12 @@ const PhotoGalleryContent = () => {
         ))}
       </div>
 
-      <a
-        href="#"
+      <Link
+        href="/gallery"
         className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ছবি দেখুন
-      </a>
+      </Link>
 
       {isModalOpen && (
         <ImageModal src={selectedImage} onClose={() => setIsModalOpen(false)} />
@@ -193,11 +192,11 @@ const VideoGalleryContent = () => {
   useEffect(() => {
     const fetchYouTubeTitles = async () => {
       try {
-        const videoIds = galleryVideos.map(v => v.id).join(',');
+        const videoIds = galleryVideos.map((v) => v.id).join(",");
         const response = await fetch(
           `https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=${galleryVideos[0].id}&format=json`
         );
-        
+
         // Fallback: fetch each video individually using oEmbed
         const updatedVideos = await Promise.all(
           galleryVideos.map(async (video) => {
@@ -213,12 +212,12 @@ const VideoGalleryContent = () => {
             }
           })
         );
-        
+
         setVideos(updatedVideos);
         setMainVideo(updatedVideos[0]);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching YouTube titles:', error);
+        console.error("Error fetching YouTube titles:", error);
         setLoading(false);
       }
     };
@@ -295,13 +294,12 @@ const VideoGalleryContent = () => {
           ))}
         </div>
       </div>
-
-      <a
-        href="#"
+      <Link
+        href="/gallery"
         className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 hover:bg-[#5d8c1a] transition-colors"
       >
         আরও ভিডিও দেখুন
-      </a>
+      </Link>
 
       {modalVideoId && (
         <VideoModal videoId={modalVideoId} onClose={closeVideoModal} />
