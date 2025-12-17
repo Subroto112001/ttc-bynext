@@ -93,7 +93,7 @@ export default function SingleVideoAlbumPage() {
                   alt={video.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center hover:bg-opacity-50 transition-all">
+                <div className="absolute inset-0  flex items-center justify-center hover:bg-opacity-50 transition-all">
                   <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center transform hover:scale-110 transition-transform">
                     <svg
                       className="w-8 h-8 text-green-600 ml-1"

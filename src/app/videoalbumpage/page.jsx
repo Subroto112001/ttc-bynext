@@ -45,7 +45,7 @@ export default function VideoAlbumsPage() {
                   alt={album.title}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center hover:bg-opacity-40 transition-all">
+                <div className="absolute inset-0  flex items-center justify-center hover:bg-opacity-40 transition-all">
                   <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
                     <svg
                       className="w-8 h-8 text-green-600 ml-1"
