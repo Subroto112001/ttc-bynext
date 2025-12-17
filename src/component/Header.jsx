@@ -13,7 +13,11 @@ const Header = () => {
     { name: "নিবন্ধন", link: "#", color: "#84154d" },
     { name: "ব্যবস্থাপনা", link: "#", color: "#098346" },
     { name: "গ্যালারি", link: "/gallery", color: "#1399be" },
-    { name: "ভিডিও", link: "/videoalbumpage", color: "#1371be" },
+    {
+      name: "ভিডিও",
+      link: "/videos",
+      color: "#1371be",
+    },
     { name: "যোগাযোগ", link: "#", color: "#8768de" },
     { name: "নোটিশ", link: "/notice", color: "#555555" },
   ];
