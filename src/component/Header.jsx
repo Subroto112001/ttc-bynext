@@ -12,7 +12,7 @@ const Header = () => {
     { name: "কোর্স সমূহ", link: "#", color: "#c40a2a" },
     { name: "নিবন্ধন", link: "#", color: "#84154d" },
     { name: "ব্যবস্থাপনা", link: "#", color: "#098346" },
-    { name: "গ্যালারি", link: "#", color: "#1399be" },
+    { name: "গ্যালারি", link: "/gallery", color: "#1399be" },
     { name: "যোগাযোগ", link: "#", color: "#8768de" },
     { name: "নোটিশ", link: "/notice", color: "#555555" },
   ];
@@ -124,28 +124,37 @@ const Header = () => {
                     onClick={() => handleShare("facebook")}
                     className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors flex items-center gap-2"
                   >
-                    <span className="text-blue-600">{iconprovider.facebook}</span>{" "}
+                    <span className="text-blue-600">
+                      {iconprovider.facebook}
+                    </span>{" "}
                     Facebook
                   </button>
                   <button
                     onClick={() => handleShare("twitter")}
                     className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors flex items-center gap-2"
                   >
-                    <span className="text-sky-500">{iconprovider.twitter}</span> Twitter
+                    <span className="text-sky-500">{iconprovider.twitter}</span>{" "}
+                    Twitter
                   </button>
                   <button
                     onClick={() => handleShare("linkedin")}
                     className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors flex items-center gap-2"
                   >
-                    <span className="text-blue-700">{iconprovider.linkedin}</span> LinkedIn
+                    <span className="text-blue-700">
+                      {iconprovider.linkedin}
+                    </span>{" "}
+                    LinkedIn
                   </button>
                   <button
                     onClick={() => handleShare("whatsapp")}
                     className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors flex items-center gap-2"
                   >
-                    <span className="text-green-500">{iconprovider.whatsapp}</span> WhatsApp
+                    <span className="text-green-500">
+                      {iconprovider.whatsapp}
+                    </span>{" "}
+                    WhatsApp
                   </button>
-                 
+
                   <div className="border-t border-gray-200 my-1"></div>
                   <button
                     onClick={() => handleShare("copy")}
@@ -162,7 +171,9 @@ const Header = () => {
 
       {/* Portal Link Section */}
       <div className="bg-white px-4 py-2 text-xs md:text-sm border-b border-gray-300">
-        <Link href="#" className="text-gray-600">সরকারি অন্যান্য পোর্টাল দেখুন</Link>
+        <Link href="#" className="text-gray-600">
+          সরকারি অন্যান্য পোর্টাল দেখুন
+        </Link>
       </div>
 
       {/* Banner Section */}
