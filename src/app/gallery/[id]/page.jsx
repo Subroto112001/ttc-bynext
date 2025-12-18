@@ -4,7 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { FaChevronRight } from "react-icons/fa";
-
+const toBengaliDate = (dateString) => {
+  const digits = {
+    0: "০",
+    1: "১",
+    2: "২",
+    3: "৩",
+    4: "৪",
+    5: "৫",
+    6: "৬",
+    7: "৭",
+    8: "৮",
+    9: "৯",
+  };
+  return dateString.replace(/[0-9]/g, (w) => digits[w]).replace(/-/g, "/");
+};
 export default function AlbumDetailPage() {
   const { id } = useParams();
 
@@ -72,9 +86,8 @@ export default function AlbumDetailPage() {
                       group-hover:translate-y-0 
                       transition-transform duration-300"
                   >
-                    <p className="text-sm font-medium ">
-                      {image.caption}
-                    </p>
+                    <p className="text-sm font-medium ">{image.caption}</p>
+                    <p className="text-sm font-medium ">{toBengaliDate(image.uploadDate)}</p>
                   </div>
                 </div>
               )}

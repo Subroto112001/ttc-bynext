@@ -1,7 +1,21 @@
 "use client";
 import { albums } from "@/helper/GallerDataProvider";
 import Link from "next/link";
-
+const toBengaliDate = (dateString) => {
+  const digits = {
+    0: "০",
+    1: "১",
+    2: "২",
+    3: "৩",
+    4: "৪",
+    5: "৫",
+    6: "৬",
+    7: "৭",
+    8: "৮",
+    9: "৯",
+  };
+  return dateString.replace(/[0-9]/g, (w) => digits[w]).replace(/-/g, "/");
+};
 export default function GalleryPage() {
   return (
     <div className="min-h-screen">
