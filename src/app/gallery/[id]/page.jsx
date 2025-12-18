@@ -3,6 +3,7 @@ import { albums } from "@/helper/GallerDataProvider";
 import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import {  FaChevronRight } from "react-icons/fa";
 
 export default function AlbumDetailPage() {
   const { id } = useParams();
@@ -22,7 +23,13 @@ export default function AlbumDetailPage() {
       <section className="bg-gray-50  shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">গ্যালারি &gt; {album.title}</h1>
+            <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+              গ্যালারি
+              <span className="font-normal">
+                <FaChevronRight />
+              </span>
+              {album.title}
+            </h1>
             <p className="text-sm text-gray-600">
               মোট ছবি: {album.images.length}
             </p>
