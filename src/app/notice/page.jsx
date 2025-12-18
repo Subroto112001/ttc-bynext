@@ -1,15 +1,11 @@
 "use client";
 
+import ContentShare from "@/component/ContentShare";
 import React, { useState, useMemo } from "react";
 import {
-  FaFacebook,
-  FaWhatsapp,
-  FaTwitter,
-  FaLinkedin,
-  FaViber,
   FaFilePdf,
 } from "react-icons/fa";
-import { FaFacebookMessenger } from "react-icons/fa6";
+
 
 const Page = () => {
   const [notices] = useState([
@@ -99,55 +95,13 @@ const Page = () => {
     alert(`ডাউনলোড হচ্ছে: ${fileName}`);
   };
 
-  const socialIcons = [
-    {
-      name: "facebook",
-      icon: <FaFacebook className="text-[#1877F2]" size={28} />,
-    },
-    {
-      name: "whatsapp",
-      icon: <FaWhatsapp className="text-[#25D366]" size={28} />,
-    },
-    {
-      name: "twitter",
-      icon: <FaTwitter className="text-[#1DA1F2]" size={28} />,
-    },
-    {
-      name: "linkedin",
-      icon: <FaLinkedin className="text-[#0A66C2]" size={28} />,
-    },
-    { name: "viber", icon: <FaViber className="text-[#7360F2]" size={28} /> },
-    {
-      name: "messenger",
-      icon: <FaFacebookMessenger className="text-[#0084FF]" size={28} />,
-    },
-  ];
+ 
 
   return (
     <div className="bg-white min-h-screen">
       <section className="md:mt-[30px] py-4 px-4 max-w-7xl mx-auto">
         {/* শেয়ার সেকশন */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
-          <div className="flex flex-col gap-3 items-center md:items-start w-full md:w-auto">
-            <p className="text-[#2C5F8D] text-[16px] md:text-[18px] font-medium">
-              কনটেন্টটি শেয়ার করতে ক্লিক করুন
-            </p>
-            <div className="flex gap-4 md:gap-5 items-center flex-wrap justify-center">
-              {socialIcons.map((socialIcon, index) => (
-                <button
-                  className="hover:scale-110 transition-transform cursor-pointer"
-                  key={index}
-                  aria-label={socialIcon.name}
-                >
-                  {socialIcon.icon}
-                </button>
-              ))}
-            </div>
-          </div>
-          <button className="w-full md:w-auto p-4 border rounded text-[15px] md:text-[17px] font-medium text-center hover:bg-gray-50 transition-colors">
-            ফেইসবুক পেইজ ভিজিট ও লাইক দিন
-          </button>
-        </div>
+      <ContentShare/>
 
         <div className="mt-8">
         
