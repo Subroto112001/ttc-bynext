@@ -2,6 +2,7 @@
 
 import ContentShare from "@/component/ContentShare";
 import { principalData, staffData } from "@/helper/Information";
+import Link from "next/link";
 import React, { useState } from "react";
 
 
@@ -42,7 +43,6 @@ const Page = () => {
               </select>
             </div>
 
-          
             <div className="overflow-x-auto border-l border-t border-gray-900  shadow-sm">
               <table className="w-full text-left border-collapse bg-white">
                 <thead>
@@ -75,12 +75,14 @@ const Page = () => {
                         </div>
                       </td>
                       <td className="p-3 border-r align-middle">
-                        <div className="text-blue-700 font-bold">
-                          {member.name.en}
-                        </div>
-                        <div className="text-sm text-gray-600 mt-1">
-                          {member.name.bn}
-                        </div>
+                        <Link href={`/staff/${member.id}`} className="group">
+                          <div className="text-blue-700 font-bold group-hover:underline cursor-pointer">
+                            {member.name.en}
+                          </div>
+                          <div className="text-sm text-gray-600 mt-1">
+                            {member.name.bn}
+                          </div>
+                        </Link>
                       </td>
                       <td className="p-3 border-r text-sm align-middle">
                         {member.role.en}
