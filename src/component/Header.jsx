@@ -12,7 +12,7 @@ const Header = () => {
     { name: "কোর্স সমূহ", link: "/course", color: "#c40a2a" },
     { name: "নিবন্ধন", link: "#", color: "#84154d" },
     { name: "ব্যবস্থাপনা", link: "/management", color: "#098346" },
-    { name: "গ্যালারি", link: "/gallery", color: "#1399be" },
+    { name: "ছবি-গ্যালারি", link: "/gallery", color: "#1399be" },
     {
       name: "ভিডিও",
       link: "/videos",

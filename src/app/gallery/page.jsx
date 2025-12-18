@@ -17,7 +17,7 @@ export default function GalleryPage() {
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {albums.map((album) => (
-            /* এখানে href="/gallery/${album.id}" ব্যবহার করুন */
+           
             <Link key={album.id} href={`/gallery/${album.id}`}>
               <div className="bg-white shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-video overflow-hidden">

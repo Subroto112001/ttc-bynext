@@ -7,7 +7,7 @@ import {  FaChevronRight } from "react-icons/fa";
 
 export default function AlbumDetailPage() {
   const { id } = useParams();
-  // id সাধারণত স্ট্রিং হিসেবে আসে, তাই ডেটার সাথে টাইপ চেক করে নিন
+ 
   const album = albums.find((a) => String(a.id) === String(id));
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -23,14 +23,14 @@ export default function AlbumDetailPage() {
       <section className="bg-gray-50  shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+            <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
               গ্যালারি
-              <span className="font-normal">
+              <span className="">
                 <FaChevronRight />
               </span>
               {album.title}
             </h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 mt-1">
               মোট ছবি: {album.images.length}
             </p>
           </div>
@@ -61,7 +61,7 @@ export default function AlbumDetailPage() {
         </div>
       </main>
 
-      {/* মডাল সেকশন */}
+      {/* modal is here */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
