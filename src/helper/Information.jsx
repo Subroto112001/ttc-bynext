@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 
 // সকল কোর্সের ইনফরমেশন এখানে সংরক্ষিত থাকবে
 export const courseData = [
@@ -55,7 +57,6 @@ export const principalData = {
   email: "principal@ttcpirganj.com",
   img: "https://ttcpirganj.com/wp-content/uploads/2025/11/Principal-sir-pic-1617x2048.jpg",
 };
-
 
 // স্টাফদের ইনফরমেশন এখানে সংরক্ষিত থাকবে
 export const staffData = [
@@ -159,5 +160,57 @@ export const staffData = [
     phone: "01751-849925",
     email: "info@ttcpirganj.com",
     img: "https://ttcpirganj.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-20-at-02.43.25_9ba5c1d0-266x300.jpg",
+  },
+];
+// নোটিশ বোর্ডের ইনফরমেশন এখানে সংরক্ষিত থাকবে
+export const notices = [
+  {
+    id: 1,
+    title: "২০২৪-২৫ অর্থবছরের উন্নয়ন প্রকল্পের দরপত্র আহ্বান",
+    date: "২০২৫-১২-১৫",
+    category: "দরপত্র",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
+  },
+  {
+    id: 2,
+    title: "সরকারি চাকরিতে নিয়োগ বিজ্ঞপ্তি",
+    date: "২০২৫-১২-১২",
+    category: "নিয়োগ",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
+  },
+  {
+    id: 3,
+    title: "জাতীয় ছুটির তালিকা ২০২৫",
+    date: "২০২৫-১২-১০",
+    category: "প্রজ্ঞাপন",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
+  },
+  {
+    id: 4,
+    title: "বার্ষিক কর্মসম্পাদন চুক্তি সংক্রান্ত নির্দেশনা",
+    date: "২০২৫-১২-০৮",
+    category: "নির্দেশনা",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
+  },
+  {
+    id: 5,
+    title: "স্থানীয় সরকার নির্বাচন সংক্রান্ত বিজ্ঞপ্তি",
+    date: "২০২৫-১২-০৫",
+    category: "বিজ্ঞপ্তি",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
+  },
+  {
+    id: 6,
+    title: "ডিজিটাল সেবা সংক্রান্ত প্রশিক্ষণ কর্মসূচি",
+    date: "২০২৫-১২-০৩",
+    category: "প্রশিক্ষণ",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
+  },
+  {
+    id: 7,
+    title: "উপদেষ্টা পরিষদের ধন্যবাদ প্রস্তাব",
+    date: "২০২৫-১২-১৫",
+    category: "প্রজ্ঞাপন",
+    file: "https://ttcpirganj.com/wp-content/uploads/2024/08/450127365_438033905802750_888066334915262110_n.pdf",
   },
 ];

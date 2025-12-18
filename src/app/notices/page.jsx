@@ -1,65 +1,12 @@
 "use client";
 
 import ContentShare from "@/component/ContentShare";
+import { notices } from "@/helper/Information";
+import Link from "next/link";
 import React, { useState, useMemo } from "react";
-import {
-  FaFilePdf,
-} from "react-icons/fa";
-
+import { FaFilePdf } from "react-icons/fa";
 
 const Page = () => {
-  const [notices] = useState([
-    {
-      id: 1,
-      title: "২০২৪-২৫ অর্থবছরের উন্নয়ন প্রকল্পের দরপত্র আহ্বান",
-      date: "২০২৫-১২-১৫",
-      category: "দরপত্র",
-      file: "দরপত্র_২০২৫.pdf",
-    },
-    {
-      id: 2,
-      title: "সরকারি চাকরিতে নিয়োগ বিজ্ঞপ্তি",
-      date: "২০২৫-১২-১২",
-      category: "নিয়োগ",
-      file: "নিয়োগ_বিজ্ঞপ্তি.pdf",
-    },
-    {
-      id: 3,
-      title: "জাতীয় ছুটির তালিকা ২০২৫",
-      date: "২০২৫-১২-১০",
-      category: "প্রজ্ঞাপন",
-      file: "ছুটির_তালিকা.pdf",
-    },
-    {
-      id: 4,
-      title: "বার্ষিক কর্মসম্পাদন চুক্তি সংক্রান্ত নির্দেশনা",
-      date: "২০২৫-১২-০৮",
-      category: "নির্দেশনা",
-      file: "এপিএ_নির্দেশনা.pdf",
-    },
-    {
-      id: 5,
-      title: "স্থানীয় সরকার নির্বাচন সংক্রান্ত বিজ্ঞপ্তি",
-      date: "২০২৫-১২-০৫",
-      category: "বিজ্ঞপ্তি",
-      file: "নির্বাচন_বিজ্ঞপ্তি.pdf",
-    },
-    {
-      id: 6,
-      title: "ডিজিটাল সেবা সংক্রান্ত প্রশিক্ষণ কর্মসূচি",
-      date: "২০২৫-১২-০৩",
-      category: "প্রশিক্ষণ",
-      file: "প্রশিক্ষণ_তথ্য.pdf",
-    },
-    {
-      id: 7,
-      title: "উপদেষ্টা পরিষদের ধন্যবাদ প্রস্তাব",
-      date: "২০২৫-১২-১৫",
-      category: "প্রজ্ঞাপন",
-      file: "doc1.pdf",
-    },
-  ]);
-
   const toBn = (num) => {
     const symbols = {
       0: "০",
@@ -84,7 +31,7 @@ const Page = () => {
     return notices.filter((n) =>
       n.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [notices, searchTerm]);
+  }, [searchTerm]);
 
   const totalPages = Math.ceil(filteredNotices.length / entriesPerPage);
   const indexOfLastItem = currentPage * entriesPerPage;
@@ -92,19 +39,27 @@ const Page = () => {
   const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem);
 
   const handleDownload = (fileName) => {
-    alert(`ডাউনলোড হচ্ছে: ${fileName}`);
+    const fileUrl = fileName.startsWith("http")
+      ? fileName
+      : `/notices/${fileName}`;
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", fileName);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
- 
+  const getPdfUrl = (file) => {
+    return file.startsWith("http") ? file : `/notices/${file}`;
+  };
 
   return (
     <div className="bg-white min-h-screen">
       <section className="md:mt-[30px] py-4 px-4 max-w-7xl mx-auto">
-        {/* শেয়ার সেকশন */}
-      <ContentShare/>
+        <ContentShare />
 
         <div className="mt-8">
-        
           <div className="grid grid-cols-1 md:flex md:flex-row md:items-center justify-between mb-6 gap-4">
             <div className="flex items-center gap-2 text-sm font-bold text-gray-700 order-2 md:order-1">
               <span>প্রদর্শন</span>
@@ -128,7 +83,7 @@ const Page = () => {
               <input
                 type="text"
                 className="w-full md:w-64 border border-gray-300 rounded px-3 py-1.5 focus:outline-none focus:border-blue-500 shadow-sm"
-                placeholder="শিরোনাম দিয়ে সার্চ করুন..."
+                placeholder="শিরোনাম দিয়ে সার্চ করুন..."
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -166,13 +121,15 @@ const Page = () => {
                       {toBn(indexOfFirstItem + index + 1)}
                     </td>
                     <td className="border-r border-gray-300 px-4 py-4 text-[15px] max-w-[300px] md:max-w-[500px]">
-                  
-                      <div
-                        className="truncate font-medium text-gray-800"
+                      <Link
+                        href={getPdfUrl(notice.file)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="truncate font-medium text-gray-800 hover:text-blue-600 cursor-pointer"
                         title={notice.title}
                       >
                         {notice.title}
-                      </div>
+                      </Link>
                     </td>
                     <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px] text-gray-600">
                       {notice.date}
@@ -194,7 +151,6 @@ const Page = () => {
             </table>
           </div>
 
-         
           <div className="mt-6 flex flex-col lg:flex-row items-center justify-between gap-6 mb-10">
             <p className="text-[15px] text-gray-600 font-medium text-center md:text-left">
               {toBn(filteredNotices.length)} টি নোটিশের মধ্যে{" "}

@@ -19,7 +19,7 @@ const Header = () => {
       color: "#1371be",
     },
     { name: "যোগাযোগ", link: "#", color: "#8768de" },
-    { name: "নোটিশ", link: "/notice", color: "#555555" },
+    { name: "নোটিশ", link: "/notices", color: "#555555" },
   ];
 
   const aboutus = [

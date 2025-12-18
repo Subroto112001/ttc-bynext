@@ -33,7 +33,7 @@ const PersonDetailPage = () => {
         {/* Navigation */}
         <button
           onClick={() => router.back()}
-          className="mb-6 flex items-center text-blue-700 font-semibold hover:underline"
+          className="mb-6 flex items-center text-blue-700 font-semibold hover:underline cursor-pointer"
         >
           ← Back to Staff List
         </button>

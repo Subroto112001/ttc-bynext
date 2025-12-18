@@ -6,6 +6,7 @@ import { HomepageOtherImage, HompageBoxImage } from "@/helper/ImgaeProvide";
 import "../Style/Pages/Home.css";
 import Gallery from "@/component/HomepageComponent/Gallery";
 import { iconprovider } from "@/helper/IconProvider";
+import { notices } from "@/helper/Information";
 
 export default function Home() {
   const allData = [
@@ -164,6 +165,10 @@ export default function Home() {
     },
   ];
 
+  const getPdfUrl = (file) => {
+    return file.startsWith("http") ? file : `/notices/${file}`;
+  };
+
   return (
     <div className="bg-white">
       {/* banner section */}
@@ -183,20 +188,22 @@ export default function Home() {
                 নোটিশ বোর্ড
               </h3>
               <ul className="flex flex-col gap-2 py-[20px] pb-10 md:pb-0">
-                {noticeList.map((notice, index) => (
+                {notices.slice(0, 5).map((notice, index) => (
                   <li
                     key={notice.id}
                     className="flex items-center gap-2 animate-fade-in-up"
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <Link
-                      href="#"
+                      href={getPdfUrl(notice.file)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 group transition-all duration-300"
                     >
                       <span className="text-xl text-[#72AB20] notice-icon">
                         {iconprovider.notification}
                       </span>
-                      <span className="font-medium text-black notice-text">
+                      <span className="font-medium text-black notice-text hover:text-blue-600">
                         {notice.title}
                       </span>
                     </Link>
