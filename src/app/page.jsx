@@ -293,7 +293,7 @@ export default function Home() {
               </div>
               <div className="flex gap-2 flex-col justify-center items-center">
                 <p className="text-md font-semibold transition-colors duration-300">
-                  মো: জিয়া উদ্দিন
+                  মুহাম্মদ জিয়া উদ্দিন
                 </p>
                 <p className="text-md font-medium transition-colors duration-300">
                   অধ্যক্ষ
