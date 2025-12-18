@@ -3,11 +3,11 @@ import { albums } from "@/helper/GallerDataProvider";
 import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import {  FaChevronRight } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 
 export default function AlbumDetailPage() {
   const { id } = useParams();
- 
+
   const album = albums.find((a) => String(a.id) === String(id));
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -20,7 +20,7 @@ export default function AlbumDetailPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="bg-gray-50  shadow-sm">
+      <section className="bg-gray-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
@@ -49,19 +49,41 @@ export default function AlbumDetailPage() {
             <div
               key={index}
               onClick={() => setSelectedImage(image)}
-              className="relative aspect-square bg-gray-100 overflow-hidden  cursor-pointer group"
+              className="relative aspect-square bg-gray-100 overflow-hidden cursor-pointer group"
             >
               <img
                 src={image.url}
-                alt=""
-                className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                alt={image.caption || ""}
+                className="w-full h-full object-cover transition-all duration-300"
               />
+
+              {/* Caption overlay on hover */}
+              {image.caption && (
+                <div
+                  className="absolute left-0 right-0 bottom-[-60px] 
+                    bg-black bg-opacity-0 
+                    group-hover:bottom-0 
+                    group-hover:bg-opacity-60
+                    transition-all duration-300"
+                >
+                  <div
+                    className="w-full p-4 text-white 
+                      transform translate-y-full 
+                      group-hover:translate-y-0 
+                      transition-transform duration-300"
+                  >
+                    <p className="text-sm font-medium ">
+                      {image.caption}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
       </main>
 
-      {/* modal is here */}
+      {/* Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
@@ -73,8 +95,8 @@ export default function AlbumDetailPage() {
             </button>
             <img
               src={selectedImage.url}
-              alt="Full view"
-              className="max-h-[85vh] mx-auto  shadow-2xl"
+              alt={selectedImage.caption || "Full view"}
+              className="max-h-[85vh] mx-auto shadow-2xl rounded-lg"
             />
             {selectedImage.caption && (
               <p className="text-white text-center mt-4 text-lg">
