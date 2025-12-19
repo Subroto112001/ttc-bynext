@@ -18,7 +18,7 @@ const Header = () => {
       link: "/videos",
       color: "#1371be",
     },
-    { name: "যোগাযোগ", link: "#", color: "#8768de" },
+    { name: "যোগাযোগ", link: "/contact", color: "#8768de" },
     { name: "নোটিশ", link: "/notices", color: "#555555" },
   ];
 
@@ -26,22 +26,22 @@ const Header = () => {
     {
       id: 1,
       title: "এক নজরে",
-      url: "#",
+      url: "/about-us",
     },
     {
       id: 2,
       title: "মিশন ও ভিশন",
-      url: "#",
+      url: "/mision-vision",
     },
     {
       id: 3,
       title: "কোর ভ্যালু ও উদ্দেশ্য",
-      url: "#",
+      url: "/core-value",
     },
     {
       id: 4,
       title: "ভবিষ্যৎ পরিকল্পনা",
-      url: "#",
+      url: "/futurePlansPage",
     },
   ];
 
