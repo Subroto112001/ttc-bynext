@@ -8,20 +8,20 @@ const PersonDetailPage = () => {
   const { id } = useParams();
   const router = useRouter();
 
-  // Find the person in the data
+  // ডাটা থেকে ব্যক্তিকে খুঁজে বের করা
   const allMembers = [principalData, ...staffData];
   const person = allMembers.find((m) => String(m.id) === id);
 
-  // Error handling if person is not found
+  // তথ্য না পাওয়া গেলে এরর হ্যান্ডলিং
   if (!person) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-        <h2 className="text-2xl font-bold text-gray-800">Person Not Found</h2>
+        <h2 className="text-2xl font-bold text-gray-800">তথ্য পাওয়া যায়নি</h2>
         <button
           onClick={() => router.back()}
           className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
-          Go Back
+          ফিরে যান
         </button>
       </div>
     );
@@ -30,7 +30,7 @@ const PersonDetailPage = () => {
   return (
     <div className="min-h-screen  py-10 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Navigation */}
+        {/* নেভিগেশন */}
         <button
           onClick={() => router.back()}
           className="mb-6 flex items-center text-blue-700 font-semibold hover:underline cursor-pointer"
@@ -39,26 +39,24 @@ const PersonDetailPage = () => {
         </button>
 
         <div className=" shadow-xl overflow-hidden border border-gray-200">
-          {/* Header Banner */}
-
           <div className="p-8">
             <div className="relative flex flex-col md:flex-row items-center md:items-end gap-6">
-              {/* Profile Image */}
+              {/* প্রোফাইল ইমেজ */}
               <div className="w-40 h-48 bg-white p-1  shadow-md">
                 <img
                   src={person.img}
-                  alt={person.name.en}
+                  alt={person.name.bn}
                   className="w-full h-full object-cover "
                 />
               </div>
 
-              {/* Basic Identity */}
+              {/* নাম ও পদবী */}
               <div className="text-center md:text-left">
                 <h1 className="text-3xl font-extrabold text-gray-900">
-                  {person.name.en}
+                  {person.name.bn}
                 </h1>
                 <p className="text-xl text-blue-800 font-medium mb-1">
-                  {person.name.bn}
+                  {person.name.en}
                 </p>
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-bold">
                   {person.role.bn}
@@ -68,12 +66,12 @@ const PersonDetailPage = () => {
 
             <hr className="my-6 border-gray-100" />
 
-            {/* Detailed Info Grid */}
+            {/* বিস্তারিত তথ্যের গ্রিড */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
-                    Designation
+                    পদবী
                   </h3>
                   <p className="text-lg text-gray-800 font-semibold">
                     {person.role.bn}
@@ -82,7 +80,7 @@ const PersonDetailPage = () => {
 
                 <div>
                   <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
-                    Office
+                    কার্যালয়
                   </h3>
                   <p className="text-lg text-gray-800 font-semibold">
                     পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর
@@ -93,7 +91,7 @@ const PersonDetailPage = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
-                    Contact Number
+                    যোগাযোগ নম্বর
                   </h3>
                   <p className="text-lg text-gray-800  font-bold">
                     {person.phone}
@@ -102,7 +100,7 @@ const PersonDetailPage = () => {
 
                 <div>
                   <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
-                    Official Email
+                    অফিসিয়াল ইমেইল
                   </h3>
                   <p className="text-lg text-gray-800 break-all">
                     {person.email}
@@ -111,7 +109,7 @@ const PersonDetailPage = () => {
               </div>
             </div>
 
-            {/* Verification Footer */}
+            {/* ফুটার নোট */}
             <div className="mt-12 p-4 bg-gray-50 border-l-4 border-blue-800 rounded text-sm text-gray-600 italic">
               এই প্রোফাইলটি পীরগঞ্জ টেকনিক্যাল ট্রেনিং সেন্টারের একটি অফিসিয়াল
               রেকর্ড। যেকোনো অনুসন্ধানের জন্য, অনুগ্রহ করে প্রশাসনিক কার্যালয়ে
