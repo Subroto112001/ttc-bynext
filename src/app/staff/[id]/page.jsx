@@ -35,7 +35,7 @@ const PersonDetailPage = () => {
           onClick={() => router.back()}
           className="mb-6 flex items-center text-blue-700 font-semibold hover:underline cursor-pointer"
         >
-          ← Back to Staff List
+          ← স্টাফ তালিকায় ফিরে যান
         </button>
 
         <div className=" shadow-xl overflow-hidden border border-gray-200">
