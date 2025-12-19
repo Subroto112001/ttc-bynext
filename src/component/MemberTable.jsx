@@ -1,28 +1,20 @@
 "use client";
-
-import ContentShare from "@/component/ContentShare";
-import { principalData, staffData } from "@/helper/Information";
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
+import ContentShare from "@/component/ContentShare";
 
-const allMembers = [principalData, ...staffData];
-
-const Page = () => {
-  const [filter, setFilter] = useState("All");
+const MemberTable = ({ members, title }) => {
+  const [filter, setFilter] = useState("সব");
 
   const filteredMembers =
-    filter === "All"
-      ? allMembers
-      : allMembers.filter((member) => member.role.bn === filter);
+    filter === "সব"
+      ? members
+      : members.filter((member) => member.role.bn === filter);
 
-  // Get unique roles for the dropdown
-  const roles = ["All", ...new Set(allMembers.map((m) => m.role.bn))];
-  
-  // list number
+  const roles = ["সব", ...new Set(members.map((m) => m.role.bn))];
+
   const translateToBn = (num) => {
-   
     const paddedNum = String(num).padStart(2, "0");
-
     const englishToBengali = {
       0: "০",
       1: "১",
@@ -35,22 +27,25 @@ const Page = () => {
       8: "৮",
       9: "৯",
     };
-
     return paddedNum
       .split("")
       .map((digit) => englishToBengali[digit] || digit)
       .join("");
   };
+
   return (
     <div className="min-h-screen bg-white">
       <section className="md:mt-[30px] py-4 px-4 max-w-7xl mx-auto">
         <ContentShare />
+        <h2 className="text-2xl font-bold mt-4 border-b-2 border-blue-800 inline-block">
+          {title}
+        </h2>
       </section>
 
       <section>
         <div className="p-4 md:p-8 text-gray-800">
           <div className="max-w-7xl mx-auto">
-            {/* Dropdown Filter */}
+            {/* Filter */}
             <div className="mb-6">
               <select
                 value={filter}
@@ -65,15 +60,14 @@ const Page = () => {
               </select>
             </div>
 
-            <div className="overflow-x-auto border-l border-t border-gray-900  shadow-sm">
+            <div className="overflow-x-auto border-l border-t border-gray-900 shadow-sm">
               <table className="w-full text-left border-collapse bg-white">
                 <thead>
                   <tr className="bg-gray-100 text-gray-700 font-bold border-b">
-                    <th className="p-3 border-r w-12 text-center">ক্রম </th>
+                    <th className="p-3 border-r w-12 text-center">ক্রম</th>
                     <th className="p-3 border-r">ছবি</th>
                     <th className="p-3 border-r">নাম</th>
                     <th className="p-3 border-r">পদবী</th>
-
                     <th className="p-3 border-r">ইমেইল</th>
                     <th className="p-3 border-r">মোবাইল</th>
                   </tr>
@@ -98,7 +92,7 @@ const Page = () => {
                       </td>
                       <td className="p-3 border-r align-middle">
                         <Link href={`/staff/${member.id}`} className="group">
-                          <div className="text-blue-700 font-bold group-hover:underline cursor-pointer">
+                          <div className="text-blue-700 font-bold group-hover:underline">
                             {member.name.en}
                           </div>
                           <div className="text-sm text-gray-600 mt-1">
@@ -109,7 +103,7 @@ const Page = () => {
                       <td className="p-3 border-r text-sm align-middle">
                         {member.role.bn}
                       </td>
-                      <td className="p-3 border-r text-sm text-gray-900  break-all align-middle  cursor-pointer hover:text-gray-500">
+                      <td className="p-3 border-r text-sm break-all align-middle">
                         {member.email}
                       </td>
                       <td className="p-3 border-r text-sm font-mono align-middle">
@@ -120,12 +114,6 @@ const Page = () => {
                 </tbody>
               </table>
             </div>
-
-            {filteredMembers.length === 0 && (
-              <div className="text-center py-10 text-gray-500">
-                No results found for "{filter}"
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -133,4 +121,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default MemberTable;

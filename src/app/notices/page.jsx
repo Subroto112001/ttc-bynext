@@ -4,30 +4,28 @@ import ContentShare from "@/component/ContentShare";
 import { notices } from "@/helper/Information";
 import Link from "next/link";
 import React, { useState, useMemo } from "react";
-import { FaFilePdf } from "react-icons/fa";
+import { FaFilePdf, FaExternalLinkAlt } from "react-icons/fa";
 
 const Page = () => {
-   const translateToBn = (num) => {
-     const paddedNum = String(num).padStart(2, "0");
-
-     const englishToBengali = {
-       0: "০",
-       1: "১",
-       2: "২",
-       3: "৩",
-       4: "৪",
-       5: "৫",
-       6: "৬",
-       7: "৭",
-       8: "৮",
-       9: "৯",
-     };
-
-     return paddedNum
-       .split("")
-       .map((digit) => englishToBengali[digit] || digit)
-       .join("");
-   };
+  const translateToBn = (num) => {
+    const paddedNum = String(num).padStart(2, "0");
+    const englishToBengali = {
+      0: "০",
+      1: "১",
+      2: "২",
+      3: "৩",
+      4: "৪",
+      5: "৫",
+      6: "৬",
+      7: "৭",
+      8: "৮",
+      9: "৯",
+    };
+    return paddedNum
+      .split("")
+      .map((digit) => englishToBengali[digit] || digit)
+      .join("");
+  };
 
   const [searchTerm, setSearchTerm] = useState("");
   const [entriesPerPage, setEntriesPerPage] = useState(10);
@@ -44,20 +42,27 @@ const Page = () => {
   const indexOfFirstItem = indexOfLastItem - entriesPerPage;
   const currentItems = filteredNotices.slice(indexOfFirstItem, indexOfLastItem);
 
-  const handleDownload = (fileName) => {
-    const fileUrl = fileName.startsWith("http")
-      ? fileName
-      : `/notices/${fileName}`;
-    const link = document.createElement("a");
-    link.href = fileUrl;
-    link.setAttribute("download", fileName);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownload = (file) => {
+    if (file.toLowerCase().endsWith(".pdf")) {
+      const fileUrl = file.startsWith("http") ? file : `/notices/${file}`;
+      const link = document.createElement("a");
+      link.href = fileUrl;
+      link.setAttribute("download", file);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // যদি পিডিএফ না হয় তবে ডিটেইলস পেজে নিয়ে যাবে
+      window.location.href = `/notice/${file}`;
+    }
   };
 
-  const getPdfUrl = (file) => {
-    return file.startsWith("http") ? file : `/notices/${file}`;
+  const getNoticeUrl = (file) => {
+    if (file.toLowerCase().endsWith(".pdf")) {
+      return file.startsWith("http") ? file : `/notices/${file}`;
+    }
+    // টেক্সট নোটিশের জন্য আলাদা রাউট (যেমন: /notice/slug)
+    return `/notice/${file}`;
   };
 
   return (
@@ -113,50 +118,63 @@ const Page = () => {
                     প্রকাশের তারিখ
                   </th>
                   <th className="px-4 py-3 text-center text-sm font-bold w-24">
-                    ডাউনলোড
+                    অ্যাকশন
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-300">
-                {currentItems.map((notice, index) => (
-                  <tr
-                    key={notice.id}
-                    className="hover:bg-blue-50/30 transition-colors"
-                  >
-                    <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px]">
-                      {translateToBn(indexOfFirstItem + index + 1)}
-                    </td>
-                    <td className="border-r border-gray-300 px-4 py-4 text-[15px] max-w-[300px] md:max-w-[500px]">
-                      <Link
-                        href={getPdfUrl(notice.file)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="truncate font-medium text-gray-800 hover:text-blue-600 cursor-pointer"
-                        title={notice.title}
-                      >
-                        {notice.title}
-                      </Link>
-                    </td>
-                    <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px] text-gray-600">
-                      {notice.date}
-                    </td>
-                    <td className="px-4 py-4 text-center">
-                      <button
-                        onClick={() => handleDownload(notice.file)}
-                        className="inline-flex items-center justify-center p-2 rounded-full hover:bg-red-50 transition-colors group"
-                      >
-                        <FaFilePdf
-                          className="text-[#D32F2F] group-hover:scale-110 transition-transform"
-                          size={24}
-                        />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {currentItems.map((notice, index) => {
+                  const isPdf = notice.file.toLowerCase().endsWith(".pdf");
+                  return (
+                    <tr
+                      key={notice.id}
+                      className="hover:bg-blue-50/30 transition-colors"
+                    >
+                      <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px]">
+                        {translateToBn(indexOfFirstItem + index + 1)}
+                      </td>
+                      <td className="border-r border-gray-300 px-4 py-4 text-[15px] max-w-[300px] md:max-w-[500px]">
+                        <Link
+                          href={getNoticeUrl(notice.file)}
+                          target={isPdf ? "_blank" : "_self"}
+                          rel="noopener noreferrer"
+                          className="truncate font-medium text-gray-800 hover:text-blue-600 cursor-pointer"
+                          title={notice.title}
+                        >
+                          {notice.title}
+                        </Link>
+                      </td>
+                      <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px] text-gray-600">
+                        {notice.date}
+                      </td>
+                      <td className="px-4 py-4 text-center">
+                        <button
+                          onClick={() => handleDownload(notice.file)}
+                          className={`inline-flex items-center justify-center p-2 rounded-full transition-colors group ${
+                            isPdf ? "hover:bg-red-50" : "hover:bg-blue-50"
+                          }`}
+                        >
+                          {isPdf ? (
+                            <FaFilePdf
+                              className="text-[#D32F2F] group-hover:scale-110 transition-transform"
+                              size={24}
+                            />
+                          ) : (
+                            <FaExternalLinkAlt
+                              className="text-[#2C5F8D] group-hover:scale-110 transition-transform"
+                              size={20}
+                            />
+                          )}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
 
+          {/* Pagination part stays the same */}
           <div className="mt-6 flex flex-col lg:flex-row items-center justify-between gap-6 mb-10">
             <p className="text-[15px] text-gray-600 font-medium text-center md:text-left">
               {translateToBn(filteredNotices.length)} টি নোটিশের মধ্যে{" "}

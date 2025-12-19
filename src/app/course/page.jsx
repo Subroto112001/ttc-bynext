@@ -5,15 +5,14 @@ import { courseData } from "@/helper/Information";
 import React, { useState } from "react";
 
 const Page = () => {
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState("সব");
 
   const filteredCourses =
-    filter === "All"
+    filter === "সব"
       ? courseData
       : courseData.filter((course) => course.level === filter);
 
-  const levels = ["All", ...new Set(courseData.map((c) => c.level))];
-
+  const levels = ["সব", ...new Set(courseData.map((c) => c.level))];
  
   const translateToBn = (num) => {
    
@@ -54,7 +53,7 @@ const Page = () => {
               <select
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
-                className="border border-gray-300 rounded px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="border border-gray-300 rounded px-4 py-2 text-sm  bg-white"
               >
                 {levels.map((level, index) => (
                   <option key={index} value={level}>
