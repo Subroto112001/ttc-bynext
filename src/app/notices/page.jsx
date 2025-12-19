@@ -7,21 +7,27 @@ import React, { useState, useMemo } from "react";
 import { FaFilePdf } from "react-icons/fa";
 
 const Page = () => {
-  const toBn = (num) => {
-    const symbols = {
-      0: "০",
-      1: "১",
-      2: "২",
-      3: "৩",
-      4: "৪",
-      5: "৫",
-      6: "৬",
-      7: "৭",
-      8: "৮",
-      9: "৯",
-    };
-    return num?.toString().replace(/\d/g, (match) => symbols[match]);
-  };
+   const translateToBn = (num) => {
+     const paddedNum = String(num).padStart(2, "0");
+
+     const englishToBengali = {
+       0: "০",
+       1: "১",
+       2: "২",
+       3: "৩",
+       4: "৪",
+       5: "৫",
+       6: "৬",
+       7: "৭",
+       8: "৮",
+       9: "৯",
+     };
+
+     return paddedNum
+       .split("")
+       .map((digit) => englishToBengali[digit] || digit)
+       .join("");
+   };
 
   const [searchTerm, setSearchTerm] = useState("");
   const [entriesPerPage, setEntriesPerPage] = useState(10);
@@ -118,7 +124,7 @@ const Page = () => {
                     className="hover:bg-blue-50/30 transition-colors"
                   >
                     <td className="border-r border-gray-300 px-4 py-4 text-center text-[15px]">
-                      {toBn(indexOfFirstItem + index + 1)}
+                      {translateToBn(indexOfFirstItem + index + 1)}
                     </td>
                     <td className="border-r border-gray-300 px-4 py-4 text-[15px] max-w-[300px] md:max-w-[500px]">
                       <Link
@@ -153,13 +159,17 @@ const Page = () => {
 
           <div className="mt-6 flex flex-col lg:flex-row items-center justify-between gap-6 mb-10">
             <p className="text-[15px] text-gray-600 font-medium text-center md:text-left">
-              {toBn(filteredNotices.length)} টি নোটিশের মধ্যে{" "}
+              {translateToBn(filteredNotices.length)} টি নোটিশের মধ্যে{" "}
               <span className="text-gray-900">
-                {toBn(filteredNotices.length > 0 ? indexOfFirstItem + 1 : 0)}
+                {translateToBn(
+                  filteredNotices.length > 0 ? indexOfFirstItem + 1 : 0
+                )}
               </span>{" "}
               থেকে{" "}
               <span className="text-gray-900">
-                {toBn(Math.min(indexOfLastItem, filteredNotices.length))}
+                {translateToBn(
+                  Math.min(indexOfLastItem, filteredNotices.length)
+                )}
               </span>{" "}
               পর্যন্ত দেখানো হচ্ছে
             </p>
@@ -188,7 +198,7 @@ const Page = () => {
                         : "hover:bg-gray-100 text-gray-700"
                     }`}
                   >
-                    {toBn(i + 1)}
+                    {translateToBn(i + 1)}
                   </button>
                 ))}
               </div>

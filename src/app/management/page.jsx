@@ -5,7 +5,6 @@ import { principalData, staffData } from "@/helper/Information";
 import Link from "next/link";
 import React, { useState } from "react";
 
-
 const allMembers = [principalData, ...staffData];
 
 const Page = () => {
@@ -18,7 +17,30 @@ const Page = () => {
 
   // Get unique roles for the dropdown
   const roles = ["All", ...new Set(allMembers.map((m) => m.role.bn))];
+  
+  // list number
+  const translateToBn = (num) => {
+   
+    const paddedNum = String(num).padStart(2, "0");
 
+    const englishToBengali = {
+      0: "০",
+      1: "১",
+      2: "২",
+      3: "৩",
+      4: "৪",
+      5: "৫",
+      6: "৬",
+      7: "৭",
+      8: "৮",
+      9: "৯",
+    };
+
+    return paddedNum
+      .split("")
+      .map((digit) => englishToBengali[digit] || digit)
+      .join("");
+  };
   return (
     <div className="min-h-screen bg-white">
       <section className="md:mt-[30px] py-4 px-4 max-w-7xl mx-auto">
@@ -47,11 +69,11 @@ const Page = () => {
               <table className="w-full text-left border-collapse bg-white">
                 <thead>
                   <tr className="bg-gray-100 text-gray-700 font-bold border-b">
-                    <th className="p-3 border-r w-12 text-center">#</th>
+                    <th className="p-3 border-r w-12 text-center">ক্রম </th>
                     <th className="p-3 border-r">ছবি</th>
                     <th className="p-3 border-r">নাম</th>
                     <th className="p-3 border-r">পদবী</th>
-                   
+
                     <th className="p-3 border-r">ইমেইল</th>
                     <th className="p-3 border-r">মোবাইল</th>
                   </tr>
@@ -63,7 +85,7 @@ const Page = () => {
                       className="border-b hover:bg-gray-50 transition-colors"
                     >
                       <td className="p-3 border-r text-center align-middle font-medium">
-                        {index + 1}
+                        {translateToBn(index + 1)}
                       </td>
                       <td className="p-3 border-r align-middle">
                         <div className="w-16 h-20 overflow-hidden border border-gray-300 shadow-sm">

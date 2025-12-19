@@ -14,6 +14,29 @@ const Page = () => {
 
   const levels = ["All", ...new Set(courseData.map((c) => c.level))];
 
+ 
+  const translateToBn = (num) => {
+   
+    const paddedNum = String(num).padStart(2, "0");
+
+    const englishToBengali = {
+      0: "০",
+      1: "১",
+      2: "২",
+      3: "৩",
+      4: "৪",
+      5: "৫",
+      6: "৬",
+      7: "৭",
+      8: "৮",
+      9: "৯",
+    };
+
+    return paddedNum
+      .split("")
+      .map((digit) => englishToBengali[digit] || digit)
+      .join("");
+  };
   return (
     <div className="min-h-screen bg-white">
       <section className="md:mt-[30px] py-4 px-4 max-w-7xl mx-auto">
@@ -71,7 +94,7 @@ const Page = () => {
                       className="border-b hover:bg-gray-50 transition-colors"
                     >
                       <td className="p-3 border-r text-center align-middle font-medium">
-                        {course.id.toString().padStart(2, "0")}
+                        {translateToBn(index + 1)}
                       </td>
                       <td className="p-3 border-r align-middle">
                         <div className="text-blue-700 font-bold">
