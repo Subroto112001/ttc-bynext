@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
             </p>
           </section>
 
-          <section className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+          <section className="bg-blue-50 p-6 rounded-lg ">
             <h2 className="text-xl font-bold text-blue-900 mb-2 font-bangla">
               নিরাপত্তা সতর্কতা
             </h2>
