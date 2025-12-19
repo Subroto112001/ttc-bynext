@@ -212,7 +212,7 @@ export default function Home() {
               </ul>
             </div>
             <span className="absolute right-2.5 bottom-2.5">
-              <Link href="./notice" className="text-black view-all-link ">
+              <Link href="./notices" className="text-black view-all-link ">
                 সকল নোটিশ দেখুন
               </Link>
             </span>

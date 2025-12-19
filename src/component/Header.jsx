@@ -102,7 +102,7 @@ const Header = () => {
       {/* Top Header */}
       <div className="bg-[#2c5f8d] p-3 md:p-4 w-full flex justify-between items-center">
         <Link href="/" className="text-white font-medium text-sm md:text-lg">
-          কারিগরি প্রশিক্ষণ কেন্দ্র, পীরগঞ্জ
+          পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর
         </Link>
 
         <div className="relative">
@@ -199,7 +199,7 @@ const Header = () => {
             />
           </picture>
           <h1 className="text-2xl md:text-4xl font-bold text-white simple-shadow">
-            কারিগরি প্রশিক্ষণ কেন্দ্র, পীরগঞ্জ
+            পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর
           </h1>
         </div>
       </section>

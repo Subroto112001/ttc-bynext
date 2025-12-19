@@ -48,12 +48,12 @@ const Page = () => {
                 <thead>
                   <tr className="bg-gray-100 text-gray-700 font-bold border-b">
                     <th className="p-3 border-r w-12 text-center">#</th>
-                    <th className="p-3 border-r">Image</th>
-                    <th className="p-3 border-r">Name</th>
-                    <th className="p-3 border-r">Designation</th>
-                    <th className="p-3 border-r">Office Name</th>
-                    <th className="p-3 border-r">Email</th>
-                    <th className="p-3 border-r">Mobile</th>
+                    <th className="p-3 border-r">ছবি</th>
+                    <th className="p-3 border-r">নাম</th>
+                    <th className="p-3 border-r">পদবী</th>
+                   
+                    <th className="p-3 border-r">ইমেইল</th>
+                    <th className="p-3 border-r">মোবাইল</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -85,10 +85,7 @@ const Page = () => {
                         </Link>
                       </td>
                       <td className="p-3 border-r text-sm align-middle">
-                        {member.role.en}
-                      </td>
-                      <td className="p-3 border-r text-sm align-middle text-gray-700">
-                        Pirganj TTC
+                        {member.role.bn}
                       </td>
                       <td className="p-3 border-r text-sm text-gray-900  break-all align-middle  cursor-pointer hover:text-gray-500">
                         {member.email}
