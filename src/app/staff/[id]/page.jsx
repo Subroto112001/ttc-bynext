@@ -113,9 +113,9 @@ const PersonDetailPage = () => {
 
             {/* Verification Footer */}
             <div className="mt-12 p-4 bg-gray-50 border-l-4 border-blue-800 rounded text-sm text-gray-600 italic">
-              This profile is an official record of Pirganj Technical Training
-              Center. For any inquiries, please contact the administration
-              office.
+              এই প্রোফাইলটি পীরগঞ্জ টেকনিক্যাল ট্রেনিং সেন্টারের একটি অফিসিয়াল
+              রেকর্ড। যেকোনো অনুসন্ধানের জন্য, অনুগ্রহ করে প্রশাসনিক কার্যালয়ে
+              যোগাযোগ করুন।
             </div>
           </div>
         </div>
