@@ -74,7 +74,7 @@ export default function AlbumDetailPage() {
               {/* Caption overlay on hover */}
               {image.caption && (
                 <div
-                  className="absolute left-0 right-0 bottom-[-60px] 
+                  className="absolute left-0 right-0 bottom-[-160px] 
                     bg-black bg-opacity-0 
                     group-hover:bottom-0 
                     group-hover:bg-opacity-60
@@ -109,7 +109,7 @@ export default function AlbumDetailPage() {
             <img
               src={selectedImage.url}
               alt={selectedImage.caption || "Full view"}
-              className="max-h-[85vh] mx-auto shadow-2xl rounded-lg"
+              className="max-h-[85vh] mx-auto shadow-2xl "
             />
             {selectedImage.caption && (
               <p className="text-white text-center mt-4 text-lg">

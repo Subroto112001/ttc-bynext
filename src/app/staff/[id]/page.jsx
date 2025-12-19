@@ -41,7 +41,7 @@ const PersonDetailPage = () => {
         <div className=" shadow-xl overflow-hidden border border-gray-200">
           <div className="p-8">
             <div className="relative flex flex-col md:flex-row items-center md:items-end gap-6">
-              {/* প্রোফাইল ইমেজ */}
+              {/* profile image*/}
               <div className="w-40 h-48 bg-white p-1  shadow-md">
                 <img
                   src={person.img}
@@ -50,7 +50,7 @@ const PersonDetailPage = () => {
                 />
               </div>
 
-              {/* নাম ও পদবী */}
+              {/* name and designation */}
               <div className="text-center md:text-left">
                 <h1 className="text-3xl font-extrabold text-gray-900">
                   {person.name.bn}
@@ -66,7 +66,7 @@ const PersonDetailPage = () => {
 
             <hr className="my-6 border-gray-100" />
 
-            {/* বিস্তারিত তথ্যের গ্রিড */}
+            {/* information about this person */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div>
@@ -109,7 +109,7 @@ const PersonDetailPage = () => {
               </div>
             </div>
 
-            {/* ফুটার নোট */}
+           {/* note  */}
             <div className="mt-12 p-4 bg-gray-50 border-l-4 border-blue-800 rounded text-sm text-gray-600 italic">
               এই প্রোফাইলটি পীরগঞ্জ টেকনিক্যাল ট্রেনিং সেন্টারের একটি অফিসিয়াল
               রেকর্ড। যেকোনো অনুসন্ধানের জন্য, অনুগ্রহ করে প্রশাসনিক কার্যালয়ে

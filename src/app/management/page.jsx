@@ -14,10 +14,10 @@ const Page = () => {
   const filteredMembers =
     filter === "All"
       ? allMembers
-      : allMembers.filter((member) => member.role.en === filter);
+      : allMembers.filter((member) => member.role.bn === filter);
 
   // Get unique roles for the dropdown
-  const roles = ["All", ...new Set(allMembers.map((m) => m.role.en))];
+  const roles = ["All", ...new Set(allMembers.map((m) => m.role.bn))];
 
   return (
     <div className="min-h-screen bg-white">
