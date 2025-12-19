@@ -60,16 +60,22 @@ const ApplicationForm = () => {
                 name="courseName"
                 required
                 onChange={handleChange}
-                className="w-full border p-2  focus:ring-2 focus:ring-blue-500"
+                className="w-full border p-2   focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">সিলেক্ট করুন</option>
-                <option value="Graphics Design">গ্রাফিক্স ডিজাইন</option>
-                <option value="IT Support Service">আইটি সাপোর্ট সার্ভিস</option>
-                <option value="Driving">ড্রাইভিং</option>
-                <option value="Electrical Installation">
+                <option className="bg-gray-100" value="">
+                  সিলেক্ট করুন
+                </option>
+                <option className="bg-gray-100" value="Graphics Design">
+                  গ্রাফিক্স ডিজাইন
+                </option>
+                <option className="bg-gray-100" value="IT Support Service">
+                  আইটি সাপোর্ট সার্ভিস
+                </option>
+                <option className="bg-gray-100" value="Driving">ড্রাইভিং</option>
+                <option className="bg-gray-100" value="Electrical Installation">
                   ইলেকট্রিক্যাল ইন্সটলেশন
                 </option>
-                <option value="Computer Operation">কম্পিউটার অপারেশন</option>
+                <option className="bg-gray-100" value="Computer Operation">কম্পিউটার অপারেশন</option>
               </select>
             </div>
             <div>
