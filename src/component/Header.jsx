@@ -10,7 +10,7 @@ const Header = () => {
   const navitem = [
     { name: "আমাদের সম্পর্কে", link: "#", color: "#ff6600" },
     { name: "কোর্স সমূহ", link: "/course", color: "#c40a2a" },
-    { name: "নিবন্ধন", link: "/applicationform", color: "#84154d" },
+    { name: "নিবন্ধন", link: "#", color: "#84154d" },
     { name: "ব্যবস্থাপনা", link: "/management", color: "#098346" },
     { name: "ছবি-গ্যালারি", link: "/gallery", color: "#1399be" },
     {
