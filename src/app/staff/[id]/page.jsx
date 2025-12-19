@@ -40,7 +40,6 @@ const PersonDetailPage = () => {
 
         <div className=" shadow-xl overflow-hidden border border-gray-200">
           {/* Header Banner */}
-       
 
           <div className="p-8">
             <div className="relative flex flex-col md:flex-row items-center md:items-end gap-6">
@@ -62,7 +61,7 @@ const PersonDetailPage = () => {
                   {person.name.bn}
                 </p>
                 <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-bold">
-                  {person.role.en}
+                  {person.role.bn}
                 </span>
               </div>
             </div>
@@ -86,7 +85,7 @@ const PersonDetailPage = () => {
                     Office
                   </h3>
                   <p className="text-lg text-gray-800 font-semibold">
-                    Pirganj Technical Training Center (TTC)
+                    পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর
                   </p>
                 </div>
               </div>
