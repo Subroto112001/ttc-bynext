@@ -6,7 +6,7 @@ import ranocoder from "../assets/creadi-logo/ranocoder-logo.png";
 
 const Footer = () => {
   const footeritem = [
-    { name: "গোপনীয়তার নীতিমালা", link: "#" },
+    { name: "গোপনীয়তার নীতিমালা", link: "/privacyPolicy" },
     { name: "ব্যবহারের শর্তাবলী", link: "#" },
     { name: "সাইট ম্যাপ", link: "#" },
     { name: "সচরাচর জিজ্ঞাসা", link: "#" },
