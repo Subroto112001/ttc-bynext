@@ -7,6 +7,8 @@ export default function YouTubeVideosPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+ 
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     fetchVideos();
@@ -16,19 +18,10 @@ export default function YouTubeVideosPage() {
     try {
       setLoading(true);
       setError(null);
-
       const response = await fetch("/api/youtube-videos");
-
-      if (!response.ok) {
-        throw new Error("server_error");
-      }
-
+      if (!response.ok) throw new Error("server_error");
       const data = await response.json();
-
-      if (data.error) {
-        throw new Error("server_error");
-      }
-
+      if (data.error) throw new Error("server_error");
       setVideos(data.videos || []);
     } catch (err) {
       console.error("Error fetching videos:", err);
@@ -42,6 +35,9 @@ export default function YouTubeVideosPage() {
   const filteredVideos = videos.filter((video) =>
     video.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+
+  const closeModal = () => setSelectedVideo(null);
 
   if (loading) {
     return (
@@ -63,12 +59,9 @@ export default function YouTubeVideosPage() {
             <h2 className="text-2xl font-bold text-red-800 mb-2">
               সার্ভারজনিত সমস্যা
             </h2>
-            <p className="text-gray-700 mb-6">
-              ভিডিও লোড করতে সমস্যা হচ্ছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।
-            </p>
             <button
               onClick={fetchVideos}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
             >
               আবার চেষ্টা করুন
             </button>
@@ -79,65 +72,36 @@ export default function YouTubeVideosPage() {
   }
 
   return (
-    <div className="min-h-screen  py-8">
+    <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header & Search */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">ভিডিও</h1>
           <p className="text-gray-600 mb-6">মোট {videos.length}টি ভিডিও</p>
-
-          {/* Search */}
           <div className="relative">
             <input
               type="text"
               placeholder="ভিডিও খুঁজুন..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-lg shadow-sm  outline-none"
+              className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-lg shadow-sm outline-none"
             />
-            {searchTerm && (
-              <button
-                onClick={() => setSearchTerm("")}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              >
-                ✕
-              </button>
-            )}
           </div>
         </div>
 
         {/* Videos Grid */}
         {filteredVideos.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="text-gray-400 text-6xl mb-4">📹</div>
-            <p className="text-gray-600 text-xl font-medium mb-2">
-              কোনো ভিডিও নাই
-            </p>
-            {searchTerm && (
-              <>
-                <p className="text-gray-500 mb-4">
-                  "{searchTerm}" এর জন্য কোনো ফলাফল পাওয়া যায়নি
-                </p>
-                <button
-                  onClick={() => setSearchTerm("")}
-                  className="text-[#2C5F8D] hover:text-[#2C5F8D] underline"
-                >
-                  সার্চ রিসেট করুন
-                </button>
-              </>
-            )}
+          <div className="text-center py-16 text-gray-500">
+            কোনো ভিডিও পাওয়া যায়নি
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredVideos.map((video) => (
-              <a
+              <div
                 key={video.id}
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white  overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+                onClick={() => setSelectedVideo(video)} // ক্লিক করলে ভিডিও সিলেক্ট হবে
+                className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               >
-                {/* Thumbnail */}
                 <div className="relative aspect-video bg-gray-200">
                   <img
                     src={video.thumbnail}
@@ -153,18 +117,15 @@ export default function YouTubeVideosPage() {
                     </span>
                   )}
                 </div>
-
-                {/* Info */}
                 <div className="p-4">
                   <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 hover:text-blue-600">
                     {video.title}
                   </h3>
-                  <div className="text-sm text-gray-600 space-y-1">
-                    {video.viewCount && <p>{video.viewCount}</p>}
+                  <div className="text-sm text-gray-600">
                     {video.publishedTime && <p>{video.publishedTime}</p>}
                   </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         )}
@@ -173,13 +134,51 @@ export default function YouTubeVideosPage() {
         <div className="mt-8 text-center">
           <button
             onClick={fetchVideos}
-            disabled={loading}
-            className="px-6 py-3 bg-[#72AB20] text-white rounded-lg hover:bg-[#81ce16] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200"
+            className="px-6 py-3 bg-[#72AB20] text-white rounded-lg hover:bg-[#81ce16]"
           >
-            {loading ? "লোড হচ্ছে..." : "রিফ্রেশ করুন"}
+            রিফ্রেশ করুন
           </button>
         </div>
       </div>
+
+      {/* --- Video Modal --- */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4 animate-fadeIn">
+          <div className="relative w-full max-w-4xl bg-black rounded-lg overflow-hidden shadow-2xl">
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300 transition-colors"
+            >
+              ✕
+            </button>
+
+            {/* Video Wrapper */}
+            <div className="relative pt-[56.25%]">
+              {" "}
+              {/* 16:9 Aspect Ratio */}
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
+                title={selectedVideo.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+
+            {/* Video Info In Modal */}
+            <div className="p-4 bg-white">
+              <h2 className="text-xl font-bold text-gray-900 line-clamp-1">
+                {selectedVideo.title}
+              </h2>
+            </div>
+          </div>
+
+          {/* ক্লিক করলে বাইরে বন্ধ হওয়ার জন্য ব্যাকড্রপ */}
+          <div className="absolute inset-0 -z-10" onClick={closeModal}></div>
+        </div>
+      )}
     </div>
   );
 }
