@@ -306,9 +306,15 @@ const PhotoGalleryContent = () => {
 
   return (
     <div className="w-full flex flex-col items-center gap-6">
-      <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
-        গ্যালারি
-      </h3>
+      <div className="flex justify-between items-center w-full border-b border-gray-300 pb-2 mb-4">
+        <h3 className="text-center  font-semibold  text-3xl">গ্যালারি</h3>
+        <Link
+          href="/gallery"
+          className="text-md font-medium  px-6 py-2 bg-[#72AB20] hover:bg-[#5d8c1a] text-white transition-colors"
+        >
+          আরও ছবি
+        </Link>
+      </div>
 
       <div className="relative w-full max-w-4xl group">
         <button
@@ -365,13 +371,6 @@ const PhotoGalleryContent = () => {
           />
         ))}
       </div>
-
-      <Link
-        href="/gallery"
-        className="text-md font-medium bg-[#72AB20] hover:bg-[#5d8c1a] text-white px-6 py-2  transition-colors"
-      >
-        আরও ছবি দেখুন
-      </Link>
 
       {isModalOpen && (
         <ImageModal src={selectedImage} onClose={() => setIsModalOpen(false)} />
@@ -433,9 +432,15 @@ const VideoGalleryContent = () => {
 
   return (
     <div className="w-full max-w-5xl flex flex-col items-center gap-8">
-      <h3 className="text-center text-white font-semibold w-[20%] py-2 bg-[#72AB20] hover:scale-101 transition-transform duration-300">
-        ভিডিও
-      </h3>
+      <div className="flex justify-between items-center w-full border-b border-gray-300 pb-2 mb-4">
+        <h3 className="text-center  font-semibold  text-3xl">ভিডিও</h3>
+        <Link
+          href="/video"
+          className="text-md font-medium  px-6 py-2 bg-[#72AB20] hover:bg-[#5d8c1a] text-white transition-colors"
+        >
+          আরও ভিডিও
+        </Link>
+      </div>
 
       <div className="w-full flex flex-col gap-6 px-4 md:px-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -492,12 +497,7 @@ const VideoGalleryContent = () => {
           ))}
         </div>
       </div>
-      <Link
-        href="/gallery"
-        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 hover:bg-[#5d8c1a] transition-colors"
-      >
-        আরও ভিডিও দেখুন
-      </Link>
+    
 
       {modalVideoId && (
         <VideoModal videoId={modalVideoId} onClose={closeVideoModal} />
