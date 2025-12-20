@@ -60,7 +60,6 @@ const FAQ = () => {
             সেবা সংক্রান্ত সাধারণ প্রশ্নের উত্তরগুলো এখানে দেখুন।
           </p>
         </div>
-
         {/* FAQ Items */}
         <div className="grid gap-4">
           {faqData.map((item, index) => (
@@ -102,9 +101,8 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-
         {/* Contact CTA */}
-        <div className="mt-12 text-center p-10 bg-white border border-dashed border-[#2c5f8d] rounded-2xl shadow-sm">
+        <section className="mt-12 text-center p-10 bg-white border border-dashed border-[#2c5f8d] rounded-2xl shadow-sm">
           <h3 className="text-2xl font-bold text-gray-800 mb-2">
             আরও বিস্তারিত জানতে চান?
           </h3>
@@ -123,7 +121,13 @@ const FAQ = () => {
               ফোন করুন
             </button>
           </div>
-        </div>
+        </section>
+        <section className="mt-12 pt-6 border-t border-gray-200">
+          <p className="font-semibold text-[#2c5f8d]">যোগাযোগের ঠিকানা:</p>
+          <p>পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর</p>
+          <p>ফোন: +৮৮০১৮৪২১ ৯৬৫৬৬</p>
+          <p>ই-মেইল: ttcpirganj@gmail.com</p>
+        </section>
       </div>
     </div>
   );
