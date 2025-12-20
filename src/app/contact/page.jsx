@@ -185,7 +185,7 @@ const ContactPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-[#72AB20] hover:bg-[#5d8c1a] text-white font-bold py-4 rounded-lg transition duration-300 flex items-center justify-center gap-2"
+                className="w-full bg-[#72AB20] hover:bg-[#5d8c1a] text-white font-bold py-4 transition duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <svg
                   className="w-5 h-5"

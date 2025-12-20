@@ -65,7 +65,7 @@ const FAQ = () => {
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="bg-white  rounded-lg overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
+              className="bg-white   overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
             >
               <button
                 onClick={() => toggleAccordion(index)}
@@ -113,11 +113,11 @@ const FAQ = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="mailto:info.ttcpirganj@gmail.com"
-              className="bg-[#72AB20] hover:bg-[#5d8c1a] text-white px-8 py-3 rounded-md font-semiboldtransition-all"
+              className="bg-[#72AB20] hover:bg-[#5d8c1a] text-white px-8 py-3  font-semibold transition-all"
             >
               ইমেইল পাঠান
             </a>
-            <button className="bg-gray-100 text-gray-700 px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-all">
+            <button className="bg-gray-100 text-gray-700 px-8 py-3 cursor-pointer font-semibold hover:bg-gray-200 transition-all">
               ফোন করুন
             </button>
           </div>

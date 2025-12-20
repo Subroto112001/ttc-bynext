@@ -134,7 +134,7 @@ export default function YouTubeVideosPage() {
         <div className="mt-8 text-center">
           <button
             onClick={fetchVideos}
-            className="px-6 py-3 bg-[#72AB20] text-white rounded-lg hover:bg-[#81ce16]"
+            className="px-6 py-3 bg-[#72AB20] hover:bg-[#5d8c1a] text-white  cursor-pointer"
           >
             রিফ্রেশ করুন
           </button>
