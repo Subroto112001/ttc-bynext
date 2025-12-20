@@ -81,12 +81,12 @@ const PrivacyPolicy = () => {
           </section>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-gray-200">
+        <section className="mt-12 pt-6 border-t border-gray-200">
           <p className="font-semibold text-[#2c5f8d]">যোগাযোগের ঠিকানা:</p>
           <p>পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর</p>
-          <p>ফোন: +৮৮ ০৫২১-XXXXXX</p>
-          <p>ই-মেইল: info@ttcpirganj.com</p>
-        </div>
+          <p>ফোন: +৮৮০১৮৪২১ ৯৬৫৬৬</p>
+          <p>ই-মেইল: ttcpirganj@gmail.com</p>
+        </section>
       </div>
     </div>
   );

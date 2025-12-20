@@ -83,9 +83,7 @@ export default function YouTubeVideosPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            ভিডিও
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">ভিডিও</h1>
           <p className="text-gray-600 mb-6">মোট {videos.length}টি ভিডিও</p>
 
           {/* Search */}
@@ -95,7 +93,7 @@ export default function YouTubeVideosPage() {
               placeholder="ভিডিও খুঁজুন..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-lg shadow-sm  outline-none"
             />
             {searchTerm && (
               <button
@@ -122,7 +120,7 @@ export default function YouTubeVideosPage() {
                 </p>
                 <button
                   onClick={() => setSearchTerm("")}
-                  className="text-blue-600 hover:text-blue-700 underline"
+                  className="text-[#2C5F8D] hover:text-[#2C5F8D] underline"
                 >
                   সার্চ রিসেট করুন
                 </button>
@@ -176,7 +174,7 @@ export default function YouTubeVideosPage() {
           <button
             onClick={fetchVideos}
             disabled={loading}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200"
+            className="px-6 py-3 bg-[#72AB20] text-white rounded-lg hover:bg-[#81ce16] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200"
           >
             {loading ? "লোড হচ্ছে..." : "রিফ্রেশ করুন"}
           </button>
