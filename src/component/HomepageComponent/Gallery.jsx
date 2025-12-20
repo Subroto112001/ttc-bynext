@@ -435,7 +435,7 @@ const VideoGalleryContent = () => {
       <div className="flex justify-between items-center w-full border-b border-gray-300 pb-2 mb-4">
         <h3 className="text-center  font-semibold  text-3xl">ভিডিও</h3>
         <Link
-          href="/video"
+          href="/videos"
           className="text-md font-medium  px-6 py-2 bg-[#72AB20] hover:bg-[#5d8c1a] text-white transition-colors"
         >
           আরও ভিডিও
@@ -451,11 +451,7 @@ const VideoGalleryContent = () => {
                 setMainVideo(video);
                 openVideoModal(video.id);
               }}
-              className={`cursor-pointer group relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all border-2 bg-white ${
-                mainVideo.id === video.id
-                  ? "border-[#72AB20]"
-                  : "border-transparent"
-              }`}
+              className={`cursor-pointer group relative overflow-hidden shadow-sm hover:shadow-lg transition-all  bg-white `}
             >
               <div className="aspect-video w-full relative">
                 <img

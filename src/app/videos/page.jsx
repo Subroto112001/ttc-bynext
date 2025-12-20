@@ -84,7 +84,7 @@ export default function YouTubeVideosPage() {
               placeholder="ভিডিও খুঁজুন..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full max-w-md px-4 py-3 border border-gray-300 rounded-lg shadow-sm outline-none"
+              className="w-full max-w-md px-4 py-3 border border-gray-300 shadow-sm outline-none"
             />
           </div>
         </div>
