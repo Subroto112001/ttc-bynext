@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center md:justify-end items-center gap-2 text-[13px] md:text-[14px]">
               <span>পরিকল্পনা ও বাস্তবায়নে:</span>
               <span className="font-semibold">টিটিসি পীরগঞ্জ</span>
-              <span className="hidden md:inline">|</span>
+              <span className="">|</span>
               <a
                 href="https://ranocoder.com/"
                 target="_blank"

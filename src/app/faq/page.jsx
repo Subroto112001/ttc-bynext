@@ -45,7 +45,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen py-12 px-4 font-sans">
+    <div className=" min-h-screen py-12 px-4 font-sans">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -53,7 +53,7 @@ const FAQ = () => {
             <FaInfoCircle className="text-5xl text-[#2c5f8d] opacity-90" />
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-[#2c5f8d] mb-4">
-            সচরাচর জিজ্ঞাসা (FAQ)
+            সচরাচর জিজ্ঞাসা
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র (TTC) এর ভর্তি, কোর্স এবং অন্যান্য
@@ -113,7 +113,7 @@ const FAQ = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="mailto:info.ttcpirganj@gmail.com"
-              className="bg-[#72AB20] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#89dc15] transition-all"
+              className="bg-[#72AB20] hover:bg-[#5d8c1a] text-white px-8 py-3 rounded-md font-semiboldtransition-all"
             >
               ইমেইল পাঠান
             </a>

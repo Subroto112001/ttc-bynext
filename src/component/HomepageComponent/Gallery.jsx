@@ -368,7 +368,7 @@ const PhotoGalleryContent = () => {
 
       <Link
         href="/gallery"
-        className="text-md font-medium bg-[#72AB20] text-white px-6 py-2 hover:bg-[#5d8c1a] transition-colors"
+        className="text-md font-medium bg-[#72AB20] hover:bg-[#5d8c1a] text-white px-6 py-2  transition-colors"
       >
         আরও ছবি দেখুন
       </Link>

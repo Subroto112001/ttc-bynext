@@ -50,7 +50,7 @@ export default function AlbumDetailPage() {
           </div>
           <Link
             href="/gallery"
-            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+            className="px-4 py-2 bg-[#72AB20] hover:bg-[#5d8c1a] text-white rounded transition-colors"
           >
             ← ফিরে যান
           </Link>
@@ -87,7 +87,9 @@ export default function AlbumDetailPage() {
                       transition-transform duration-300"
                   >
                     <p className="text-sm font-medium ">{image.caption}</p>
-                    <p className="text-sm font-medium ">{toBengaliDate(image.uploadDate)}</p>
+                    <p className="text-sm font-medium ">
+                      {toBengaliDate(image.uploadDate)}
+                    </p>
                   </div>
                 </div>
               )}
