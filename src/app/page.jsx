@@ -370,7 +370,7 @@ export default function Home() {
               <span>অভ্যন্তরীণ ই-সেবা</span>
             </Link>
           </div>
-          {/* map */}
+        
           <div className="map-wrapper hover-lift">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4274.0629445469285!2d89.30276937538953!3d25.432855777560007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fcdbeb0cb93f39%3A0x309d1aa90d28f57f!2sTechnical%20Training%20Centre%2C%20PIRGANJ!5e1!3m2!1sen!2sbd!4v1765613751222!5m2!1sen!2sbd"

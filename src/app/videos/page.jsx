@@ -175,7 +175,7 @@ export default function YouTubeVideosPage() {
             </div>
           </div>
 
-          {/* ক্লিক করলে বাইরে বন্ধ হওয়ার জন্য ব্যাকড্রপ */}
+{/* if click outside it will close modal */}
           <div className="absolute inset-0 -z-10" onClick={closeModal}></div>
         </div>
       )}

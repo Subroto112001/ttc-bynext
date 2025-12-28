@@ -1,6 +1,8 @@
 import { apiClient } from "@/lib/apiClient";
 
-// get all management
+/** * Fetch all management members
+ * API: http://localhost:5000/api/v1/management/all-management
+ */
 export async function getAllmanagement() {
   try {
     const response = await fetch(
@@ -22,8 +24,9 @@ export async function getAllmanagement() {
     return [];
   }
 }
-
-// get all notice
+/** * Fetch all notices with pagination and search
+ * API: http://localhost:5000/api/v1/notice/all
+ */
 export async function getAllnotice(page = 1, limit = 10, search = "") {
   try {
     const response = await apiClient.get(`/notice/all`, {
@@ -60,7 +63,9 @@ export async function getSingleNotice(id) {
 }
 
 // -----------------album related APIs -------------------
-// getall albums
+/** * Fetch all albums
+ * API: http://localhost:5000/api/v1/album/get-allalbums
+ */
 export async function getAllAlbums() {
   try {
     const response = await fetch(
@@ -126,7 +131,7 @@ export async function getSingleNoticeCategory(id) {
  * Fetch all management members
  * API: http://localhost:5000/api/v1/management/all-management
  */
-// helper/dataProvider.js
+
 export async function getAllManagement(category = "") {
   try {
     const response = await apiClient.get(`/management/all-management`, {

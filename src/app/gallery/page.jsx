@@ -179,7 +179,7 @@ export default function GalleryPage() {
                         </div>
                       )}
 
-                      {/* Date */}
+                  
                       {album.createdAt && (
                         <div className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
                           <FaCalendarAlt size={10} />

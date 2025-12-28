@@ -77,12 +77,9 @@ const FuturePlansPage = () => {
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-12 font-sans text-gray-800">
-      {/* মেইন হেডার */}
       <h1 className="text-center text-3xl font-bold text-gray-900 mb-12">
         ভবিষ্যৎ পরিকল্পনা
       </h1>
-
-      {/* কৌশলগত লক্ষ্যসমূহ সেকশন */}
       <section className="mb-16">
         <h2 className="text-xl font-bold text-red-700 mb-6 border-l-4 border-red-700 pl-3">
           Strategic Goals (কৌশলগত লক্ষ্যসমূহ)
@@ -101,8 +98,6 @@ const FuturePlansPage = () => {
           ))}
         </div>
       </section>
-
-      {/* রোডম্যাপ সেকশন */}
       <section>
         <h2 className="text-xl font-bold text-green-700 mb-6 border-l-4 border-green-700 pl-3">
           Long-Term Development Roadmap (দীর্ঘমেয়াদি উন্নয়ন রোডম্যাপ)
@@ -126,8 +121,6 @@ const FuturePlansPage = () => {
           ))}
         </div>
       </section>
-
-      {/* ফুটার বার্তা */}
       <footer className="mt-16 text-center text-gray-400 text-xs">
         <p>পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র (টিটিসি), রংপুর।</p>
       </footer>

@@ -17,7 +17,6 @@ const Page = () => {
   const translateToBn = (num) => {
    
     const paddedNum = String(num).padStart(2, "0");
-
     const englishToBengali = {
       0: "০",
       1: "১",
@@ -30,7 +29,7 @@ const Page = () => {
       8: "৮",
       9: "৯",
     };
-
+    
     return paddedNum
       .split("")
       .map((digit) => englishToBengali[digit] || digit)

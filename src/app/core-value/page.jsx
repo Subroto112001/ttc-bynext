@@ -2,7 +2,7 @@ import React from "react";
 
 const CoreValuesPage = () => {
   const objectives = [
-    // objectives data
+  
     {
       id: 1,
       title: "দক্ষ জনশক্তি তৈরি",
@@ -58,7 +58,7 @@ const CoreValuesPage = () => {
         উদ্দেশ্য ও মূলনীতি
       </h1>
 
-      {/* উদ্দেশ্য সেকশন */}
+      {/* objectives section */}
       <section className="mb-12">
         <h2 className="text-xl font-bold text-red-700 mb-4 border-l-4 border-red-700 pl-3">
           আমাদের মূল উদ্দেশ্যসমূহ

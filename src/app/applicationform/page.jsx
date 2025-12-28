@@ -46,7 +46,7 @@ const ApplicationForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* ১. কোর্সের তথ্য */}
+      
         <section>
           <h3 className="text-lg font-bold bg-gray-100 p-2 mb-4 rounded">
             ১. কোর্সের তথ্য (Course Information)
@@ -94,7 +94,7 @@ const ApplicationForm = () => {
           </div>
         </section>
 
-        {/* ২. ব্যক্তিগত তথ্য */}
+      
         <section>
           <h3 className="text-lg font-bold bg-gray-100 p-2 mb-4 ">
             ২. ব্যক্তিগত তথ্য (Personal Information)
@@ -189,7 +189,7 @@ const ApplicationForm = () => {
           </div>
         </section>
 
-        {/* ৩. যোগাযোগের তথ্য */}
+        
         <section>
           <h3 className="text-lg font-bold bg-gray-100 p-2 mb-4 ">
             ৩. যোগাযোগের তথ্য (Contact Information)
@@ -227,7 +227,7 @@ const ApplicationForm = () => {
           </div>
         </section>
 
-        {/* ৪. পরিচয় ও শিক্ষা */}
+        
         <section>
           <h3 className="text-lg font-bold bg-gray-100 p-2 mb-4 rounded">
             ৪. পরিচয় ও শিক্ষাগত যোগ্যতা

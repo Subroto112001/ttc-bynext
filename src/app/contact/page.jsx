@@ -23,7 +23,7 @@ const ContactPage = () => {
   return (
     <div className=" min-h-screen py-10 px-4">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/* উপরের শিরোনাম */}
+     
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
             যোগাযোগ করুন
@@ -34,7 +34,7 @@ const ContactPage = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* ১. যোগাযোগের তথ্য ও ম্যাপ (বাম পাশ) */}
+         
           <div className="lg:col-span-1 space-y-6">
             <div className="bg-white p-6  shadow-md ">
               <h3 className="text-xl font-bold mb-6 text-gray-800">
@@ -121,7 +121,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* ২. কন্টাক্ট ফর্ম (ডান পাশ) */}
+         
           <div className="lg:col-span-2 bg-white p-8  shadow-md ">
             <h3 className="text-2xl font-bold mb-6 text-gray-800">
               বার্তা পাঠান
