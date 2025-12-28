@@ -16,24 +16,20 @@ body {
   background-position: center top;
   background-repeat: repeat-y;
   background-size: 1600px auto;
-
 }
 
 .container {
   max-width: 1260px;
- margin: auto;
+  margin: auto;
   background-color: white;
-
 }
-.common-container{
-   max-width: 1260px;
- margin: auto;
+.common-container {
+  max-width: 1260px;
+  margin: auto;
   background-color: white;
- 
 }
-.boxshadow{
-box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1), 10px 0 20px rgba(0, 0, 0, 0.1);
-
+.boxshadow {
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1), 10px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .simple-shadow {

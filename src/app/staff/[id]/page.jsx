@@ -8,11 +8,10 @@ const PersonDetailPage = () => {
   const { id } = useParams();
   const router = useRouter();
 
-  // ডাটা থেকে ব্যক্তিকে খুঁজে বের করা
+  // filter the person based on id
   const allMembers = [principalData, ...staffData];
   const person = allMembers.find((m) => String(m.id) === id);
 
-  // তথ্য না পাওয়া গেলে এরর হ্যান্ডলিং
   if (!person) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
@@ -30,7 +29,7 @@ const PersonDetailPage = () => {
   return (
     <div className="min-h-screen  py-10 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* নেভিগেশন */}
+      
         <button
           onClick={() => router.back()}
           className="mb-6 flex items-center text-blue-700 font-semibold hover:underline cursor-pointer"

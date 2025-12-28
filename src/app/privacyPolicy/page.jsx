@@ -3,7 +3,7 @@ import React from "react";
 const PrivacyPolicy = () => {
   return (
     <div className="bg-white min-h-screen">
-      {/* Header Space - If you have a global header, this adds padding */}
+      
       <div className="max-w-5xl mx-auto p-6 md:p-12 leading-relaxed text-gray-700">
         <h1 className="text-3xl md:text-4xl font-bold text-[#2c5f8d] mb-8 border-b-4 border-[#2c5f8d] pb-2 inline-block">
           গোপনীয়তার নীতিমালা

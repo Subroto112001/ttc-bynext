@@ -24,7 +24,7 @@ const MissionVision = () => {
           </p>
         </section>
 
-        {/* মিশন / অভিলক্ষ্য */}
+       
         <section className="bg-white border border-gray-200 p-8  shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-8 bg-green-600"></div>

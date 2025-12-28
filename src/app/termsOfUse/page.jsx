@@ -1,7 +1,7 @@
 import React from "react";
 
 const Page = () => {
-  const lastUpdated = "২০ মে ২০২৪"; // আপনার পছন্দমতো তারিখ দিন
+  const lastUpdated = "২০ মে ২০২৪"; 
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 text-gray-800 leading-relaxed">

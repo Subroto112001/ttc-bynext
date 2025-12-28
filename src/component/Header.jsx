@@ -44,7 +44,7 @@ const Header = () => {
     { name: "ছবি-গ্যালারি", link: "/gallery", color: "#1399be" },
     { name: "ভিডিও", link: "/videos", color: "#1371be" },
     { name: "যোগাযোগ", link: "/contact", color: "#8768de" },
-    { name: "নোটিশ", link: "/notices", color: "#555555" },
+    { name: "নোটিশ", link: "/notice", color: "#555555" },
   ];
 
   const [hoveredcolor, setHoveredcolor] = useState(null);
@@ -58,7 +58,7 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setMobileSubmenuOpen(null); // Reset submenus when closing
+    setMobileSubmenuOpen(null); 
   };
 
   const handleShare = async (platform) => {
@@ -96,7 +96,7 @@ const Header = () => {
     <div className="flex flex-col w-full">
       <style>{`.simple-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }`}</style>
 
-      {/* Top Header */}
+     
       <div className="bg-[#2c5f8d] p-3 md:p-4 w-full flex justify-between items-center">
         <Link href="/" className="text-white font-medium text-sm md:text-lg">
           পীরগঞ্জ কারিগরি প্রশিক্ষণ কেন্দ্র, রংপুর

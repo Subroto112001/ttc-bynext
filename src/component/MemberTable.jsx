@@ -6,12 +6,14 @@ import ContentShare from "@/component/ContentShare";
 const MemberTable = ({ members, title }) => {
   const [filter, setFilter] = useState("সব");
 
+  // ডাটাবেজ থেকে আসা ডাটা অনুযায়ী ফিল্টার লজিক আপডেট করা হয়েছে
   const filteredMembers =
     filter === "সব"
       ? members
-      : members.filter((member) => member.role.bn === filter);
+      : members.filter((member) => member.designation === filter);
 
-  const roles = ["সব", ...new Set(members.map((m) => m.role.bn))];
+  // ইউনিক পদবী বের করার লজিক (designation ফিল্ড ব্যবহার করে)
+  const roles = ["সব", ...new Set(members.map((m) => m.designation))];
 
   const translateToBn = (num) => {
     const paddedNum = String(num).padStart(2, "0");
@@ -75,7 +77,7 @@ const MemberTable = ({ members, title }) => {
                 <tbody>
                   {filteredMembers.map((member, index) => (
                     <tr
-                      key={member.id}
+                      key={member._id}
                       className="border-b hover:bg-gray-50 transition-colors"
                     >
                       <td className="p-3 border-r text-center align-middle font-medium">
@@ -84,30 +86,31 @@ const MemberTable = ({ members, title }) => {
                       <td className="p-3 border-r align-middle">
                         <div className="w-16 h-20 overflow-hidden border border-gray-300 shadow-sm">
                           <img
-                            src={member.img}
-                            alt={member.name.en}
+                            src={member.image}
+                            alt={member.name}
                             className="object-cover w-full h-full"
                           />
                         </div>
                       </td>
                       <td className="p-3 border-r align-middle">
-                        <Link href={`/staff/${member.id}`} className="group">
+                       {/*  */}
+                        <Link
+                          href={`/management/${member.slug}`}
+                          className="group"
+                        >
                           <div className="text-blue-700 font-bold group-hover:underline">
-                            {member.name.en}
-                          </div>
-                          <div className="text-sm text-gray-600 mt-1">
-                            {member.name.bn}
+                            {member.name}
                           </div>
                         </Link>
                       </td>
                       <td className="p-3 border-r text-sm align-middle">
-                        {member.role.bn}
+                        {member.designation}
                       </td>
                       <td className="p-3 border-r text-sm break-all align-middle">
                         {member.email}
                       </td>
                       <td className="p-3 border-r text-sm font-mono align-middle">
-                        {member.phone}
+                        {member.phoneNumber}
                       </td>
                     </tr>
                   ))}

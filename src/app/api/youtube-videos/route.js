@@ -1,10 +1,21 @@
-// app/api/youtube-videos/route.js
+
 import { NextResponse } from "next/server";
 
 export async function GET() {
+
+  /*
+   * Configuration: YouTube Channel ID
+   * Target: "Learning with Sumit" (or specific channel)
+   */
   const CHANNEL_ID = "UCcUMyYL7RjoOHJPs3jeZI5A";
 
   try {
+
+    /*
+     * Construct the URL and fetch the channel page
+     * We use a custom User-Agent to mimic a browser and avoid bot detection
+     */
+
     const channelUrl = `https://www.youtube.com/channel/${CHANNEL_ID}/videos`;
 
     const response = await fetch(channelUrl, {
@@ -15,7 +26,7 @@ export async function GET() {
         Accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
       },
-      cache: "no-store", // Next.js 13+ এ এভাবে লিখতে হয়
+      cache: "no-store",
     });
 
     if (!response.ok) {
@@ -24,11 +35,15 @@ export async function GET() {
 
     const html = await response.text();
 
-    // ytInitialData JSON extract করা
+    /*
+     * Extraction: Find the 'ytInitialData' JSON object within the script tags
+     * This object contains all the video metadata rendered by YouTube
+     */
+
     const ytInitialDataMatch = html.match(/var ytInitialData = ({.+?});/);
 
     if (!ytInitialDataMatch) {
-      console.error("❌ ytInitialData পাওয়া যায়নি");
+      console.error("❌ ytInitialData not found");
       return NextResponse.json(
         { error: "Unable to parse YouTube data" },
         { status: 500 }
@@ -36,15 +51,18 @@ export async function GET() {
     }
 
     const ytInitialData = JSON.parse(ytInitialDataMatch[1]);
-
-    // Video data extract করা
     const videos = [];
 
     try {
+
+      /*
+       * Navigation: Drill down through the YouTube internal JSON structure
+       * We target the 'Videos' tab and the rich grid renderer
+       */
+
       const tabs =
         ytInitialData?.contents?.twoColumnBrowseResultsRenderer?.tabs || [];
 
-      // Videos tab খুঁজে বের করা
       let videosTab = null;
       for (const tab of tabs) {
         if (
@@ -58,15 +76,19 @@ export async function GET() {
       }
 
       if (!videosTab) {
-        console.error("❌ Videos tab পাওয়া যায়নি");
+        console.error("❌ Videos tab not found");
       }
 
-      // Video items খুঁজে বের করা
       const contents =
         videosTab?.tabRenderer?.content?.richGridRenderer?.contents ||
         videosTab?.tabRenderer?.content?.sectionListRenderer?.contents?.[0]
           ?.itemSectionRenderer?.contents ||
         [];
+
+      /*
+       * Loop: Iterate through each video item and extract relevant fields
+       * ID, Title, Thumbnail, Views, and Duration
+       */
 
       for (const item of contents) {
         const videoRenderer =
@@ -100,6 +122,9 @@ export async function GET() {
             )?.thumbnailOverlayTimeStatusRenderer?.text?.simpleText ||
             "";
 
+          /*
+           * Push data: Ensure no duplicate video IDs are added
+           */
           if (videoId && !videos.find((v) => v.id === videoId)) {
             videos.push({
               id: videoId,
@@ -116,14 +141,18 @@ export async function GET() {
         }
       }
 
-      console.log(`✅ ${videos.length}টি ভিডিও পাওয়া গেছে`);
+      console.log(`✅ ${videos.length} videos found via primary method`);
     } catch (parseError) {
       console.error("❌ Data parsing error:", parseError);
     }
 
-    // যদি কোনো video না পায়, fallback regex method
+    /*
+     * Fallback: If primary JSON parsing fails, use Regex to find video IDs and titles
+     * This ensures data is returned even if YouTube changes its JSON structure slightly
+     */
+
     if (videos.length === 0) {
-      console.log("🔄 Fallback method চেষ্টা করা হচ্ছে...");
+      console.log("🔄 Attempting fallback method...");
 
       const videoRegex =
         /"videoId":"([\w-]{11})".*?"title":\{"runs":\[\{"text":"([^"]+)"/g;
@@ -159,8 +188,12 @@ export async function GET() {
         }
       }
 
-      console.log(`✅ Fallback: ${videos.length}টি ভিডিও পাওয়া গেছে`);
+      console.log(`✅ Fallback: ${videos.length} videos found`);
     }
+
+    /*
+     * Response: Return the final list of videos as JSON
+     */
 
     return NextResponse.json({
       channelId: CHANNEL_ID,
@@ -168,6 +201,9 @@ export async function GET() {
       videos: videos,
     });
   } catch (error) {
+    /*
+     * Error Handling: Catch network or unexpected runtime errors
+     */
     console.error("❌ Fetch Error:", error.message);
     return NextResponse.json(
       { error: "Failed to fetch videos", details: error.message },

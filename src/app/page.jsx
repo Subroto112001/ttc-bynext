@@ -6,9 +6,16 @@ import { HomepageOtherImage, HompageBoxImage } from "@/helper/ImgaeProvide";
 import "../Style/Pages/Home.css";
 import Gallery from "@/component/HomepageComponent/Gallery";
 import { iconprovider } from "@/helper/IconProvider";
-import { notices } from "@/helper/Information";
+import { getAllmanagement, getAllnotice } from "@/helper/dataProvider";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [allnotices, setAllNotices] = useState([]);
+  const [managements, setAllManagements] = useState([]);
+  const [principal, setPrincipal] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   const allData = [
     {
       title: "আমাদের বিষয়",
@@ -122,52 +129,65 @@ export default function Home() {
     },
   ];
 
-  const noticeList = [
-    {
-      id: 1,
-      title: "নতুন কোর্স শুরু সম্পর্কে বিজ্ঞপ্তি",
-      date: "2024-09-01",
-    },
-    {
-      id: 2,
-      title: "ছুটির দিন ঘোষণা",
-      date: "2024-08-25",
-    },
-    {
-      id: 3,
-      title: "নিবন্ধনের শেষ তারিখ প্রসারিত",
-      date: "2024-08-20",
-    },
-    {
-      id: 4,
-      title: "কারিগরি প্রশিক্ষণ কেন্দ্রের কার্যক্রম শুরু",
-      date: "2024-08-15",
-    },
-    {
-      id: 5,
-      title: "নতুন প্রশিক্ষক নিয়োগ বিজ্ঞপ্তি",
-      date: "2024-08-10",
-    },
-    {
-      id: 6,
-      title: "প্রশিক্ষণার্থীদের জন্য নির্দেশিকা প্রকাশ",
-      date: "2024-08-05",
-    },
-    {
-      id: 7,
-      title: "প্রশিক্ষণার্থীদের জন্য নির্দেশিকা প্রকাশ",
-      date: "2024-08-05",
-    },
-    {
-      id: 8,
-      title: "প্রশিক্ষণার্থীদের জন্য নির্দেশিকা প্রকাশ",
-      date: "2024-08-05",
-    },
-  ];
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const getPdfUrl = (file) => {
-    return file.startsWith("http") ? file : `/notices/${file}`;
+  const fetchData = async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const [noticeRes, managementRes] = await Promise.all([
+        getAllnotice(),
+        getAllmanagement(),
+      ]);
+
+      const noticeData = noticeRes?.data || noticeRes || [];
+      const managementData = managementRes?.data || managementRes || [];
+
+      setAllNotices(noticeData);
+      setAllManagements(managementData);
+
+      // Principal search
+      const foundPrincipal = managementData.find(
+        (p) => p.designation === "Principal" || p.designation === "অধ্যক্ষ"
+      );
+      if (foundPrincipal) setPrincipal(foundPrincipal);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const recentNotices = allnotices.slice(-5).reverse();
+
+  // Loading UI
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-white text-2xl font-semibold">
+        লোড হচ্ছে...
+      </div>
+    );
+  }
+
+  // Error UI
+  if (error) {
+    return (
+      <div className="h-screen flex flex-col items-center justify-center bg-white gap-4">
+        <p className="text-xl font-medium text-red-600">
+          ডাটা লোড করতে সমস্যা হয়েছে।
+        </p>
+        <button
+          onClick={fetchData}
+          className="px-4 py-2 bg-[#72AB20] text-white rounded"
+        >
+          আবার চেষ্টা করুন
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white">
@@ -188,17 +208,16 @@ export default function Home() {
                 নোটিশ বোর্ড
               </h3>
               <ul className="flex flex-col gap-2 py-[20px] pb-10 md:pb-0">
-                {notices.slice(0, 5).map((notice, index) => (
+                {/* all notice will be here */}
+                {recentNotices.map((notice, index) => (
                   <li
-                    key={notice.id}
+                    key={notice.id || index}
                     className="flex items-center gap-2 animate-fade-in-up"
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <Link
-                      href={getPdfUrl(notice.file)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 group transition-all duration-300"
+                      href={`/notice-details?id=${notice._id || notice.id}`}
+                      className="flex items-center gap-2 group transition-all duration-300 w-full"
                     >
                       <span className="text-xl text-[#72AB20] notice-icon">
                         {iconprovider.notification}
@@ -212,7 +231,7 @@ export default function Home() {
               </ul>
             </div>
             <span className="absolute right-2.5 bottom-2.5">
-              <Link href="./notices" className="text-black view-all-link ">
+              <Link href="./notice" className="text-black view-all-link ">
                 সকল নোটিশ দেখুন
               </Link>
             </span>
@@ -221,7 +240,7 @@ export default function Home() {
           <div className="px-2 py-3 w-full bg-gray-200 border border-gray-400">
             <p className="text-xl font-medium ">সকল খবর</p>
           </div>
-
+          {/* static data and govt website links */}
           <div className="flex flex-wrap justify-between gap-y-10">
             {allData.map((section, index) => (
               <div
@@ -257,6 +276,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {/* image and video gallery */}
           <Gallery />
         </div>
 
@@ -292,29 +312,29 @@ export default function Home() {
             </span>
             <div className="flex flex-col gap-3 w-full justify-center items-center">
               <div>
-                <Image
-                  src={HompageBoxImage.Principal}
+                <img
+                  src={principal?.image}
                   alt="অধ্যক্ষের প্রোফাইল"
                   className="w-[200px] h-[250px] object-cover rounded-md"
                 />
               </div>
               <div className="flex gap-2 flex-col justify-center items-center">
                 <p className="text-md font-semibold transition-colors duration-300">
-                  মুহাম্মদ জিয়া উদ্দিন
+                  {principal?.name || "অধ্যক্ষের নাম"}
                 </p>
                 <p className="text-md font-medium transition-colors duration-300">
-                  অধ্যক্ষ
+                  {principal?.designation || "অধ্যক্ষ"}
                 </p>
                 <Link
-                  href={"#"}
-                  className="text-md font-medium bg-[#72AB20] text-white details-button"
+                  href={principal?._id ? `/management/${principal._id}` : "#"}
+                  className="text-md font-medium bg-[#72AB20] text-white details-button px-4 py-1"
                 >
                   বিস্তারিত জানুন
                 </Link>
               </div>
             </div>
           </div>
-
+          {/* job corner */}
           <div className="flex w-full justify-center md:justify-start items-center">
             <Link
               href={"/"}

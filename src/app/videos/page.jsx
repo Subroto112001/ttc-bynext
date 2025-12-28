@@ -1,4 +1,4 @@
-// app/videos/page.jsx
+
 "use client";
 import React, { useState, useEffect } from "react";
 
@@ -74,7 +74,6 @@ export default function YouTubeVideosPage() {
   return (
     <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header & Search */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">ভিডিও</h1>
           <p className="text-gray-600 mb-6">মোট {videos.length}টি ভিডিও</p>
@@ -99,9 +98,10 @@ export default function YouTubeVideosPage() {
             {filteredVideos.map((video) => (
               <div
                 key={video.id}
-                onClick={() => setSelectedVideo(video)} // ক্লিক করলে ভিডিও সিলেক্ট হবে
+                onClick={() => setSelectedVideo(video)} 
                 className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               >
+                {/* video thumbnail and video show */}
                 <div className="relative aspect-video bg-gray-200">
                   <img
                     src={video.thumbnail}
